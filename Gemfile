@@ -54,3 +54,9 @@ end
 # gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "haml-rails", "~> 2.0", :group => :development
+
+gem "devise", "~> 4.7"
+
+gem "actionmailer", "~> 6.0"
+
+gem "cancancan", "~> 3.0"
