@@ -31,3 +31,7 @@
 
 en:
   hello: "Hello world"
+  time:
+    formats:
+      record: '%-d/%-m/%Y %H:%M:%S'
+      publishing: '%-d/%-m/%Y'
