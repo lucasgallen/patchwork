@@ -3,8 +3,8 @@ class ApplicationController < ActionController::Base
   protected
 
   def after_sign_in_path_for(user)
-    return admin_dashboard_path if user.role === 'admin'
+    default_path = user.role == 'admin' ? admin_root_path : root_path
 
-    stored_location_for(user) || root_path
+    return stored_location_for(user) || default_path
   end
 end
