@@ -1,0 +1,8 @@
+%h1= @article.title
+%p= "Author: #{@article.author}"
+%p= "Published: #{l(@article.created_at, format: :publishing)}"
+
+%div.trix-content
+  = @article.content.html_safe
+- if user_signed_in? && current_user.role == 'admin'
+  = link_to "Edit", edit_admin_article_path(@article)

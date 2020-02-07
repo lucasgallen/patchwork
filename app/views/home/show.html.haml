@@ -1,4 +1,23 @@
 %h1 Home
 %p Patchwork landing page
 
-%trix-editor
+%h2 The Latest
+
+%section
+  %h3 Articles
+  - if @latest[:articles].present?
+    - @latest[:articles].each do |article|
+      %h4= article.title
+      %p= "Created: #{article.created_at}"
+      = link_to "View", article_path(article)
+    = link_to "View All", articles_path
+  - else
+    %p No articles
+
+%section
+  %h3 Products
+  - if @latest[:products].present?
+    - @latest[:products].each do |product|
+      %h4= product.title
+  - else
+    %p No products

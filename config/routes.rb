@@ -10,6 +10,11 @@ Rails.application.routes.draw do
 
   root 'home#show'
 
+  resources :articles, only: [:show, :index]
+  scope '/admin' do
+    resources :articles, as: 'admin_articles'
+  end
+
   namespace :admin do
     get 'dashboard', to: 'dashboard#show'
 

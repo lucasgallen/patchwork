@@ -1,0 +1,15 @@
+= form.hidden_field :content, id: 'trix-content'
+
+%div
+  = form.label :title
+  = form.text_field :title
+
+%div
+  = form.label :content
+  %trix-editor{ input: 'trix-content' }
+
+= link_to "Cancel", :back
+- if @article.new_record?
+  = form.submit "Create"
+- else
+  = form.submit "Save"

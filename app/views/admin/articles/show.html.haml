@@ -1,0 +1,5 @@
+%h1= @article.title
+%p= @article.author
+%div.trix-content
+  = @article.content.html_safe
+= link_to "Edit", edit_admin_article_path(@article)

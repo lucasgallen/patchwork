@@ -1,0 +1,10 @@
+%h2 Articles
+= link_to "New Article", new_admin_article_path
+%ul
+  - @articles.each do |article|
+    %li
+      = succeed ", " do
+        = link_to article.title, admin_article_path(article)
+      = succeed ", " do
+        = "Created: #{l(article.created_at, format: :record)}"
+      = "Edited: #{l(article.updated_at, format: :record)}"
