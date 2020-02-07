@@ -1,0 +1,17 @@
+tr:
+  home: "Ev"
+  about: "Hakkında"
+  dashboard: "Gösterge Paneli"
+  sign_out: "Oturumu Kapat"
+  latest: "En Son"
+  articles: "Makaleler"
+  no_articles: "Makale yok"
+  created: "Yaratılmış"
+  view: "Görünüm"
+  view_all: "Hepsini Gör"
+  products: "Ürünler"
+  no_products: "Ürün yok"
+  time:
+    formats:
+      record: '%-d/%-m/%Y %H:%M:%S'
+      publishing: '%-d/%-m/%Y'

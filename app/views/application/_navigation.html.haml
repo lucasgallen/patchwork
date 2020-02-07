@@ -1,5 +1,5 @@
 = link_to "Patchwork", root_path
 - if user_signed_in?
   - if current_user.role == 'admin'
-    = link_to "Dashboard", admin_root_path
-  = link_to "Sign Out", destroy_session_path(current_user), method: :delete
+    = link_to t('dashboard'), admin_root_path
+  = link_to t('sign_out'), destroy_session_path(current_user), method: :delete

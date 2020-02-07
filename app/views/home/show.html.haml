@@ -1,23 +1,22 @@
-%h1 Home
-%p Patchwork landing page
+%h1= t('home')
 
-%h2 The Latest
+%h2= t('latest')
 
 %section
-  %h3 Articles
+  %h3= t('articles')
   - if @latest[:articles].present?
     - @latest[:articles].each do |article|
       %h4= article.title
-      %p= "Created: #{article.created_at}"
-      = link_to "View", article_path(article)
-    = link_to "View All", articles_path
+      %p= "#{t('created')}: #{article.created_at}"
+      = link_to t('view'), article_path(article)
+    = link_to t('view_all'), articles_path
   - else
-    %p No articles
+    %p= t('no_articles')
 
 %section
-  %h3 Products
+  %h3= t('products')
   - if @latest[:products].present?
     - @latest[:products].each do |product|
       %h4= product.title
   - else
-    %p No products
+    %p= t('no_products')

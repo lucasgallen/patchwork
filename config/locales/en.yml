@@ -30,7 +30,18 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  home: "Home"
+  about: "About"
+  dashboard: "Dashboard"
+  sign_out: "Sign Out"
+  latest: "The Latest"
+  articles: "Articles"
+  created: "Created"
+  view: "View"
+  view_all: "View All"
+  no_articles: "No articles"
+  products: "Products"
+  no_products: "No products"
   time:
     formats:
       record: '%-d/%-m/%Y %H:%M:%S'
