@@ -17,6 +17,9 @@
   %h3= t('products')
   - if @latest[:products].present?
     - @latest[:products].each do |product|
-      %h4= product.title
+      %h4= product.name
+      %p= "#{t('created')}: #{l(product.created_at, format: :publishing)}"
+      = link_to t('view'), product_path(product)
+    = link_to t('view_all'), products_path
   - else
     %p= t('no_products')

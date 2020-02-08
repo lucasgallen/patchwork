@@ -11,6 +11,11 @@ Rails.application.routes.draw do
 
     root 'home#show'
 
+    resources :products, only: [:show, :index]
+    scope '/admin' do
+      resources :products, as: 'admin_products'
+    end
+
     resources :articles, only: [:show, :index]
     scope '/admin' do
       resources :articles, as: 'admin_articles'

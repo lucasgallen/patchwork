@@ -1,0 +1,23 @@
+= form.hidden_field :description, id: 'trix-content'
+
+%div
+  = form.label :name
+  = form.text_field :name
+
+%div
+  = form.label :price
+  = form.number_field :price, { step: 1, min: 0 }
+
+/ %div
+/   = form.label :currency
+/   = form.select :currency
+
+%div
+  = form.label :description
+  %trix-editor{ input: 'trix-content' }
+
+= link_to "Cancel", :back
+- if @product.new_record?
+  = form.submit "Create"
+- else
+  = form.submit "Save"

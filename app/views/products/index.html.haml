@@ -1,0 +1,11 @@
+%ul
+- @products.each do |product|
+  %li
+    %strong= product.name
+    = succeed " " do
+      %span= "Price: #{product.price} #{product.currency.upcase}"
+    %span= "#{t('created')}: #{l(product.created_at, format: :publishing)}"
+    = link_to "View", product_path(product)
+    - if user_signed_in? && current_user.role == 'admin'
+      = link_to "Edit", edit_admin_product_path(product)
+

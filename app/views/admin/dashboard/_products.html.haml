@@ -1,0 +1,10 @@
+%h2 Products
+= link_to "New Product", new_admin_product_path
+%ul
+  - @products.each do |product|
+    %li
+      = succeed " " do
+        = link_to product.name, admin_product_path(product)
+      = succeed ", " do
+        = "#{product.price} #{product.currency.upcase}"
+      = "Created: #{l(product.created_at, format: :record)}"

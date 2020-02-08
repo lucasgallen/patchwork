@@ -1,0 +1,3 @@
+%h1 Edit Product
+= form_with model: @product, url: admin_product_path do |form|
+  = render partial: 'form', locals: { form: form }
