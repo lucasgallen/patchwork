@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
     get 'home', to: 'home#show'
     get 'about', to: 'about#show'
+    get 'contact', to: 'contact#show'
 
     root 'home#show'
 
