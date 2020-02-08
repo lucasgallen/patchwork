@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       get '/sign_out' => 'devise/session#destroy'
     end
 
-    get 'home/show'
+    get 'home', to: 'home#show'
     get 'about', to: 'about#show'
 
     root 'home#show'

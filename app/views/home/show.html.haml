@@ -7,7 +7,7 @@
   - if @latest[:articles].present?
     - @latest[:articles].each do |article|
       %h4= article.title
-      %p= "#{t('created')}: #{article.created_at}"
+      %p= "#{t('created')}: #{l(article.created_at, format: :publishing)}"
       = link_to t('view'), article_path(article)
     = link_to t('view_all'), articles_path
   - else

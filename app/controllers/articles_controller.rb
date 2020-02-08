@@ -61,7 +61,7 @@ class ArticlesController < ApplicationController
   end
 
   def admin_path?
-    request.path.match?(/^\/admin\//)
+    request.path.match?(/\/admin\//)
   end
 
   def article
