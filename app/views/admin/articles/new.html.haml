@@ -1,3 +1,5 @@
 %h1 Create Article
-= form_with model: @article, url: admin_articles_path do |form|
-  = render partial: 'form', locals: { form: form }
+
+%div.container-fluid
+  = form_with model: @article, url: admin_articles_path do |form|
+    = render partial: 'form', locals: { form: form }

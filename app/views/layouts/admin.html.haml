@@ -10,9 +10,14 @@
   %body
     = render :partial => 'navigation'
 
-    %p.notice= notice
-    %p.alert= alert
+    - if notice.present?
+      %div.alert.alert-success{ role: 'alert' }
+        = notice
+    - if alert.present?
+      %div.alert.alert-danger{ role: 'alert' }
+        = alert
 
-    = yield
+    %div.container-lg
+      = yield
 
     = render :partial => 'footer'
