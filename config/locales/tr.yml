@@ -1,5 +1,6 @@
 tr:
   locale_name: "Türkçe"
+  language: "Dil"
   home: "Ev"
   about: "Hakkında"
   dashboard: "Gösterge Paneli"
