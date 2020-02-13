@@ -1,0 +1,32 @@
+tr:
+  locale_name: "Türkçe"
+  language: "Dil"
+  _about: "Hakkında"
+  _contact: "İletişim"
+  dashboard: "Gösterge Paneli"
+  sign_out: "Oturumu Kapat"
+  latest: "En Son"
+  articles: "Makaleler"
+  no_articles: "Makale yok"
+  created: "Yaratılmış"
+  edit: "Düzenle"
+  view: "Görünüm"
+  view_all: "Hepsini Gör"
+  products: "Ürünler"
+  no_products: "Ürün yok"
+  time:
+    days_ago: "%{days} gün önce"
+    formats:
+      record: '%-d/%-m/%Y %H:%M:%S'
+      publishing: '%-d/%-m/%Y'
+  home:
+    title: "Hoşgeldiniz"
+    lead: "Patchwork Sivumbike sizi renkli bir kumaş dünyasına tanıtsın"
+  about:
+    title: "Patchwork & İçgörü"
+    lead: "Sivumbike Patchworks'te sadece patchwork satmakla kalmıyor, aynı zamanda patchwork\
+           tekniğinde keskin bilgiler sunuyoruz"
+  contact:
+    title: "Bize Ulaşın"
+    lead: "Herhangi bir sorunuz veya özel isteğiniz var mı? Lütfen aşağıdaki formu kullanarak\
+           bize ulaşın."

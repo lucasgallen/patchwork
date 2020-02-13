@@ -1,0 +1,31 @@
+en:
+  locale_name: "English"
+  language: 'Language'
+  _about: "About"
+  _contact: "Contact"
+  dashboard: "Dashboard"
+  sign_out: "Sign Out"
+  latest: "The Latest"
+  articles: "Articles"
+  created: "Created"
+  edit: "Edit"
+  view: "View"
+  view_all: "View All"
+  no_articles: "No articles"
+  products: "Products"
+  no_products: "No products"
+  time:
+    days_ago: "%{days} days ago"
+    formats:
+      record: '%-d/%-m/%Y %H:%M:%S'
+      publishing: '%-d/%-m/%Y'
+  home:
+    title: "Welcome"
+    lead: "Let the Queens of Patchwork introduce you to a colorful world of fabric"
+  about:
+    title: "Patchwork & Insight"
+    lead: "At Sivumbike Patchworks we not only sell patchwork, but we offer keen insights in the\
+           patchwork technique"
+  contact:
+    title: "Contact Us"
+    lead: "Have any questions or special requests? Please contact us using the form below."
