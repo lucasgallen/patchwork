@@ -1,0 +1,30 @@
+version: '3'
+services:
+  app:
+    image: lucasgallen/patchwork_rails_app:latest
+    depends_on:
+      - db
+    environment:
+      BUNDLE_PATH: /usr/local/bundle
+      NODE_PATH: node_modules
+      RUBYOPT: -W:no-deprecated -W:no-experimental
+      DATABASE_NAME: patchwork_development
+      DATABASE_HOST: db
+    ports:
+      - "80:3002"
+    volumes:
+      - .:/app
+      - gems:/usr/local/bundle
+      - node_modules:/usr/src/app/node_modules
+  db:
+    image: postgres:11
+    container_name: patchwork_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+
+volumes:
+  gems:
+  node_modules:
+  dbdata:
