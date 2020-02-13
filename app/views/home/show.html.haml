@@ -1,25 +1,46 @@
-%h1= t('home')
+%div.jumbotron.jumbotron-fluid
+  %div.container
+    %h1.display-4= t('home.title')
+    %p.lead= t('home.lead')
 
-%h2= t('latest')
+%div.container.mx-sm-3
+  %h2.h1.mb-4= t('latest')
 
-%section
-  %h3= t('articles')
-  - if @latest[:articles].present?
-    - @latest[:articles].each do |article|
-      %h4= article.title
-      %p= "#{t('created')}: #{l(article.created_at, format: :publishing)}"
-      = link_to t('view'), article_path(article)
-    = link_to t('view_all'), articles_path
-  - else
-    %p= t('no_articles')
+  %section.mb-3.mx-5.mx-sm-0.clearfix
+    %div.container-fluid.clear-both
+      %h3.d-inline-block= t('articles')
+      - if @latest[:articles].present?
+        = link_to t('view_all'), articles_path, class: 'd-inline-block ml-3'
+    - if @latest[:articles].present?
+      %div.row.row-cols-1.row-cols-sm-2.row-cols-lg-3
+        - @latest[:articles].each do |article|
+          %div.col
+            %div.card.mb-2
+              %img.card-img-top{ src: '', alt: '' }
+              %div.card-body
+                %h4= article.title
+                %p.card-text= "Lorem ipsum article preview text..."
+                = link_to t('view'), article_path(article)
+              %div.card-footer
+                %p.card-text= "#{t('created')}: #{l(article.created_at, format: :publishing)}"
+    - else
+      %p= t('no_articles')
 
-%section
-  %h3= t('products')
-  - if @latest[:products].present?
-    - @latest[:products].each do |product|
-      %h4= product.name
-      %p= "#{t('created')}: #{l(product.created_at, format: :publishing)}"
-      = link_to t('view'), product_path(product)
-    = link_to t('view_all'), products_path
-  - else
-    %p= t('no_products')
+  %section.mb-3.mx-5.mx-sm-0.clearfix
+    %div.container-fluid.clear-both
+      %h3.d-inline-block= t('products')
+      - if @latest[:products].present?
+        = link_to t('view_all'), products_path, class: 'd-inline-block ml-3'
+    - if @latest[:products].present?
+      %div.row.row-cols-1.row-cols-sm-2.row-cols-lg-4
+        - @latest[:products].each do |product|
+          %div.col
+            %div.card.mb-2
+              %img.card-img-top{ src: '', alt: '' }
+              %div.card-body
+                %h4= product.name
+                = link_to t('view'), product_path(product)
+              %div.card-footer
+                %p.card-text= "#{t('created')}: #{l(product.created_at, format: :publishing)}"
+    - else
+      %p= t('no_products')

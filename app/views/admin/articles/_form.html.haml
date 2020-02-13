@@ -1,15 +1,16 @@
 = form.hidden_field :content, id: 'trix-content'
 
 %div.form-group
-  = form.label :title
+  = form.label :title, class: 'form-label'
   = form.text_field :title, class: 'form-control'
 
 %div.form-group
   = form.label :content, class: 'form-label'
   %trix-editor{ input: 'trix-content' }
 
-= link_to "Cancel", :back
-- if @article.new_record?
-  = form.submit "Create", class: 'btn btn-sm btn-success float-right'
-- else
-  = form.submit "Save"
+%div.form-group.clearfix
+  = link_to "Cancel", :back, class: 'btn btn-danger'
+  - if @article.new_record?
+    = form.submit "Create", class: 'btn btn-success float-right'
+  - else
+    = form.submit "Save", class: 'btn btn-success float-right'

@@ -1,23 +1,24 @@
 = form.hidden_field :description, id: 'trix-content'
 
-%div
-  = form.label :name
-  = form.text_field :name
+%div.form-group
+  = form.label :name, class: 'form-label'
+  = form.text_field :name, class: 'form-control'
 
-%div
-  = form.label :price
-  = form.number_field :price, { step: 1, min: 0 }
+%div.form-group
+  = form.label :price, class: 'form-label'
+  = form.number_field :price, { step: 1, min: 0, class: 'form-control' }
 
 / %div
 /   = form.label :currency
 /   = form.select :currency
 
-%div
-  = form.label :description
+%div.form-group
+  = form.label :description, class: 'form-label'
   %trix-editor{ input: 'trix-content' }
 
-= link_to "Cancel", :back
-- if @product.new_record?
-  = form.submit "Create"
-- else
-  = form.submit "Save"
+%div.form-group.clearfix
+  = link_to "Cancel", :back, class: 'btn btn-danger'
+  - if @product.new_record?
+    = form.submit "Create", class: 'btn btn-success float-right'
+  - else
+    = form.submit "Save", class: 'btn btn-success float-right'

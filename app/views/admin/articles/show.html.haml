@@ -1,5 +1,6 @@
-%h1= @article.title
+%h1.mt-5
+  = @article.title
+  = link_to "Edit", edit_admin_article_path(@article), class: 'btn btn-sm btn-warning ml-5'
 %p= @article.author
-%div.trix-content
+%div.trix-content.mb-5.ml-5
   = @article.content.html_safe
-= link_to "Edit", edit_admin_article_path(@article)

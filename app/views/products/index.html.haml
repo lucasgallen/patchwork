@@ -1,11 +1,15 @@
-%ul
-- @products.each do |product|
-  %li
-    %strong= product.name
-    = succeed " " do
-      %span= "Price: #{product.price} #{product.currency.upcase}"
-    %span= "#{t('created')}: #{l(product.created_at, format: :publishing)}"
-    = link_to "View", product_path(product)
-    - if user_signed_in? && current_user.role == 'admin'
-      = link_to "Edit", edit_admin_product_path(product)
-
+%div.container-fluid.my-5.p-0
+  %h1.h1.mb-3.text-center= t('products')
+  %div.row.justify-content-center.p-0
+    - @products.each do |product|
+      %div.card.ml-2.mb-2.col-8.col-sm-5.col-md-3.p-0
+        %img.card-img-top{ src: 'https://placekitten.com/300/200', alt: '...' }
+        %div.card-body
+          %h5.card-title
+            = product.name
+            %small.card-text.text-success.ml-2= "#{product.price} #{product.currency.upcase}"
+          %div.trix-content.card-text= product.description.html_safe
+        %div.card-body
+          = link_to t('view'), product_path(product), class: 'card-link'
+          - if user_signed_in? && current_user.role == 'admin'
+            = link_to t('edit'), edit_admin_product_path(product), class: 'card-link'

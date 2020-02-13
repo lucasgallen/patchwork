@@ -1,9 +1,14 @@
-%h1= @product.name
-%p= "Published: #{l(@product.created_at, format: :publishing)}"
-
-%div.trix-content
-  = @product.description.html_safe
-- if user_signed_in? && current_user.role == 'admin'
-  = link_to "Edit", edit_admin_product_path(@product)
-
-%p= "Price: #{@product.price} #{@product.currency.upcase}"
+%div.container-fluid.my-5
+  %div.row.mx-auto.mb-4.clearfix.justify-content-center{ style: 'max-width: 60rem' }
+    %div.col-10.col-sm-8.col-md-6.mb-3.mb-sm-0
+      %img.w-100{ src: 'https://placekitten.com/200/200' }
+    %div.col-12.col-md-6
+      %h1.d-inline-block= @product.name
+      %div.mt-n2.mb-2
+        %span.text-success= "#{@product.price} #{@product.currency.upcase}"
+        %small.ml-2= l(@product.created_at, format: :publishing)
+      %div.trix-content
+        = @product.description.html_safe
+    %div.col-12.pt-2
+      - if user_signed_in? && current_user.role == 'admin'
+        = link_to t('edit'), edit_admin_product_path(@product), class: 'btn btn-sm btn-warning mb-5'

@@ -1,8 +1,11 @@
-%h1= @article.title
-%p= "Author: #{@article.author}"
-%p= "Published: #{l(@article.created_at, format: :publishing)}"
+%div.container.my-5
+  %div.ml-sm-n3.mb-4.clearfix
+    %h1.h1
+      = @article.title
+      - if user_signed_in? && current_user.role == 'admin'
+        = link_to "Edit", edit_admin_article_path(@article), class: 'btn btn-sm btn-warning ml-5'
+    %small= @article.author
+    %small.pl-5= l(@article.created_at, format: :publishing)
 
-%div.trix-content
-  = @article.content.html_safe
-- if user_signed_in? && current_user.role == 'admin'
-  = link_to "Edit", edit_admin_article_path(@article)
+  %div.trix-content
+    = @article.content.html_safe

@@ -1,6 +1,7 @@
-%footer.container-fluid
-  = link_to t('about'), about_path
-  = link_to t('contact'), contact_path
+%footer.container.p-2.clearfix
+  = succeed ' | ' do
+    = link_to t('_about'), about_path
+  = link_to t('_contact'), contact_path
 
   %div.btn-group.dropup.float-right
     %button.btn.btn-sm.btn-secondary.dropdown-toggle{ |

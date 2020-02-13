@@ -1,8 +1,10 @@
-%ul
-- @articles.each do |article|
-  %li
-    %strong= article.title
-    = link_to "View", article_path(article)
-    - if user_signed_in? && current_user.role == 'admin'
-      = link_to "Edit", edit_admin_article_path(article)
-
+%div.container.my-5
+  %h1.h2.mt-3= t('articles')
+  %div.list-group-flush
+    - @articles.each do |article|
+      %a.list-group-item.list-group-item-action{ href: article_path(article) }
+        %div.d-flex.w-100.justify-content-between
+          %h5.mb-1= article.title
+          %small= t('time.days_ago', days: (Date.today - article.created_at.to_date).to_i)
+        %div.mb-1.trix-content.clear-right
+          = 'Lorem ipsum do rek matek preview...'
