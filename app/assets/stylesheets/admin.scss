@@ -1,0 +1,5 @@
+@import "trix/dist/trix";
+
+/* Custom bootstrap variables must be set or imported *before* bootstrap. */
+@import "admin/bootstrap_variables";
+@import "bootstrap/scss/bootstrap";
