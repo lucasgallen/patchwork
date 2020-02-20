@@ -20,3 +20,62 @@
 /* Custom bootstrap variables must be set or imported *before* bootstrap. */
 @import "bootstrap_variables";
 @import "bootstrap/scss/bootstrap";
+
+html, body {
+  font-family: 'Crimson';
+}
+
+.h1, .h2 {
+  border-bottom: 1px dashed $pink;
+}
+
+.list-group-item-action:hover {
+  color: $white;
+  background-color: $pink;
+  font-weight: bold;
+}
+
+.navbar {
+  background: $purple;
+  border-bottom: 1px dashed $white;
+}
+
+.jumbotron {
+  background: $pink;
+  border-bottom: 1px dashed $white;
+  color: $white;
+}
+
+.footer {
+  background: $blue;
+  border-top: 1px dashed $purple;
+
+  &-separator {
+    border-left: 2px dashed $pink;
+    height: 2rem;
+    margin: 0 calc(1rem - 1px) 0 1rem;
+    width: 0;
+  }
+
+  &-link {
+    color: $white;
+    font: {
+      size: 1.5rem;
+      weight: bold;
+    }
+
+    &:hover {
+      color: $white;
+    }
+  }
+
+  &-link-container {
+    display: inline-block;
+    height: 2rem;
+  }
+
+  .dropdown-toggle {
+    background: $yellow;
+    color: $dark;
+  }
+}

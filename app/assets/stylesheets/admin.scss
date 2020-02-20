@@ -3,3 +3,35 @@
 /* Custom bootstrap variables must be set or imported *before* bootstrap. */
 @import "admin/bootstrap_variables";
 @import "bootstrap/scss/bootstrap";
+
+.navbar {
+  background: $purple;
+}
+
+.footer {
+  background: $purple;
+
+  &-separator {
+    border-left: 2px solid $white;
+    height: 2rem;
+    margin: 0 calc(1rem - 1px) 0 1rem;
+    width: 0;
+  }
+
+  &-link {
+    color: $white;
+
+    &:hover {
+      color: $white;
+    }
+  }
+
+  &-link-container {
+    display: inline-block;
+    height: 2rem;
+  }
+
+  .dropdown-toggle {
+    background: $white;
+  }
+}

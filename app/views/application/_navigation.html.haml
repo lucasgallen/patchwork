@@ -1,4 +1,4 @@
-%nav.navbar.navbar-expand-md.navbar-light.bg-light
+%nav.navbar.navbar-expand-md.navbar-dark
   = link_to "Sivumbike Patchworks", root_path, class: 'navbar-brand'
   %button.navbar-toggler{ |
     type: 'button', |
@@ -20,4 +20,4 @@
 
     - if user_signed_in?
       = link_to t('sign_out'), destroy_session_path(current_user),
-        method: :delete, class: 'btn btn-outline-danger'
+        method: :delete, class: 'btn btn-warning'
