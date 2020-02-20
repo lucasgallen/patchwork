@@ -31,5 +31,8 @@ module Patchwork
 
     config.i18n.load_path += Dir[Rails.root.join('config/locales/**/*.yml').to_s]
     config.i18n.default_locale = :tr
+
+    # Load font asset path
+    config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
   end
 end
