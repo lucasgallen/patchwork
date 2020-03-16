@@ -5,6 +5,12 @@
   = form.text_field :name, class: 'form-control'
 
 %div.form-group
+  = form.label :primary_image, t('admin.product.display_image'), class: 'form-label'
+  = form.file_field :primary_image, class: 'd-block'
+  - if @product.primary_image.attached?
+    = image_tag @product.primary_image, class: 'w-25'
+
+%div.form-group
   = form.label :price, class: 'form-label'
   = form.number_field :price, { step: 1, min: 0, class: 'form-control' }
 

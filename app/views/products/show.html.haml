@@ -1,7 +1,8 @@
 %div.container-fluid.my-5
   %div.row.mx-auto.mb-4.clearfix.justify-content-center{ style: 'max-width: 60rem' }
     %div.col-10.col-sm-8.col-md-6.mb-3.mb-sm-0
-      %img.w-100{ src: 'https://placekitten.com/200/200' }
+      - if @product.primary_image.attached?
+        = image_tag @product.primary_image, class: 'w-100'
     %div.col-12.col-md-6
       %h1.d-inline-block= @product.name
       %div.mt-n2.mb-2
