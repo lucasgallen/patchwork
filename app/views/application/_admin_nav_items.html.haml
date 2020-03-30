@@ -1,0 +1,26 @@
+%div.collapse.navbar-collapse#navbar
+  %ul.justify-content-around.navbar-nav.mr-auto
+    %li.nav-item
+      = link_to t('_categories'), admin_categories_path, class: 'nav-link'
+    %li.nav-item
+      = link_to t('_products'), admin_products_path, class: 'nav-link'
+    %li.nav-item
+      = link_to t('dashboard'), admin_root_path, class: 'nav-link'
+  %div.btn-group.mr-3
+    %button.btn.btn-md.btn-light.dropdown-toggle{ |
+      type: 'button', |
+      data: { toggle: 'dropdown', offset: '0,10' }, |
+      aria: { haspopup: 'true', expanded: 'false' } |
+    } |
+      = t('language')
+    %div.dropdown-menu.dropdown-menu-left
+      - I18n.available_locales.each do |locale|
+        - if locale != I18n.default_locale
+          = link_to t('locale_name', locale: locale), url_for(locale: locale.to_s),
+              class: "dropdown-item #{'active' if locale == I18n.locale}"
+        - else
+          = link_to t('locale_name', locale: locale), url_for(locale: nil),
+              class: "dropdown-item #{'active' if locale == I18n.locale}"
+  - if user_signed_in?
+    = link_to t('sign_out'), destroy_session_path(current_user),
+      method: :delete, class: 'btn btn-warning'

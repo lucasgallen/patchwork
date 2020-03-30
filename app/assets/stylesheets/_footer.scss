@@ -1,0 +1,31 @@
+.footer {
+  background: $purple;
+  border-top: 1px dashed $white;
+
+  &-separator {
+    border-left: 2px dashed $pink;
+    height: 2rem;
+    margin: 0 calc(1rem - 1px) 0 1rem;
+    width: 0;
+  }
+
+  &-link {
+    color: $white;
+    font-size: 1.5rem;
+    padding: 1rem 0;
+
+    &:hover {
+      color: $white;
+    }
+  }
+
+  &-link-container {
+    display: inline-block;
+    height: 2rem;
+  }
+
+  .dropdown-toggle {
+    background: $yellow;
+    color: $dark;
+  }
+}

@@ -10,14 +10,7 @@
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     = yield :turbolinks_pack
   %body
-    = render :partial => 'navigation'
-
-    - if notice.present?
-      %div.alert.alert-success{ role: 'alert' }
-        = notice
-    - if alert.present?
-      %div.alert.alert-danger{ role: 'alert' }
-        = alert
+    = render :partial => 'navigation', locals: { type: 'app' }
 
     = yield
 

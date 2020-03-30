@@ -10,8 +10,7 @@
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     = yield :turbolinks_pack
   %body
-    = render :partial => 'navigation'
-
+    = render :partial => 'navigation', locals: { type: 'admin' }
     - if notice.present?
       %div.alert.alert-success{ role: 'alert' }
         = notice
@@ -21,5 +20,3 @@
 
     %div.container-lg
       = yield
-
-    = render :partial => 'footer'
