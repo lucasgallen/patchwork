@@ -1,15 +1,29 @@
-%div.container-fluid.my-5
-  %div.row.mx-auto.mb-4.clearfix.justify-content-center{ style: 'max-width: 60rem' }
-    %div.col-10.col-sm-8.col-md-6.mb-3.mb-sm-0
-      - if @product.primary_image.attached?
-        = image_tag @product.primary_image, class: 'w-100'
-    %div.col-12.col-md-6
-      %h1.d-inline-block= @product.name
-      %div.mt-n2.mb-2
-        %span.text-success= "#{@product.price} #{@product.currency.upcase}"
-        %small.ml-2= l(@product.created_at, format: :publishing)
+%div.product-container.container-fluid
+  %div.row.mx-auto.mb-2.clearfix.justify-content-center{ style: 'max-width: 60rem' }
+    %h1.product-title.mx-auto.col-12= @product.name
+    %div.col-lg-7.col-sm-12.product-carousel
+      %div.w-100.carousel.slide#product-carousel{ 'data-ride': 'false' }
+        %div.carousel-inner.product-carousel-inner
+          %div.carousel-item.product-carousel-item.active
+            = image_tag @product.gallery_image, class: 'd-block w-100 product-carousel-image'
+          - if @product.detail_images.attached?
+            - @product.detail_images.each do |image|
+              %div.carousel-item.product-carousel-item
+                = image_tag image, class: 'd-block w-100 product-carousel-image'
+        %a.product-carousel-control.carousel-control-prev{ href: '#product-carousel', role: 'button', 'data-slide': 'prev' }
+          %span.carousel-control-prev-icon.product-carousel-control-icon{ 'aria-hidden': true }
+          %span.sr-only Prev
+        %a.product-carousel-control.carousel-control-next{ href: '#product-carousel', role: 'button', 'data-slide': 'next' }
+          %span.carousel-control-next-icon.product-carousel-control-icon{ 'aria-hidden': true }
+          %span.sr-only Next
+      %ol.carousel-indicators
+        %li.product-carousel-indicator.active{ style: "background-image: url(#{url_for(@product.gallery_image)})", data: { target: '#product-carousel', 'slide-to': 0 } }
+        - if @product.detail_images.attached?
+          - @product.detail_images.each_with_index do |image, index|
+            %li.product-carousel-indicator{ style: "background-image: url(#{url_for(image)})", data: { target: '#product-carousel', 'slide-to': index+1 } }
+    %div.col-lg-5.col-sm-12
       %div.trix-content
         = @product.description.html_safe
-    %div.col-12.pt-2
       - if user_signed_in? && current_user.role == 'admin'
-        = link_to t('edit'), edit_admin_product_path(@product), class: 'btn btn-sm btn-warning mb-5'
+        %span.btn-group.mt-3
+          = link_to t('edit'), edit_admin_product_path(@product), class: 'btn btn-sm btn-warning'
