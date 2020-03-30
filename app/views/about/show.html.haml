@@ -1,7 +1,10 @@
-%div.jumbotron.jumbotron-fluid
-  %div.container
+%div.jumbotron.jumbotron-top.jumbotron-fluid.jumbotron--about
+  %div.container.jumbotron-container
     %h1.display-4= t('about.title')
     %p.lead= t('about.lead')
 
 %div.container
   %p Patchwork about page: social, people, what they do, etc
+
+.vibrant-pastel-square
+  = render :partial => 'decorative_patches/purple_square', :locals => { patch_color: '#8e65a0', image: image_path('/textures/vibrant_pastel_detail.jpg') }
