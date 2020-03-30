@@ -7,6 +7,11 @@
 
 @import "admin/category";
 
+/* Disable Trix/ActiveText Attachments */
+trix-toolbar .trix-button-group.trix-button-group--file-tools {
+  display: none;
+}
+
 .navbar {
   background: $purple;
 }
