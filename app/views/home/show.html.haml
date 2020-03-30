@@ -1,46 +1,29 @@
-%div.jumbotron.jumbotron-fluid
-  %div.container
+%div.jumbotron.jumbotron-fluid.jumbotron-top.jumbotron--home
+  %div.container.jumbotron-container.shadow--light
     %h1.display-4= t('home.title')
     %p.lead= t('home.lead')
 
-%div.container.mx-sm-auto.mx-lg-3
-  %h2.h1.mb-4= t('latest')
+%div.container-fluid.container--home-gallery.mb-5
+  %div.row
+    %div.col-12.col-md-9
+      %div.jumbotron.jumbotron-fluid.jumbotron-gallery.text-center#jumbotron-gallery
+        %div.jumbotron-background-container
+          %img.jumbotron-background#jumbotron-background{ 'data-paths': @gallery_images.map{ |i| url_for(i) }, 'src': url_for(@gallery_images.first) }
+        %div.container.jumbotron-container
+          %h2.display-4 Gallery
+          %p.lead See our selection of fabrics!
+          %hr.my-4
+          = link_to 'See Our Designs', gallery_path, class: 'btn btn-lg jumbotron-gallery-cta'
+    %div.col-md-3
+      %h2 Categories
+      %ul.list-group.list-group-flush
+        - @categories.each do |cat|
+          %button.list-group-item.list-group-item-action
+            %span.category-highlight
+            = link_to cat.name, gallery_path(cat.slug)
 
-  %section.mb-3.mx-5.mx-sm-0.clearfix
-    %div.container-fluid.clear-both
-      %h3.d-inline-block= t('articles')
-      - if @latest[:articles].present?
-        = link_to t('view_all'), articles_path, class: 'd-inline-block ml-3'
-    - if @latest[:articles].present?
-      %div.row.row-cols-1.row-cols-sm-2.row-cols-lg-3
-        - @latest[:articles].each do |article|
-          %div.col
-            %div.card.mb-2
-              %img.card-img-top{ src: '', alt: '' }
-              %div.card-body
-                %h4= article.title
-                %p.card-text= "Lorem ipsum article preview text..."
-                = link_to t('view'), article_path(article)
-              %div.card-footer
-                %p.card-text= "#{t('created')}: #{l(article.created_at, format: :publishing)}"
-    - else
-      %p= t('no_articles')
+.blue-lavender-square
+  = render :partial => 'decorative_patches/purple_square', :locals => { patch_color: '#c76da9', image: image_path('/textures/blue_lavender.jpg') }
 
-  %section.mb-3.mx-5.mx-sm-0.clearfix
-    %div.container-fluid.clear-both
-      %h3.d-inline-block= t('products')
-      - if @latest[:products].present?
-        = link_to t('view_all'), products_path, class: 'd-inline-block ml-3'
-    - if @latest[:products].present?
-      %div.row.row-cols-1.row-cols-sm-2.row-cols-lg-4
-        - @latest[:products].each do |product|
-          %div.col
-            %div.card.mb-2
-              %img.card-img-top{ src: '', alt: '' }
-              %div.card-body
-                %h4= product.name
-                = link_to t('view'), product_path(product)
-              %div.card-footer
-                %p.card-text= "#{t('created')}: #{l(product.created_at, format: :publishing)}"
-    - else
-      %p= t('no_products')
+- content_for :turbolinks_pack do
+  = javascript_pack_tag 'home_gallery', 'data-turbolinks-track': 'reload', 'defer': 'defer'

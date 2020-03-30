@@ -1,8 +1,18 @@
 class HomeController < ApplicationController
   def show
-    @latest = {
-      articles: Article.last(2),
-      products: Product.last(2)
-    }
+    @categories = Category.all
+    @gallery_images = gallery_images
+  end
+
+  private
+
+  def gallery_images
+    recent_products = Product.last(5)
+    images = recent_products.map do |prod|
+      next unless prod.gallery_image.attached?
+      prod.gallery_image
+    end
+
+    images.reject(&:blank?)
   end
 end
