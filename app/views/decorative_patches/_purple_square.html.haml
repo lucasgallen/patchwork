@@ -1,0 +1,158 @@
+:css
+  .patchwork-container {
+    border: 1px dashed white;
+    font-size: calc(1.2rem + 1.5vw);
+    overflow: hidden;
+    position: absolute;
+    right: calc(2rem + 1.5vw);
+    top: 4rem;
+    transform: rotate(24deg);
+    z-index: 1;
+  }
+
+  .patchwork-container--L {
+    height: 4em;
+    width: 4em;
+  }
+
+  .patchwork-square {
+    background-size: cover;
+    height: 2em;
+    position: absolute;
+    width: 2em;
+  }
+
+  .patchwork-square--top-layer {
+    z-index: 10;
+  }
+
+  .patchwork-square-00 {
+    top: 0;
+    left: 0;
+  }
+
+  .patchwork-square-01 {
+    top: 2em;
+    left: 0;
+  }
+
+  .patchwork-square-10 {
+    top: 0;
+    left: 2em;
+  }
+
+  .patchwork-square-11 {
+    top: 2em;
+    left: 2em;
+  }
+
+  .patchwork--texture {
+    background-image: url(/assets/#{image});
+  }
+
+  .patchwork-triangle {
+    height: 0;
+    width: 0;
+  }
+
+  .patchwork-triangle--top-right {
+    border-bottom: 2em solid transparent;
+    border-right: 2em solid transparent;
+    left: 0;
+    position: absolute;
+    top: 0;
+  }
+  .patchwork-triangle--top-right-purple {
+    border-right-color: #{patch_color};
+  }
+
+  .patchwork-triangle--top-left {
+    border-right: 2em solid transparent;
+    border-top: 2em solid transparent;
+    left: 0;
+    position: absolute;
+    top: 0;
+  }
+  .patchwork-triangle--top-left-purple {
+    border-top-color: #{patch_color};
+  }
+
+  .patchwork-triangle--bottom-left {
+    border-top: 2em solid transparent;
+    border-left: 2em solid transparent;
+    left: 0;
+    position: absolute;
+    top: 0;
+  }
+  .patchwork-triangle--bottom-left-purple {
+    border-left-color: #{patch_color};
+  }
+
+  .patchwork-triangle--bottom-right {
+    border-top: 2em solid transparent;
+    border-right: 2em solid transparent;
+    left: 0;
+    position: absolute;
+    top: 0;
+  }
+  .patchwork-triangle--bottom-right-purple {
+    border-right-color: #{patch_color};
+  }
+
+  .thread-diagonal-up {
+    border-right: 1px dashed white;
+    height: 2.828em;
+    margin-top: -0.414em;
+    margin-left: 1em;
+    transform: rotate(45deg);
+    transform-origin: 100% 50%;
+    width: 0;
+  }
+
+  .thread-diagonal-down {
+    border-right: 1px dashed white;
+    height: 2.828em;
+    margin-top: -0.414em;
+    margin-left: 1em;
+    transform: rotate(-45deg);
+    transform-origin: 100% 50%;
+    width: 0;
+  }
+
+  .thread-verticle {
+    border-right: 1px dashed white;
+    height: 4em;
+    margin-left: 2em;
+    width: 0;
+  }
+
+  .thread-horizontal {
+    border-top: 1px dashed white;
+    height: 0;
+    margin-top: 2em;
+    width: 4em;
+  }
+
+%div.patchwork-container.patchwork-container--L.shadow--light
+  %div.patchwork-square.patchwork-square-00.patchwork--texture
+    %div.patchwork-triangle.patchwork-triangle--top-left
+    %div.patchwork-triangle.patchwork-triangle--bottom-right.patchwork-triangle--bottom-right-purple
+
+  %div.patchwork-square.patchwork-square-01.patchwork--texture
+    %div.patchwork-triangle.patchwork-triangle--top-right
+    %div.patchwork-triangle.patchwork-triangle--bottom-left.patchwork-triangle--bottom-left-purple
+
+  %div.patchwork-square.patchwork-square-11.patchwork--texture
+    %div.patchwork-triangle.patchwork-triangle--top-left.patchwork-triangle--top-left-purple
+    %div.patchwork-triangle.patchwork-triangle--bottom-right
+
+  %div.patchwork-square.patchwork-square-10.patchwork--texture
+    %div.patchwork-triangle.patchwork-triangle--top-right.patchwork-triangle--top-right-purple
+    %div.patchwork-triangle.patchwork-triangle--bottom-left
+
+  %span.patchwork-square.patchwork-square--top-layer.thread-diagonal-up
+  %span.patchwork-square.patchwork-square--top-layer.patchwork-square-10.thread-diagonal-down
+  %span.patchwork-square.patchwork-square--top-layer.patchwork-square-11.thread-diagonal-up
+  %span.patchwork-square.patchwork-square--top-layer.patchwork-square-01.thread-diagonal-down
+  %span.patchwork-square.patchwork-square--top-layer.thread-verticle
+  %span.patchwork-square.patchwork-square--top-layer.thread-horizontal
