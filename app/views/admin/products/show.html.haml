@@ -1,5 +1,0 @@
-%h1= @product.name
-%div.trix-content
-  = @product.description.html_safe
-%p= "#{@product.price} #{@product.currency.upcase}"
-= link_to "Edit", edit_admin_product_path(@product)

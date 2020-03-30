@@ -1,0 +1,17 @@
+%h1.mt-5.mb-4
+  = t('_products')
+  = link_to t('_create_new'), new_admin_product_path, class: 'btn btn-sm btn-success ml-3'
+
+%div.container
+  %div.row.mb-5
+    - @products.each do |product|
+      %div.media.mb-4.col-sm-12.col-md-6.col-xl-4
+        = image_tag product.gallery_image, class: 'mr-3', style: 'width: 3rem; height: 3rem;'
+        %div.media-body
+          %h5.mt-0.mb-1
+            = product.name
+          = succeed " | " do
+            = link_to t('_view'), product_path(product)
+          = link_to t('_edit'), edit_admin_product_path(product)
+          %small
+            = "Created: #{l(product.created_at, format: :record)}"

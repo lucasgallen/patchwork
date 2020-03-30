@@ -1,3 +1,5 @@
-%h1.mt-5 Edit Product
+%h1.mt-5
+  Edit Product
+  = link_to 'Delete', admin_product_path(@product), method: :delete, class: 'ml-3 btn btn-sm text-uppercase btn-danger'
 = form_with model: @product, url: admin_product_path, class: 'mb-5 mt-2' do |form|
   = render partial: 'form', locals: { form: form }

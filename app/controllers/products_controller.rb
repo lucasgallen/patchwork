@@ -31,7 +31,7 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
 
     if @product.save
-      redirect_to admin_product_path(@product)
+      redirect_to admin_products_path
     else
       render :new
     end
@@ -40,6 +40,12 @@ class ProductsController < ApplicationController
   def destroy 
     authorize! :delete, Product
     @product ||= product
+
+    if @product.destroy
+      redirect_to admin_dashboard_path
+    else
+      render :edit
+    end
   end
 
   def update 
@@ -47,7 +53,7 @@ class ProductsController < ApplicationController
     @product ||= product
 
     if @product.update(product_params)
-      redirect_to admin_product_path(@product)
+      redirect_to admin_products_path
     else
       render :edit
     end
@@ -56,7 +62,9 @@ class ProductsController < ApplicationController
   protected
 
   def product_params
-    params.require(:product).permit(:name, :description, :price, :currency, :primary_image)
+    params.require(:product)
+          .permit(:available, :name, :description, :gallery_image,
+                  detail_images: [], category_ids: [])
   end
 
   def product

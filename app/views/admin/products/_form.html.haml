@@ -1,22 +1,41 @@
 = form.hidden_field :description, id: 'trix-content'
 
-%div.form-group
-  = form.label :name, class: 'form-label'
-  = form.text_field :name, class: 'form-control'
+%div.row.mb-5
+  %div.col-sm-12.col-md-4
+    %div.form-group
+      = form.label :name, class: 'form-label'
+      = form.text_field :name, class: 'form-control'
+  %div.col-lg-3.col-md-4.col-sm-12
+    %div.form-group.selectpicker-container.w-50
+      = form.label :category_ids, 'Categories', class: 'form-label'
+      = form.select :category_ids, Category.all.collect {|c| [c.name, c.id] }, {},
+        { id: 'product-categories', class: 'd-block', multiple: true }
+  %div.col-md-2.col-sm-1
+    %div.custom-control.custom-switch.py-4
+      = form.check_box :available, class: 'custom-control-input'
+      = form.label :available, class: 'custom-control-label'
 
-%div.form-group
-  = form.label :primary_image, t('admin.product.display_image'), class: 'form-label'
-  = form.file_field :primary_image, class: 'd-block'
-  - if @product.primary_image.attached?
-    = image_tag @product.primary_image, class: 'w-25'
+%div.row
+  %div.col-sm-12.col-md-5.col-lg-4
+    %h6 Gallery Image
+    %div.custom-file
+      = form.file_field :gallery_image, class: 'custom-file-input', id: 'gallery-image'
+      = form.label :gallery_image, t('admin.product.choose_gallery_image'), class: 'custom-file-label'
+    %div.mt-2.mb-4
+      - if @product.gallery_image.attached?
+        = image_tag @product.gallery_image, { class: 'w-100', id: 'gallery-image-preview' }
+      - else
+        %img.w-100#gallery-image-preview
 
-%div.form-group
-  = form.label :price, class: 'form-label'
-  = form.number_field :price, { step: 1, min: 0, class: 'form-control' }
-
-/ %div
-/   = form.label :currency
-/   = form.select :currency
+  %div.col-sm-12.col-md-6
+    %h6 Detail Images
+    %div.custom-file
+      = form.file_field :detail_images, class: 'custom-file-input', multiple: true, id: 'detail-images'
+      = form.label :detail_images, t('admin.product.choose_detail_images'), class: 'custom-file-label'
+    %div.mt-2.mb-4#detail-images-preview
+      - if @product.detail_images.attached?
+        - @product.detail_images.each do |image|
+          = image_tag image, { class: 'w-25 mr-2 mb-2' }
 
 %div.form-group
   = form.label :description, class: 'form-label'
@@ -28,3 +47,6 @@
     = form.submit "Create", class: 'btn btn-success float-right'
   - else
     = form.submit "Save", class: 'btn btn-success float-right'
+
+= content_for :turbolinks_pack do
+  = javascript_pack_tag 'product_form', 'data-turbolinks-track': 'reload', 'defer': 'defer'
