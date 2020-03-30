@@ -1,0 +1,11 @@
+.list-group-item {
+  &:hover {
+    .list-group-item-edit-action {
+      display: inline-block;
+    }
+  }
+}
+
+.list-group-item-edit-action {
+  display: none;
+}

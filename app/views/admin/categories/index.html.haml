@@ -1,0 +1,12 @@
+%h1.mt-5.mb-4
+  = t('_categories')
+  = link_to t('_create_new'), new_admin_category_path, class: 'btn btn-sm btn-success ml-3'
+
+%div.container-fluid
+  %div.col-sm-12.col-md-6.col-lg-4
+    %ul.list-group.list-group-flush.list-group-edits.mb-5
+      - @categories.each do |cat|
+        %button.list-group-item.list-group-item-action{ type: 'button' }
+          = cat.name
+          %span.list-group-item-edit-action.float-right
+            = link_to 'Edit', edit_admin_category_path(cat), class: 'stretched-link'

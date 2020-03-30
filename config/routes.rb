@@ -27,6 +27,8 @@ Rails.application.routes.draw do
       get 'dashboard', to: 'dashboard#show'
 
       root 'dashboard#show'
+
+      resources :categories
     end
   end
 end
