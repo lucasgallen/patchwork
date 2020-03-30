@@ -1,0 +1,10 @@
+%div.container.gallery-page{ 'data-page': page_number }
+  %div.d-flex.justify-content-around.flex-wrap
+    - products.each do |item|
+      %div.card.gallery-card
+        %a.card-img-top.gallery-card-image.d-block.lazyload{ href: product_path(item), 'data-src': url_for(item.gallery_image) }
+        %div.card-body.gallery-card-body
+          - if item.available
+            %span.badge.badge-pill.badge-success Available!
+          %h5.card-title= item.name
+          %div.card-text= item.description.html_safe

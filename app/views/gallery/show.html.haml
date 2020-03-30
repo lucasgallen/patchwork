@@ -1,0 +1,9 @@
+%div.gallery-container
+  %h1.text-center.gallery-title Gallery
+
+  /%p.danger= @products.last_page?
+  %div#infinite-scroll-container{ 'data-current-page': 0 }
+    = render :partial => 'page', locals: { page_number: 0, products: @products }
+
+- content_for :turbolinks_pack do
+  = javascript_pack_tag 'gallery', 'data-turbolinks-track': 'reload', 'defer': 'defer'

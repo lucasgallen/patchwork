@@ -10,6 +10,11 @@ Rails.application.routes.draw do
     get 'about', to: 'about#show'
     get 'contact', to: 'contact#show'
 
+    scope '/gallery', as: 'gallery', constraints: { filter: /[a-z]([a-z]|_|-)*[a-z]+/ } do
+      get '(/:filter)', to: 'gallery#show'
+      get '(/:filter)/:page', to: 'gallery#page', constraints: { page: /[1-9][0-9]*/ }
+    end
+
     root 'home#show'
 
     resources :products, only: [:show, :index]

@@ -1,0 +1,68 @@
+.gallery-container {
+  min-height: 100vh;
+}
+
+.gallery-title {
+  font-size: calc(3rem + 1.5vw);
+}
+
+.gallery-card {
+  border: 2px dashed $purple;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  width: 100%;
+
+  @media (min-width: map-get($grid-breakpoints, "md")) {
+    width: calc(50% - 2rem - 1px);
+
+    .gallery-card-body {
+      bottom: -3rem;
+      //overflow: hidden;
+    }
+
+    &:hover {
+      .gallery-card-body {
+        bottom: 0;
+      }
+    }
+  }
+
+  @media (min-width: map-get($grid-breakpoints, "lg")) {
+    width: calc(33% - 2rem - 1px);
+  }
+
+  @media (min-width: map-get($grid-breakpoints, "xl")) {
+    width: calc(25% - 2rem - 1px);
+  }
+
+  &-image {
+    background-position: center;
+    background-size: cover;
+    padding-bottom: 100%;
+    transition: background-image 1s ease-in;
+  }
+
+  &-body {
+    bottom: 0;
+    background: $white;
+    height: 0;
+    padding-bottom: calc(5.5rem + 0.5vw);
+    pointer-events: none;
+    position: absolute;
+    transition: 0.2s ease-out bottom;
+    width: 100%;
+
+    .badge {
+      font: {
+        size: 1rem;
+        weight: normal;
+      }
+      right: 1rem;
+      position: absolute;
+      top: 5px;
+      z-index: 1;
+    }
+  }
+}

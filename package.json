@@ -9,6 +9,7 @@
     "bootstrap": "^4.4.1",
     "bootstrap-select": "^1.13.12",
     "jquery": "^3.4.1",
+    "lazyload": "^2.0.0-rc.2",
     "popper.js": "^1.16.1",
     "trix": "^1.0.0",
     "turbolinks": "^5.2.0"
