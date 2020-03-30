@@ -3,6 +3,9 @@
 /* Custom bootstrap variables must be set or imported *before* bootstrap. */
 @import "admin/bootstrap_variables";
 @import "bootstrap/scss/bootstrap";
+@import "bootstrap-select/sass/bootstrap-select";
+
+@import "admin/category";
 
 .navbar {
   background: $purple;
