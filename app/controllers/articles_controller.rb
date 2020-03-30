@@ -57,7 +57,7 @@ class ArticlesController < ApplicationController
   protected
 
   def article_params
-    params.require(:article).permit(:title, :content)
+    params.require(:article).permit(:title, :feature_image, :body, other_images: [])
   end
 
   def admin_path?

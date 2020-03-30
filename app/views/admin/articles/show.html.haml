@@ -1,6 +1,8 @@
+- if @article.feature_image.attached?
+  = image_tag @article.feature_image, class: 'w-100'
 %h1.mt-5
   = @article.title
   = link_to "Edit", edit_admin_article_path(@article), class: 'btn btn-sm btn-warning ml-5'
 %p= @article.author
-%div.trix-content.mb-5.ml-5
-  = @article.content.html_safe
+%div.mb-5.ml-5
+  = @article.body

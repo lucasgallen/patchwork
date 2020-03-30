@@ -1,12 +1,16 @@
-= form.hidden_field :content, id: 'trix-content'
-
 %div.form-group
   = form.label :title, class: 'form-label'
   = form.text_field :title, class: 'form-control'
 
 %div.form-group
-  = form.label :content, class: 'form-label'
-  %trix-editor{ input: 'trix-content' }
+  = form.label :feature_image, t('admin.article.display_image'), class: 'form-label'
+  = form.file_field :feature_image, class: 'd-block'
+  - if @article.feature_image.attached?
+    = image_tag @article.feature_image, class: 'w-25'
+
+%div.form-group
+  = form.label :body, class: 'form-label'
+  = form.rich_text_area :body
 
 %div.form-group.clearfix
   = link_to "Cancel", :back, class: 'btn btn-danger'

@@ -1,11 +1,18 @@
 %div.container.my-5
   %div.ml-sm-n3.mb-4.clearfix
-    %h1.h1
-      = @article.title
-      - if user_signed_in? && current_user.role == 'admin'
-        = link_to "Edit", edit_admin_article_path(@article), class: 'btn btn-sm btn-warning ml-5'
+    - if @article.feature_image.attached?
+      %div.article-title-container
+        = image_tag @article.feature_image, class: 'w-100 article-feature-image'
+        %h1.h1.article-title
+          = @article.title
+          - if user_signed_in? && current_user.role == 'admin'
+            = link_to "Edit", edit_admin_article_path(@article), class: 'btn btn-sm btn-warning ml-5'
+    - else
+      %h1.h1
+        = @article.title
+        - if user_signed_in? && current_user.role == 'admin'
+          = link_to "Edit", edit_admin_article_path(@article), class: 'btn btn-sm btn-warning ml-5'
     %small= @article.author
     %small.pl-5= l(@article.created_at, format: :publishing)
 
-  %div.trix-content
-    = @article.content.html_safe
+  = @article.body

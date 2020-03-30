@@ -17,10 +17,11 @@ Rails.application.routes.draw do
       resources :products, as: 'admin_products'
     end
 
-    resources :articles, only: [:show, :index]
-    scope '/admin' do
-      resources :articles, as: 'admin_articles'
-    end
+   # Disable article pages for now
+   # resources :articles, only: [:show, :index]
+   # scope '/admin' do
+   #   resources :articles, as: 'admin_articles'
+   # end
 
     namespace :admin do
       get 'dashboard', to: 'dashboard#show'
