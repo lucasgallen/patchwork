@@ -8,3 +8,6 @@
             %span.badge.badge-pill.badge-success Available!
           %h5.card-title= item.name
           %div.card-text= item.description.html_safe
+
+- if products.last_page?
+  = render :partial => 'end_results'

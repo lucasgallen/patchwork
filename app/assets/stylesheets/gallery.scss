@@ -6,6 +6,30 @@
   font-size: calc(3rem + 1.5vw);
 }
 
+.page-end {
+  &-copy-container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    letter-spacing: 1.5rem;
+    text-transform: uppercase;
+  }
+
+  &-copy {
+    cursor: default;
+    margin-left: 1.7rem;
+  }
+
+  &-curve {
+    stroke: #ad1061;
+    width: 100%;
+
+    &--right {
+      transform: rotateY(180deg);
+    }
+  }
+}
+
 .gallery-card {
   border: 2px dashed $purple;
   border-radius: 0.5rem;
