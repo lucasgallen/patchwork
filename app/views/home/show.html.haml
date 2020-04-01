@@ -20,7 +20,7 @@
         - @categories.each do |cat|
           %button.list-group-item.list-group-item-action
             %span.category-highlight
-            = link_to cat.name, gallery_path(cat.slug)
+            = link_to cat.name, gallery_path(cat.slug), class: 'stretched-link'
 
 .blue-lavender-square
   = render :partial => 'decorative_patches/purple_square', :locals => { patch_color: '#c76da9', image: image_path('/textures/blue_lavender.jpg') }
