@@ -2,7 +2,7 @@
   %div.row.mx-auto.mb-2.clearfix.justify-content-center{ style: 'max-width: 60rem' }
     %h1.product-title.mx-auto.col-12= @product.name
     %div.col-lg-7.col-sm-12.product-carousel
-      %div.w-100.carousel.slide#product-carousel{ 'data-ride': 'false' }
+      %div.w-100.carousel.slide#product-carousel
         %div.carousel-inner.product-carousel-inner
           %div.carousel-item.product-carousel-item.active
             = image_tag @product.gallery_image, class: 'd-block w-100 product-carousel-image'
@@ -16,7 +16,7 @@
         %a.product-carousel-control.carousel-control-next{ href: '#product-carousel', role: 'button', 'data-slide': 'next' }
           %span.carousel-control-next-icon.product-carousel-control-icon{ 'aria-hidden': true }
           %span.sr-only Next
-      %ol.carousel-indicators
+      %ol.carousel-indicators#carousel-indicators
         %li.product-carousel-indicator.active{ style: "background-image: url(#{url_for(@product.gallery_image)})", data: { target: '#product-carousel', 'slide-to': 0 } }
         - if @product.detail_images.attached?
           - @product.detail_images.each_with_index do |image, index|
@@ -27,3 +27,6 @@
       - if user_signed_in? && current_user.role == 'admin'
         %span.btn-group.mt-3
           = link_to t('edit'), edit_admin_product_path(@product), class: 'btn btn-sm btn-warning'
+
+- content_for :turbolinks_pack do
+  = javascript_pack_tag 'product', 'data-turbolinks-track': 'reload', 'defer': 'defer'
