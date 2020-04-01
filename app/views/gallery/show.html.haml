@@ -1,8 +1,34 @@
+%svg.d-none.close-icon{ viewBox: '0 0 10 10', fill: 'none', 'stroke-width': '0.07', stroke: 'black' }
+  %path{ d: 'M0 0 l10 10 M10 0 l-10 10' }
+
 %div.gallery-container
   %h1.text-center.gallery-title Gallery
 
-  %div#infinite-scroll-container{ data: { 'current-page': 0, 'last-page': @products.last_page?.to_s, 'url': gallery_url(filter: params[:filter]) } }
-    = render :partial => 'page', locals: { page_number: 0, products: @products }
+  %nav
+    %div.nav.nav-tabs.gallery-nav-tabs#gallery-tab{ role: 'tablist' }
+      %a.nav-item.nav-link.gallery-nav-item.active#gallery-results-tab{ 'data-toggle': 'tab', href: '#gallery-results', role: 'tab', aria: { controls: 'gallery-results', selected: 'true' } }
+        = t('_results')
+      %a.nav-item.nav-link.gallery-nav-item#gallery-filters-tab{ 'data-toggle': 'tab', href: '#gallery-filters', role: 'tab', aria: { controls: 'gallery-filters', selected: 'false' } }
+        = t('_filters')
+
+  %div.tab-content#gallery-tab-content
+    %div.tab-pane.fade.show.active#gallery-results{ role: 'tabpanel', 'aria-labelled-by': 'gallery-results-tab' }
+      %div#infinite-scroll-container{ data: { 'current-page': 0, 'last-page': @products.last_page?.to_s, 'url': gallery_url(filter: params[:filter]) } }
+        = render :partial => 'page', locals: { page_number: 0, products: @products }
+    %div.tab-pane.fade#gallery-filters{ role: 'tabpanel', 'arial-labelled-by': 'gallery-filters-tab', 'data-turbolinks-permanent': true }
+      %div.container.gallery-container-filters
+        %div.row
+          %div.selectpicker-container.col-8
+            %label.h4{ for: 'sdfa' } Category Filters
+            %select.w-100.d-block.selectpicker#gallery-category-filters{ multiple: true, 'data-selected-text-format': 'static', title: 'Select Categories', 'data-style': 'gallery-category-filters' }
+              - Category.all.each do |cat|
+                %option{ value: cat.slug }= cat.name
+            %ul.list-group.list-group-flush#gallery-active-filters
+          %div.col-4.text-center
+            %a.btn.clear-filters-button#clear-filters-button{ 'data-disabled': 'true' }
+              = 'Clear Filters'
+              %a.mt-5.btn.btn-lg.btn-primary#gallery-results-button{ 'data-path': gallery_path, 'data-filters': params[:filter] }
+                = 'See Results'
 
 - content_for :turbolinks_pack do
-  = javascript_pack_tag 'gallery', 'data-turbolinks-track': 'reload', 'defer': 'defer'
+  = javascript_pack_tag 'gallery', 'data-turbolinks-track': 'reload'
