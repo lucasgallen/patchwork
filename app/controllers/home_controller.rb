@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def show
-    @categories = Category.all
+    @categories = top_five_categories
     @gallery_images = gallery_images
   end
 
@@ -14,5 +14,9 @@ class HomeController < ApplicationController
     end
 
     images.reject(&:blank?)
+  end
+
+  def top_five_categories
+    Category.top.limit(5)
   end
 end

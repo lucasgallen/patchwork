@@ -18,9 +18,10 @@
       %h2 Categories
       %ul.list-group.list-group-flush
         - @categories.each do |cat|
-          %button.list-group-item.list-group-item-action
+          %button.h5.mb-0.list-group-item.list-group-item-action.d-flex.justify-content-between.align-items-center
             %span.category-highlight
             = link_to cat.name, gallery_path(cat.slug), class: 'stretched-link'
+            %span.badge.badge-primary.badge-pill.float-right.font-weight-normal.text-monospace= cat.product_count
 
 .blue-lavender-square
   = render :partial => 'decorative_patches/purple_square', :locals => { patch_color: '#c76da9', image: image_path('/textures/blue_lavender.jpg') }
