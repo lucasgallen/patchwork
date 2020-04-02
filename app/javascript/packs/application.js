@@ -12,4 +12,5 @@ require('lazyload/lazyload');
 
 $(document).on('turbolinks:load', () => {
   $('.lazyload').lazyload();
+  $('html, body').animate({ scrollTop: 0 }, 500);
 });
