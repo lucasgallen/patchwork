@@ -31,9 +31,11 @@
 
 html, body {
   font-family: 'Crimson';
+  height: 100%;
 }
 
 body {
+  height: calc(100% - 7rem - 5rem);
   margin-top: 7rem;
 }
 

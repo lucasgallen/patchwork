@@ -1,9 +1,10 @@
-%footer.footer.container-fluid.p-3.clearfix
-  = link_to t('_about'), about_path, class: 'footer-link'
-  %span.footer-separator
-  = link_to t('_contact'), contact_path, class: 'footer-link'
+%footer.footer.container-fluid.d-flex.p-3.justify-content-between.align-items-center
+  %div
+    = link_to t('_about'), about_path, class: 'footer-link'
+    %span.footer-separator
+    = link_to t('_contact'), contact_path, class: 'footer-link'
 
-  %div.btn-group.dropup.float-right
+  %div.btn-group.dropup
     %button.btn.btn-md.dropdown-toggle{ |
       type: 'button', |
       data: { toggle: 'dropdown', offset: '0,10' }, |
