@@ -19,11 +19,14 @@ class Gallery {
     this.$resultsBtn = $('#gallery-results-button');
     this.$resultsTab = $('#gallery-results-tab');
     this.$filtersTab = $('#gallery-filters-tab');
-    this.baseURL = this.$infScroll.data('url');
+    this.$fader = $('#gallery-tab-content').find('[data-fader]');
+    this.$scrollTopBtn = $('#gallery-scroll-top');
 
+    this.baseURL = this.$infScroll.data('url');
     this.currentPage = 0;
     this.canExScroll = true;
     this.loadingPage = false;
+    this.isDesktopGallery = $('#desktop-gallery-detector').is(':visible');
 
     this.init();
   }
@@ -37,7 +40,13 @@ class Gallery {
       $('.lazyload').lazyload();
     });
 
+    this.$scrollTopBtn.on('click', () => {
+      $('html, body').animate({ scrollTop: 0 }, 500);
+    });
+
     this.setupFilters();
+
+    this.$fader.removeClass('fade');
   }
 
   reset() {
@@ -49,8 +58,11 @@ class Gallery {
     this.$activeFilters.off('click');
     this.$clearFiltersBtn.off('click');
     this.$window.off('scroll');
+    this.$infScroll.off('scroll');
+    this.$scrollTopBtn.off('click');
   }
 
+  /* Filters */
   resetFilterTab() {
     // Make sure filters tab is hidden
     this.$filtersTab.removeClass('active');
@@ -71,6 +83,7 @@ class Gallery {
 
     this.$filterSelect.on('loaded.bs.select', () => {
       $(`.${this.BS_SELECT_BTN_CLASS}`).trigger('click');
+      $(`.${this.BS_SELECT_BTN_CLASS}`).trigger('click');
 
       filters.split('_').forEach(filter => {
         let index = this.$filterSelect.find(`[value="${filter}"]`).index();
@@ -83,7 +96,13 @@ class Gallery {
     this.$resultsBtn.on('click', e => {
       e.preventDefault();
 
-      this.$resultsTab.tab('show');
+      if (this.$resultsTab.is(':visible')) {
+        this.$resultsTab.tab('show');
+      } else {
+        this.$fader.fadeOut({
+          done: () => Turbolinks.visit(this.$resultsBtn.attr('href'))
+        });
+      }
     });
 
     this.$resultsTab.on('shown.bs.tab', () => {
@@ -152,7 +171,9 @@ class Gallery {
     });
   }
 
+  /* Infinite Scroll */
   setupInfScroll() {
+    if (!this.$infScroll.length) return;
     if (this.$infScroll.data('last-page')) return;
 
     if (this.nearContainerBottom()) {
@@ -160,11 +181,19 @@ class Gallery {
       this.paginateGallery();
     }
 
-    this.$window.on('scroll', e => {
-      if (this.loadingPage) return;
+    if (this.isDesktopGallery) {
+      this.$infScroll.on('scroll', e => {
+        if (this.loadingPage) return;
 
-      this.throttledInfScroll(e);
-    });
+        this.throttledInfScroll(e);
+      });
+    } else {
+      this.$window.on('scroll', e => {
+        if (this.loadingPage) return;
+
+        this.throttledInfScroll(e);
+      });
+    }
   }
 
   paginateGallery() {
@@ -189,6 +218,7 @@ class Gallery {
     this.$infScroll.trigger('gallery:load');
 
     if (data.last) {
+      this.$infScroll.off('scroll');
       this.$window.off('scroll');
     }
   }
@@ -208,6 +238,19 @@ class Gallery {
   }
 
   nearContainerBottom() {
+    if (this.isDesktopGallery) return this.desktopNearBottom();
+
+    return this.mobileNearBottom();
+  }
+
+  desktopNearBottom() {
+    const scrollHeight = this.$infScroll[0].scrollHeight;
+    const containerBotPos = this.$infScroll.scrollTop() + this.$infScroll.innerHeight();
+
+    return scrollHeight - containerBotPos < this.INF_SCROLL_THRESHOLD_PX;
+  }
+
+  mobileNearBottom() {
     const containerHeight = this.$infScroll.outerHeight();
     const bottomWindowPos = this.$window.scrollTop() + this.$window.innerHeight();
 

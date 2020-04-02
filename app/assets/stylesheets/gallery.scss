@@ -1,7 +1,21 @@
 @import "bootstrap-select/sass/bootstrap-select";
 
+.gallery-scroll-top {
+  bottom: 1rem;
+  border-radius: 1rem;
+  border: 2px dotted $white;
+  box-shadow: inset 0 0 0 2px $purple, 0 0 0 2px $purple;
+  right: 1rem;
+  position: fixed;
+  z-index: 2;
+
+  &:hover {
+    border-color: $white;
+  }
+}
+
 .gallery-container {
-  min-height: 100vh;
+  min-height: 100%;
 
   &-filters {
     margin-top: 2rem;
@@ -35,6 +49,16 @@
   border-radius: 0.5rem;
   color: $white;
   font-weight: 600;
+  margin-bottom: 1rem;
+
+  .show > & {
+    margin-bottom: 10rem;
+  }
+
+  & + .dropdown-menu {
+    height: 9.7rem !important;
+    overflow: scroll !important;
+  }
 
   &:hover {
     background-color: $white;
@@ -55,6 +79,20 @@
 
   .dropdown-menu {
     border-radius: 0.5rem;
+  }
+}
+
+.gallery-results-button {
+  background: $blue;
+  border-radius: 0.5rem;
+  border: 4px dashed $yellow;
+  box-shadow: 0 0 0 3px $purple, 0 0 0 5px $blue;
+  color: $white;
+  font-weight: 600;
+
+  &:hover {
+    border-color: $white;
+    box-shadow: 0 0 0 3px $yellow, 0 0 0 5px $purple, 0 0 0 7px $blue;
   }
 }
 
@@ -97,6 +135,10 @@
     justify-content: center;
     letter-spacing: 1.5rem;
     text-transform: uppercase;
+
+    &--empty {
+      letter-spacing: 1rem;
+    }
   }
 
   &-copy {
@@ -114,16 +156,36 @@
   }
 }
 
-.gallery-nav {
-  &-tabs {
+.gallery {
+  &-nav-tabs {
+    border-bottom: 2px dashed $purple;
     font-size: 1.7rem;
     justify-content: space-evenly;
 
     .gallery-nav-item {
+      border: 2px dashed $purple;
       color: $pink;
+      transition: all 0.2s linear;
+
+      &.active {
+        background: $purple;
+        border-color: $white;
+        margin-bottom: -2px;
+        border-bottom-color: transparent;
+        color: $white;
+        box-shadow: 0 -3px 0 3px $pink, 0 -7px 0 6px $purple, 0 -14px 0 3px $yellow;
+      }
+
+      &:not(.active) {
+        border-color: $pink;
+        border-bottom-color: transparent;
+      }
 
       &:hover:not(.active) {
+        border-color: $pink;
         color: $purple;
+        border-bottom-color: transparent;
+        box-shadow: 0 -3px 0 3px $purple, 0 -6px 0 3px $pink;
       }
     }
   }
@@ -136,29 +198,6 @@
   margin-top: 2rem;
   margin-bottom: 1rem;
   width: 100%;
-
-  @media (min-width: map-get($grid-breakpoints, "md")) {
-    width: calc(50% - 2rem - 1px);
-
-    .gallery-card-body {
-      bottom: -3rem;
-      //overflow: hidden;
-    }
-
-    &:hover {
-      .gallery-card-body {
-        bottom: 0;
-      }
-    }
-  }
-
-  @media (min-width: map-get($grid-breakpoints, "lg")) {
-    width: calc(33% - 2rem - 1px);
-  }
-
-  @media (min-width: map-get($grid-breakpoints, "xl")) {
-    width: calc(25% - 2rem - 1px);
-  }
 
   &-image {
     background-position: center;
@@ -187,5 +226,79 @@
       top: 5px;
       z-index: 1;
     }
+  }
+}
+
+@media(min-width: map-get($grid-breakpoints, "md")) {
+  .gallery-card {
+    width: calc(50% - 2rem - 1px);
+
+    &-body {
+      bottom: -3rem;
+    }
+
+    &:hover {
+      .gallery-card-body {
+        bottom: 0;
+      }
+    }
+  }
+}
+
+@media (min-width: map-get($grid-breakpoints, "lg")) {
+  .gallery-card {
+    width: calc(33% - 2rem - 1px);
+  }
+
+  .gallery-container {
+    height: calc(100% + 3rem);
+    margin-top: -3rem;
+  }
+
+  .infinite-scroll-container {
+    border-top: 1px solid $purple;
+    height: calc(100% - 5rem);
+    overflow: scroll;
+  }
+
+  .no-results-container {
+    border-top: 1px solid $purple;
+  }
+
+  .gallery-tab-pane {
+    height: 100%;
+    overflow: hidden;
+
+    &--results {
+      float: right;
+      width: 70%;
+    }
+
+    &--filters {
+      clear: both;
+      margin-top: 5rem;
+      width: 30%;
+    }
+  }
+
+  .gallery-tab-content {
+    height: 100%;
+    position: relative;
+    width: 100%;
+
+    & > .tab-pane.gallery-tab-pane {
+      display: block;
+      opacity: 1;
+
+      &--filters {
+        display: inline-block;
+        height: calc(100% - 5rem);
+        overflow: scroll;
+      }
+    }
+  }
+
+  .gallery-nav-tabs {
+    display: none;
   }
 }

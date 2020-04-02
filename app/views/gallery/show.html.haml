@@ -1,8 +1,10 @@
 %svg.d-none.close-icon{ viewBox: '0 0 10 10', fill: 'none', 'stroke-width': '0.07', stroke: 'black' }
   %path{ d: 'M0 0 l10 10 M10 0 l-10 10' }
 
+%div.d-none.d-lg-block#desktop-gallery-detector{ style: 'height: 0; width: 1px' }
+
 %div.gallery-container
-  %h1.text-center.gallery-title Gallery
+  %h1.pb-3.d-lg-none.text-center.gallery-title#gallery Gallery
 
   %nav
     %div.nav.nav-tabs.gallery-nav-tabs#gallery-tab{ role: 'tablist' }
@@ -11,24 +13,33 @@
       %a.nav-item.nav-link.gallery-nav-item#gallery-filters-tab{ 'data-toggle': 'tab', href: '#gallery-filters', role: 'tab', aria: { controls: 'gallery-filters', selected: 'false' } }
         = t('_filters')
 
-  %div.tab-content#gallery-tab-content
-    %div.tab-pane.fade.show.active#gallery-results{ role: 'tabpanel', 'aria-labelled-by': 'gallery-results-tab' }
-      %div#infinite-scroll-container{ data: { 'current-page': 0, 'last-page': @products.last_page?.to_s, 'url': gallery_url(filter: params[:filter]) } }
-        = render :partial => 'page', locals: { page_number: 0, products: @products }
-    %div.tab-pane.fade#gallery-filters{ role: 'tabpanel', 'arial-labelled-by': 'gallery-filters-tab', 'data-turbolinks-permanent': true }
+  %div.tab-content.gallery-tab-content.py-2#gallery-tab-content
+    %div.tab-pane.gallery-tab-pane.gallery-tab-pane--results.fade.show.active#gallery-results{ role: 'tabpanel', 'aria-labelled-by': 'gallery-results-tab' }
+      %h1.d-none.d-lg-block.text-center.gallery-title Gallery
+      - if @products.empty?
+        = render :partial => 'no_results'
+      - else
+        %div.infinite-scroll-container.fade#infinite-scroll-container{ data: { 'current-page': 0, 'last-page': @products.last_page?.to_s, 'url': gallery_url(filter: params[:filter]), fader: true } }
+          = render :partial => 'page', locals: { page_number: 0, products: @products }
+
+    %div.tab-pane.gallery-tab-pane.gallery-tab-pane--filters.fade#gallery-filters{ role: 'tabpanel', 'arial-labelled-by': 'gallery-filters-tab', 'data-turbolinks-permanent': true }
       %div.container.gallery-container-filters
         %div.row
-          %div.selectpicker-container.col-8
+          %div.col-12.col-sm-4.col-lg-12.text-center.mt-2
+            %a.mb-5.d-block.btn.btn-lg.btn-primary.gallery-results-button#gallery-results-button{ 'data-path': gallery_path, 'data-filters': params[:filter], href: '' }
+              = 'See Results'
+
+          %div.selectpicker-container.col-12.col-sm-8.col-lg-12.text-center
             %label.h4{ for: 'sdfa' } Category Filters
-            %select.w-100.d-block.selectpicker#gallery-category-filters{ multiple: true, 'data-selected-text-format': 'static', title: 'Select Categories', 'data-style': 'gallery-category-filters' }
+            %select.w-100.d-block.selectpicker#gallery-category-filters{ multiple: true, 'data-selected-text-format': 'static', title: 'Select Categories', 'data-style': 'gallery-category-filters', 'data-size': 'auto', 'data-dropup-auto': 'false' }
               - Category.all.each do |cat|
                 %option{ value: cat.slug }= cat.name
-            %ul.list-group.list-group-flush#gallery-active-filters
-          %div.col-4.text-center
-            %a.btn.clear-filters-button#clear-filters-button{ 'data-disabled': 'true' }
+            %a.d-inline-block.btn.clear-filters-button#clear-filters-button{ 'data-disabled': 'true' }
               = 'Clear Filters'
-              %a.mt-5.btn.btn-lg.btn-primary#gallery-results-button{ 'data-path': gallery_path, 'data-filters': params[:filter] }
-                = 'See Results'
+            %ul.list-group.list-group-flush#gallery-active-filters
+
+%button.btn.btn-primary.btn-lg.gallery-scroll-top#gallery-scroll-top
+  = 'Top'
 
 - content_for :turbolinks_pack do
   = javascript_pack_tag 'gallery', 'data-turbolinks-track': 'reload'
