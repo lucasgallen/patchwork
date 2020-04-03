@@ -86,6 +86,14 @@ body {
   stroke: $black;
 }
 
+.patchworks-alert.alert {
+  left: 65vw;
+  position: absolute;
+  top: calc(10vh + 1rem);
+  right: 0;
+  z-index: 100;
+}
+
 .placeholder-image {
   align-items: center;
   background: grey;

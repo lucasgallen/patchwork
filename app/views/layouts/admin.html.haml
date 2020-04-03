@@ -12,10 +12,10 @@
   %body
     = render :partial => 'navigation', locals: { type: 'admin' }
     - if notice.present?
-      %div.alert.alert-success{ role: 'alert' }
+      %div.patchworks-alert.alert.alert-success{ role: 'alert' }
         = notice
     - if alert.present?
-      %div.alert.alert-danger{ role: 'alert' }
+      %div.patchworks-alert.alert.alert-danger{ role: 'alert' }
         = alert
 
     %div.container-lg

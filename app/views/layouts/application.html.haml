@@ -11,6 +11,12 @@
     = yield :turbolinks_pack
   %body
     = render :partial => 'navigation', locals: { type: 'app' }
+    - if notice.present?
+      %div.patchworks-alert.alert.alert-success{ role: 'alert' }
+        = notice
+    - if alert.present?
+      %div.patchworks-alert.alert.alert-danger{ role: 'alert' }
+        = alert
 
     = yield
 

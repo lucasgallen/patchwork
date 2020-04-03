@@ -11,10 +11,3 @@
     = render :partial => 'app_nav_items'
   - elsif type === 'admin'
     = render :partial => 'admin_nav_items'
-
-- if notice.present?
-  %div.alert.alert-success{ role: 'alert' }
-    = notice
-- if alert.present?
-  %div.alert.alert-danger{ role: 'alert' }
-    = alert
