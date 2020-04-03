@@ -9,7 +9,6 @@
         %div.card-body
           %h5.card-title
             = product.name
-            %small.card-text.text-success.ml-2= "#{product.price} #{product.currency.upcase}"
           %div.trix-content.card-text= product.description.html_safe
         %div.card-body
           = link_to t('view'), product_path(product), class: 'card-link'
