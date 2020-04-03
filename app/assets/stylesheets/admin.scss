@@ -43,3 +43,19 @@ trix-toolbar .trix-button-group.trix-button-group--file-tools {
     background: $white;
   }
 }
+
+.placeholder-image {
+  align-items: center;
+  background: grey;
+  color: $white;
+  display: inline-flex;
+  justify-content: space-around;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+
+  &:after {
+    content: attr(data-missing-image);
+    font-size: 1em;
+  }
+}

@@ -204,6 +204,16 @@
     background-size: cover;
     padding-bottom: 100%;
     transition: background-image 1s ease-in;
+
+    &.placeholder-image {
+      cursor: pointer;
+      padding: 0;
+
+      &:after {
+        letter-spacing: 0.1rem;
+        text-transform: uppercase;
+      }
+    }
   }
 
   &-body {
