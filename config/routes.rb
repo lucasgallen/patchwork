@@ -22,6 +22,11 @@ Rails.application.routes.draw do
       resources :products, as: 'admin_products'
     end
 
+    resources :messages, only: [:create]
+    scope '/admin' do
+      resources :messages, as: 'admin_messages', only: [:index, :show]
+    end
+
    # Disable article pages for now
    # resources :articles, only: [:show, :index]
    # scope '/admin' do

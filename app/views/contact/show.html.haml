@@ -1,3 +1,26 @@
-%div.container.my-5
+%ul.nav.nav-tabs.sr-only#contact-tab{ role: 'tablist' }
+  %li.nav-item
+    %a.nav-link.active#default-tab{ 'data-toggle': 'tab', href: '#default', role: 'tab', aria: { controls: 'default', selected: 'true' }} Default
+  %li.nav-item
+    %a.nav-link#product-tab{ 'data-toggle': 'tab', href: '#product', role: 'tab', aria: { controls: 'product', selected: 'true' }} Product
+  %li.nav-item
+    %a.nav-link#misc-tab{ 'data-toggle': 'tab', href: '#misc', role: 'tab', aria: { controls: 'misc', selected: 'false' }} Misc
+  %li.nav-item
+    %a.nav-link#request-tab{ 'data-toggle': 'tab', href: '#request', role: 'tab', aria: { controls: 'request', selected: 'false' }} Request
+
+%div.container.contact-container
   %h1.h3= t('contact.title')
-  %p= t('contact.lead')
+  %div#contact-form-content
+    %div.tab-content#contact-tab-content
+      %div.tab-pane.fade.show.active#default{ role: 'tabpanel', 'aria-labelledby': 'default-tab' }
+        %p= t('contact.lead')
+      %div.tab-pane.fade#product{ role: 'tabpanel', 'aria-labelledby': 'product-tab' }
+        %p= 'Please tell us what you think of our products or if you have a question regarding a product in particular.'
+      %div.tab-pane.fade#misc{ role: 'tabpanel', 'aria-labelledby': 'misc-tab' }
+        %p= 'If this message is not about a product or a request, still do not hesitate to write'
+      %div.tab-pane.fade#request{ role: 'tabpanel', 'aria-labelledby': 'request-tab' }
+        %p= 'Have a special request for the Queens of Patchwork? Please send us a message and we will try to get back to you!'
+
+    = render :partial => 'form', locals: { message: @message, about_select: true, product: false }
+  %div.fade#contact-form-success
+    %p.h3.my-5= 'Thank you for contacting us!'
