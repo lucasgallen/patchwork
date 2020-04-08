@@ -13,7 +13,27 @@ RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - \
 
 WORKDIR /usr/src/app
 
-COPY . .
+COPY app app
+COPY bin bin
+COPY config config
+COPY db db
+COPY lib lib
+COPY vendor vendor
+COPY public/*.html public/
+COPY public/*.png public/
+COPY public/robots* public/
+COPY public/favicon* public/
+COPY public/assets public/assets
+COPY public/packs public/packs
+COPY vendor vendor
+COPY postcss.config.js .
+COPY babel.config.js .
+COPY Rakefile .
+COPY config.ru .
+COPY package.json .
+COPY yarn.lock .
+COPY Gemfile .
+COPY Gemfile.lock .
 
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
