@@ -9,6 +9,7 @@
     = stylesheet_link_tag 'admin', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'admin', 'data-turbolinks-track': 'reload'
     = yield :turbolinks_pack
+    = yield :page_specific_styles
   %body
     = render :partial => 'navigation', locals: { type: 'admin' }
     - if notice.present?

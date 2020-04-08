@@ -1,6 +1,9 @@
 @import "bootstrap-select/sass/bootstrap-select";
+@import "bootstrap_toolbox";
+@import "bootstrap/scss/card";
+@import "bootstrap/scss/list-group";
 
-.gallery-scroll-top {
+.gallery-scroll-top.btn {
   bottom: 1rem;
   border-radius: 1rem;
   border: 2px dotted $white;
@@ -43,7 +46,7 @@
   }
 }
 
-.gallery-category-filters {
+.gallery-category-filters.btn {
   background: $purple;
   border: 2px solid $white;
   border-radius: 0.5rem;
@@ -82,7 +85,7 @@
   }
 }
 
-.gallery-results-button {
+.gallery-results-button.btn {
   background: $blue;
   border-radius: 0.5rem;
   border: 4px dashed $yellow;
@@ -157,7 +160,7 @@
 }
 
 .gallery {
-  &-nav-tabs {
+  &-nav-tabs.nav-tabs {
     border-bottom: 2px dashed $purple;
     font-size: 1.7rem;
     justify-content: space-evenly;
@@ -308,7 +311,7 @@
     }
   }
 
-  .gallery-nav-tabs {
+  .gallery-nav-tabs.nav-tabs {
     display: none;
   }
 }

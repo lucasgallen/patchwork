@@ -3,6 +3,3 @@ require("turbolinks").start()
 
 require("@rails/activestorage").start()
 require("@rails/actiontext")
-
-require("trix")
-require("bootstrap")

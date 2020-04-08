@@ -8,3 +8,6 @@
 
 .vibrant-pastel-square
   = render :partial => 'decorative_patches/purple_square', :locals => { patch_color: '#8e65a0', image: image_path('textures/vibrant_pastel_detail.jpg') }
+
+- content_for :page_specific_styles do
+  = stylesheet_link_tag 'about', media: 'all', 'data-turbolinks-track': 'reload'

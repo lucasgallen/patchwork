@@ -6,6 +6,7 @@
     %title Sivumbike Patchworks
     = csrf_meta_tags
     = csp_meta_tag
+    = yield :page_specific_styles
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     = yield :turbolinks_pack

@@ -43,3 +43,6 @@
 
 - content_for :turbolinks_pack do
   = javascript_pack_tag 'gallery', 'data-turbolinks-track': 'reload'
+
+- content_for :page_specific_styles do
+  = stylesheet_link_tag 'gallery', 'data-turbolinks-track': 'reload'

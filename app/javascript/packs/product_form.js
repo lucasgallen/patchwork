@@ -1,4 +1,7 @@
+require("trix")
+require("bootstrap/js/dist/dropdown");
 require("bootstrap-select");
+
 $.fn.selectpicker.Constructor.BootstrapVersion = '4.4.1';
 
 class ProductForm {

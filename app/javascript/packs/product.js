@@ -1,4 +1,4 @@
-require("bootstrap")
+require("bootstrap/js/dist/carousel")
 
 class Product {
   constructor() {

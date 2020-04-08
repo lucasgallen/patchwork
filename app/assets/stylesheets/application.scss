@@ -14,19 +14,12 @@
 
 @import "crimson_font";
 
-/* Custom bootstrap variables must be set or imported *before* bootstrap. */
-@import "bootstrap_variables";
-@import "bootstrap/scss/bootstrap";
+@import "global_bootstrap";
+
+@import "bootstrap/scss/forms";
 
 @import "navigation";
 @import "footer";
-
-@import "home";
-@import "about";
-@import "contact";
-@import "articles";
-@import "gallery";
-@import "product";
 
 html, body {
   font-family: 'Crimson';

@@ -6,7 +6,8 @@
 require("@rails/ujs").start()
 require("turbolinks").start()
 
-require("bootstrap")
+require("bootstrap/js/dist/dropdown")
+require("bootstrap/js/dist/collapse")
 
 require('lazyload/lazyload');
 

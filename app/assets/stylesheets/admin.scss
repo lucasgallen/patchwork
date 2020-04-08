@@ -2,8 +2,13 @@
 
 /* Custom bootstrap variables must be set or imported *before* bootstrap. */
 @import "admin/bootstrap_variables";
-@import "bootstrap/scss/bootstrap";
+@import "global_bootstrap";
 @import "bootstrap-select/sass/bootstrap-select";
+
+@import "bootstrap/scss/forms";
+@import "bootstrap/scss/input-group";
+@import "bootstrap/scss/custom-forms";
+@import "bootstrap/scss/list-group";
 
 @import "admin/category";
 

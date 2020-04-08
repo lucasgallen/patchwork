@@ -24,3 +24,6 @@
     = render :partial => 'form', locals: { message: @message, about_select: true, product: false }
   %div.fade#contact-form-success
     %p.h3.my-5= 'Thank you for contacting us!'
+
+- content_for :page_specific_styles do
+  = stylesheet_link_tag 'contact', media: 'all', 'data-turbolinks-track': 'reload'
