@@ -4,6 +4,12 @@ set -e
 # Remove a potentially pre-existing server.pid for Rails.
 rm -f /usr/src/app/tmp/pids/server.pid
 
+# Make data directories
+mkdir -p ./data/nginx/conf.d
+
+# Move nginx app config file
+cp app.conf ./data/nginx/conf.d/
+
 # Install missing gems
 bundle check || bundle install
 
@@ -11,7 +17,7 @@ bundle check || bundle install
 yarn install --frozen-lockfile --check-files
 yarn cache clean
 
-if psql -lqt --host=db --username=postgres | cut -d \| -f 1 | grep -qw $DATABASE_NAME; then
+if psql -lqt --host=db --username=$DATABASE_USERNAME | cut -d \| -f 1 | grep -qw $DATABASE_NAME; then
     # db exists; run migrations
     # $? is 0
     bin/rails db:migrate

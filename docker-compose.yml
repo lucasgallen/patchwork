@@ -1,24 +1,54 @@
 version: '3'
 services:
+  nginx:
+    image: nginx:1.17.9-alpine
+    depends_on:
+      - app
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./data/nginx/conf.d:/etc/nginx/conf.d
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+    links:
+      - app
+  certbot:
+    image: certbot/certbot
+    volumes:
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+
   app:
     image: lucasgallen/patchwork_rails_app:latest
+    container_name: 'patchwork_web'
     depends_on:
       - db
     environment:
+      DATABASE_USERNAME: ${DATABASE_USERNAME}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      PGPASSWORD: ${DATABASE_PASSWORD}
+      DATABASE_NAME: ${DATABASE_NAME}
+      RAILS_ENV: production
       BUNDLE_PATH: /usr/local/bundle
       NODE_PATH: node_modules
       RUBYOPT: -W:no-deprecated -W:no-experimental
-      DATABASE_NAME: patchwork_development
       DATABASE_HOST: db
-    ports:
-      - "80:3002"
     volumes:
       - .:/app
+      - ./data/nginx/conf.d:/usr/src/app/data/nginx/conf.d
       - gems:/usr/local/bundle
       - node_modules:/usr/src/app/node_modules
+    expose:
+      - "3002"
   db:
     image: postgres:11
     container_name: patchwork_db
+    environment:
+      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
     ports:
       - "5432:5432"
     volumes:

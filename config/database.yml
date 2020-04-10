@@ -81,6 +81,8 @@ test:
 #
 production:
   <<: *default
-  database: patchwork_production
-  username: patchwork
-  password: <%= ENV['PATCHWORK_DATABASE_PASSWORD'] %>
+  #database: patchwork_production
+  #username: patchwork
+  database: <%= ENV['DATABASE_NAME'] %>
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>

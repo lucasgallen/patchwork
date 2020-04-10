@@ -34,6 +34,7 @@ COPY package.json .
 COPY yarn.lock .
 COPY Gemfile .
 COPY Gemfile.lock .
+COPY app.conf .
 
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
