@@ -15,6 +15,7 @@ services:
     command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
     links:
       - app
+      - imgproxy
   certbot:
     image: certbot/certbot
     volumes:
@@ -27,6 +28,7 @@ services:
     container_name: 'patchwork_web'
     depends_on:
       - db
+      - imgproxy
     environment:
       DATABASE_USERNAME: ${DATABASE_USERNAME}
       DATABASE_PASSWORD: ${DATABASE_PASSWORD}
@@ -37,6 +39,10 @@ services:
       NODE_PATH: node_modules
       RUBYOPT: -W:no-deprecated -W:no-experimental
       DATABASE_HOST: db
+      IMGPROXY_HOST: ${IMGPROXY_HOST}
+      IMGPROXY_PORT: 8080
+      IMGPROXY_KEY: ${IMGPROXY_KEY}
+      IMGPROXY_SALT: ${IMGPROXY_SALT}
     volumes:
       - .:/app
       - ./data/nginx/conf.d:/usr/src/app/data/nginx/conf.d
@@ -44,14 +50,35 @@ services:
       - node_modules:/usr/src/app/node_modules
     expose:
       - "3002"
+    links:
+      - imgproxy
+
+  imgproxy:
+    image: darthsim/imgproxy:latest
+    container_name: 'imgproxy'
+    environment:
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY:  ${AWS_SECRET_ACCESS_KEY}
+      IMGPROXY_S3_REGION: 'eu-west-3'
+      IMGPROXY_KEY: ${IMGPROXY_KEY}
+      IMGPROXY_SALT: ${IMGPROXY_SALT}
+      IMGPROXY_QUALITY: ${IMGPROXY_QUALITY}
+      IMGPROXY_MAX_SRC_FILE_SIZE: 5000000 # 5MB
+      IMGPROXY_USE_S3: 'true'
+      IMGPROXY_DEVELOPMENT_ERRORS_MODE: 'true'
+      IMGPROXY_LOG_LEVEL: 'debug'
+      IMGPROXY_CACHE_CONTROL_PASSTHROUGH: 'true'
+    expose:
+      - "8080"
+
   db:
     image: postgres:11
     container_name: patchwork_db
     environment:
       POSTGRES_USER: ${DATABASE_USERNAME}
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
-    ports:
-      - "5432:5432"
+    expose:
+      - "5432"
     volumes:
       - dbdata:/var/lib/postgresql/data
 

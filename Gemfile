@@ -65,3 +65,5 @@ gem "actionmailer", "~> 6.0"
 gem "cancancan", "~> 3.0"
 
 gem "aws-sdk-s3", "~> 1.60"
+
+gem "imgproxy"
