@@ -5,11 +5,11 @@
       %div.w-100.carousel.slide#product-carousel
         %div.carousel-inner.product-carousel-inner
           %div.carousel-item.product-carousel-item.active
-            = image_tag @product.gallery_image, class: 'd-block w-100 product-carousel-image'
+            %img{ src: @product.gallery_image.imgproxy_url(width: 522, height: 300), class: 'd-block w-100 product-carousel-image' }
           - if @product.detail_images.attached?
-            - @product.detail_images.each do |image|
+            - @product.detail_images.to_a.each do |image|
               %div.carousel-item.product-carousel-item
-                = image_tag image, class: 'd-block w-100 product-carousel-image'
+                %img{ src: image.imgproxy_url(width: 522, height: 300), class: 'd-block w-100 product-carousel-image' }
         %a.product-carousel-control.carousel-control-prev{ href: '#product-carousel', role: 'button', 'data-slide': 'prev' }
           %span.carousel-control-prev-icon.product-carousel-control-icon{ 'aria-hidden': true }
           %span.sr-only Prev
@@ -17,10 +17,10 @@
           %span.carousel-control-next-icon.product-carousel-control-icon{ 'aria-hidden': true }
           %span.sr-only Next
       %ol.carousel-indicators#carousel-indicators
-        %li.product-carousel-indicator.active{ style: "background-image: url(#{url_for(@product.gallery_image)})", data: { target: '#product-carousel', 'slide-to': 0 } }
+        %li.product-carousel-indicator.active{ style: "background-image: url(#{@product.gallery_image.imgproxy_url(width: 64, height: 64)})", data: { target: '#product-carousel', 'slide-to': 0 } }
         - if @product.detail_images.attached?
-          - @product.detail_images.each_with_index do |image, index|
-            %li.product-carousel-indicator{ style: "background-image: url(#{url_for(image)})", data: { target: '#product-carousel', 'slide-to': index+1 } }
+          - @product.detail_images.to_a.each_with_index do |image, index|
+            %li.product-carousel-indicator{ style: "background-image: url(#{image.imgproxy_url(width: 64, height: 64)})", data: { target: '#product-carousel', 'slide-to': index+1 } }
     %div.col-lg-5.col-sm-12
       %div.trix-content
         = @product.description.html_safe

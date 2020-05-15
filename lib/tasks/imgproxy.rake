@@ -8,6 +8,7 @@ namespace :imgproxy do
     salt    = ENV['IMGPROXY_SALT']
     port    = ENV['IMGPROXY_PORT']
     quality = ENV['IMGPROXY_QUALITY']
+    vol     = Rails.root.join("storage")
 
     sh %{docker run -p #{port}:8080 --name imgproxy \
          -e IMGPROXY_LOCAL_FILESYSTEM_ROOT=#{vol} \

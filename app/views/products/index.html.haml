@@ -5,7 +5,7 @@
       %div.card.ml-2.mb-2.col-8.col-sm-5.col-md-3.p-0
         %div.image-container.w-100
           - if product.primary_image.attached?
-            = image_tag product.primary_image, class: 'card-img-top'
+            = image_tag product.primary_image.imgproxy(width: 522, height: 300), class: 'card-img-top'
         %div.card-body
           %h5.card-title
             = product.name

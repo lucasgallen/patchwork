@@ -13,7 +13,7 @@ class HomeController < ApplicationController
       prod.gallery_image
     end
 
-    images.reject(&:blank?)
+    images.reject(&:blank?).map{ |i| Decorators::Image.new(i) }
   end
 
   def top_five_categories

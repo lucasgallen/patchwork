@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
   before_action :set_current_view_path
 
   def index
-    @products = Product.all
+    @products = Product.all.to_a.map{ |p| Decorators::Product.new(p) }
 
     render template: template('index')
   end
@@ -69,7 +69,8 @@ class ProductsController < ApplicationController
   end
 
   def product
-    params[:id] ? Product.find(params[:id]) : new_product
+    raw_product = params[:id] ? Product.find(params[:id]) : new_product
+    Decorators::Product.new(raw_product)
   end
 
   def new_product
