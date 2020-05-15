@@ -13,19 +13,18 @@ RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - \
 
 WORKDIR /usr/src/app
 
-COPY app app
-COPY bin bin
-COPY config config
-COPY db db
-COPY lib lib
-COPY vendor vendor
 COPY public/*.html public/
 COPY public/*.png public/
 COPY public/robots* public/
 COPY public/favicon* public/
 COPY public/assets public/assets
 COPY public/packs public/packs
+COPY app app
 COPY vendor vendor
+COPY bin bin
+COPY config config
+COPY db db
+COPY lib lib
 COPY postcss.config.js .
 COPY babel.config.js .
 COPY Rakefile .
