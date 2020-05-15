@@ -4,11 +4,10 @@ desc 'Run local imgproxy server via `docker run`'
 
 namespace :imgproxy do
   task :start => :environment do
-    key  = ENV['IMGPROXY_KEY']
-    salt = ENV['IMGPROXY_SALT']
-    port = ENV['IMGPROXY_PORT']
+    key     = ENV['IMGPROXY_KEY']
+    salt    = ENV['IMGPROXY_SALT']
+    port    = ENV['IMGPROXY_PORT']
     quality = ENV['IMGPROXY_QUALITY']
-    vol  = ENV['IMGPROXY_LOCAL_FILESYSTEM_ROOT']
 
     sh %{docker run -p #{port}:8080 --name imgproxy \
          -e IMGPROXY_LOCAL_FILESYSTEM_ROOT=#{vol} \

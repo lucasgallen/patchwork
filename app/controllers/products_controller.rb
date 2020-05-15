@@ -53,8 +53,6 @@ class ProductsController < ApplicationController
     authorize! :update, Product
     @product ||= product
 
-    maybe_resize_photos!
-
     if @product.update(product_params)
       redirect_to admin_products_path
     else
@@ -63,17 +61,6 @@ class ProductsController < ApplicationController
   end
 
   protected
-
-  def maybe_resize_photos!
-    tempfiles = []
-    tempfiles.push(product_params[:gallery_image]) if product_params[:gallery_image].present?
-    tempfiles += product_params[:detail_images] if product_params[:detail_images].present?
-    tempfiles.map!(&:tempfile)
-
-    tempfiles.each do |file|
-      resize_photo!(file)
-    end
-  end
 
   def product_params
     params.require(:product)
@@ -103,24 +90,5 @@ class ProductsController < ApplicationController
 
   def resolve_layout
      admin_path? ? 'admin' : 'application'
-  end
-
-  def resize_photo!(tempfile, options={})
-    path          = ENV['IMGPROXY_LOCAL_FILESYSTEM_ROOT']
-    imgproxy_temp = Tempfile.new('upload', path, encoding: 'ascii-8bit')
-    signed_path   = ImgProxy.signed_path(tempfile, imgproxy_temp)
-    url           = imgproxy_url(signed_path)
-
-    tempfile.open.truncate(0)
-    tempfile.open.write(URI.open(url).read.force_encoding('utf-8'))
-
-    imgproxy_temp.close
-    imgproxy_temp.unlink
-  end
-
-  def imgproxy_url(signed_path)
-    port = ENV['IMGPROXY_PORT']
-    return "#{ENV['IMGPROXY_HOST']}:#{ENV['IMGPROXY_PORT']}#{signed_path}" if port.present?
-    "#{ENV['IMGPROXY_HOST']}#{signed_path}"
   end
 end
