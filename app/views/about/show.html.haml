@@ -1,13 +1,15 @@
-%div.jumbotron.jumbotron-top.jumbotron-fluid.jumbotron--about
-  %div.container.jumbotron-container
-    %h1.display-4= t('about.title')
-    %p.lead= t('about.lead')
+%div.container-fluid.about-title-container
+  %h1.about-title.pb-5.text-center= t('about.title')
 
-%div.container
-  %p Patchwork about page: social, people, what they do, etc
+%div.container-fluid.px-0.about-description
+  %div.container-fluid.about-container.about-container--sivumbike
+    %p.about-description--sivumbike.about-description--paragraph= t('about.body.sivumbike_html')
+  %div.container-fluid.about-container.about-container--patchwork
+    %h2.mt-1.py-3.text-center= t('about.mission')
+    %p.about-description--patchwork.about-description--paragraph= t('about.body.patchwork_html')
+  %div.container-fluid.about-container.about-container--we.pb-5
+    %p.about-description--we.about-description--paragraph= t('about.body.we')
 
-.vibrant-pastel-square
-  = render :partial => 'decorative_patches/purple_square', :locals => { patch_color: '#8e65a0', image: image_path('textures/vibrant_pastel_detail.jpg') }
 
 - content_for :page_specific_styles do
   = stylesheet_link_tag 'about', media: 'all', 'data-turbolinks-track': 'reload'

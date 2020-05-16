@@ -8,3 +8,80 @@
 .jumbotron--about {
   background-image: url(image-path('patchworks/14.jpg'));
 }
+
+.about-description {
+  padding: 3rem 0 0;
+
+  &--paragraph {
+    font-size: 18px;
+    line-height: 2rem;
+    margin: 0 auto;
+    max-width: 55rem;
+    padding: 3rem 1rem 0;
+    text-align: justify;
+  }
+
+  &--sivumbike {
+    font-size: 1.3rem;
+    padding: 0 0 3rem;
+    text-align: center;
+  }
+}
+
+.about-container {
+  position: relative;
+
+  &--patchwork {
+    background-color: $light-pink;
+    padding-top: 3rem;
+
+    .about-description--paragraph {
+      padding-top: 0;
+    }
+  }
+
+  &--we {
+    background-color: $light-pink;
+  }
+
+  &--sivumbike {
+    z-index: 1;
+
+    &:after {
+      border-left: 1.5rem solid transparent;
+      border-right: 1.5rem solid transparent;
+      border-top: 1rem solid $white;
+      content: '';
+      height: 0;
+      left: calc(50% - 1.5rem);
+      position: absolute;
+      width: 0;
+    }
+  }
+}
+
+.about-title {
+  border-bottom: 1px dashed #e8a2d1;
+  font-size: 4.5rem;
+
+  &-container {
+    background: $purple;
+    color: $light-pink;
+    margin-top: -7rem;
+    overflow: hidden;
+    padding-top: 7rem;
+    text-shadow: 1px 1px 0px #292c31;
+  }
+}
+
+@media (min-width: map-get($grid-breakpoints, "md")) {
+  .about-description {
+    &--paragraph:not(.about-description--sivumbike) {
+      padding: 3rem 3rem 0;
+    }
+
+    &--sivumbike {
+      padding: 0 6rem 3rem;
+    }
+  }
+}
