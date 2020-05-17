@@ -61,7 +61,7 @@
 }
 
 .about-title {
-  border-bottom: 1px dashed #e8a2d1;
+  border-bottom: 1px dashed $light-pink;
   font-size: 4.5rem;
 
   &-container {
@@ -71,6 +71,11 @@
     overflow: hidden;
     padding-top: 7rem;
     text-shadow: 1px 1px 0px #292c31;
+  }
+
+  &--mission {
+    border-bottom: 1px dashed $pink;
+    font-size: 3rem;
   }
 }
 

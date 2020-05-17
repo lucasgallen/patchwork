@@ -13,7 +13,7 @@
       %a.nav-item.nav-link.gallery-nav-item#gallery-filters-tab{ 'data-toggle': 'tab', href: '#gallery-filters', role: 'tab', aria: { controls: 'gallery-filters', selected: 'false' } }
         = t('_filters')
 
-  %div.tab-content.gallery-tab-content.py-2#gallery-tab-content
+  %div.text-center.tab-content.gallery-tab-content.py-2#gallery-tab-content
     %div.tab-pane.gallery-tab-pane.gallery-tab-pane--results.fade.show.active#gallery-results{ role: 'tabpanel', 'aria-labelled-by': 'gallery-results-tab' }
       %h1.d-none.d-lg-block.text-center.gallery-title Gallery
       - if @products.empty?

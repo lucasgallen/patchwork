@@ -242,6 +242,10 @@
   }
 }
 
+.no-results-container {
+  padding: 25vh 3rem 0;
+}
+
 @media(min-width: map-get($grid-breakpoints, "md")) {
   .gallery-card {
     width: calc(50% - 2rem - 1px);
@@ -302,10 +306,12 @@
     & > .tab-pane.gallery-tab-pane {
       display: block;
       opacity: 1;
+      padding: 0 1rem;
 
       &--filters {
         display: inline-block;
         height: calc(100% - 5rem);
+        max-width: 20rem;
         overflow: scroll;
       }
     }

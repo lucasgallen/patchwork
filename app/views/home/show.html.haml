@@ -8,7 +8,7 @@
     %div.col-12.col-md-9
       %div.jumbotron.jumbotron-fluid.jumbotron-gallery.text-center#jumbotron-gallery
         %div.jumbotron-background-container
-          %img.jumbotron-background#jumbotron-background{ 'data-paths': @gallery_images.map{ |i| i.imgproxy_url(width: 870, height: 330) }, 'src': @gallery_images.first.imgproxy_url(width: 870, height: 330) }
+          %img.jumbotron-background#jumbotron-background{ 'data-paths': @gallery_images.map{ |i| i.imgproxy_url(width: 870) }, 'src': @gallery_images.first.imgproxy_url(width: 870) }
         %div.container.jumbotron-container
           %h2.display-4 Gallery
           %p.lead See our selection of fabrics!

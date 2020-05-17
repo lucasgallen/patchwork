@@ -8,11 +8,12 @@
 
 .jumbotron--home {
   background-image: url(image-path('patchworks/01.jpg'));
+  background-position: center;
+  background-size: contain;
 }
 
 .jumbotron-gallery {
-  box-shadow: 0 0 0 1px $white, 0 0 0 3px $purple, 0 0 0 4px $purple, 0 0 0 6px $white;
-  outline: dashed 6px $white;
+  border: dashed 2px #fefdfd;
 
   background: $purple;
   border-radius: 0.5rem;
