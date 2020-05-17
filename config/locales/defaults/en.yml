@@ -1,24 +1,23 @@
 en:
   locale_name: "English"
-  language: 'Language'
-  _about: "About"
+  language: "Language"
+  _about: "About Us"
   _contact: "Contact"
-  dashboard: "Dashboard"
+  _gallery: "Gallery"
+  _dashboard: "Dashboard"
   sign_out: "Sign Out"
   latest: "The Latest"
-  articles: "Articles"
   created: "Created"
   edit: "Edit"
   view: "View"
   view_all: "View All"
-  no_articles: "No articles"
   products: "Products"
   no_products: "No products"
   time:
     days_ago: "%{days} days ago"
     formats:
-      record: '%-d/%-m/%Y %H:%M:%S'
-      publishing: '%-d/%-m/%Y'
+      record: "%-d/%-m/%Y %H:%M:%S"
+      publishing: "%-d/%-m/%Y"
   home:
     title: "Welcome"
     lead: "Let the Queens of Patchwork introduce you to a colorful world of fabric"
@@ -35,3 +34,12 @@ en:
   contact:
     title: "Contact Us"
     lead: "Have any questions or special requests? Please contact us using the form below."
+  gallery:
+    category_filters: "Category Filters"
+    end: "End"
+    filters: "Filters"
+    no_results: "No Results"
+    results: "Results"
+    see_results: "See Results"
+    select_categories: "Select Categories"
+    top: "Top"

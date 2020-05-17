@@ -4,18 +4,18 @@
 %div.d-none.d-lg-block#desktop-gallery-detector{ style: 'height: 0; width: 1px' }
 
 %div.gallery-container
-  %h1.pb-3.d-lg-none.text-center.gallery-title#gallery Gallery
+  %h1.pb-3.d-lg-none.text-center.gallery-title#gallery= t('_gallery')
 
   %nav
     %div.nav.nav-tabs.gallery-nav-tabs#gallery-tab{ role: 'tablist' }
       %a.nav-item.nav-link.gallery-nav-item.active#gallery-results-tab{ 'data-toggle': 'tab', href: '#gallery-results', role: 'tab', aria: { controls: 'gallery-results', selected: 'true' } }
-        = t('_results')
+        = t('gallery.results')
       %a.nav-item.nav-link.gallery-nav-item#gallery-filters-tab{ 'data-toggle': 'tab', href: '#gallery-filters', role: 'tab', aria: { controls: 'gallery-filters', selected: 'false' } }
-        = t('_filters')
+        = t('gallery.filters')
 
   %div.text-center.tab-content.gallery-tab-content.py-2#gallery-tab-content
     %div.tab-pane.gallery-tab-pane.gallery-tab-pane--results.fade.show.active#gallery-results{ role: 'tabpanel', 'aria-labelled-by': 'gallery-results-tab' }
-      %h1.d-none.d-lg-block.text-center.gallery-title Gallery
+      %h1.d-none.d-lg-block.text-center.gallery-title= t('_gallery')
       - if @products.empty?
         = render :partial => 'no_results'
       - else
@@ -25,21 +25,21 @@
     %div.tab-pane.gallery-tab-pane.gallery-tab-pane--filters.fade#gallery-filters{ role: 'tabpanel', 'arial-labelled-by': 'gallery-filters-tab', 'data-turbolinks-permanent': true }
       %div.container.gallery-container-filters
         %div.row
-          %div.col-12.col-sm-4.col-lg-12.text-center.mt-2
-            %a.mb-5.d-block.btn.btn-lg.btn-primary.gallery-results-button#gallery-results-button{ 'data-path': gallery_path, 'data-filters': params[:filter], href: '' }
-              = 'See Results'
-
-          %div.selectpicker-container.col-12.col-sm-8.col-lg-12.text-center
-            %label.h4{ for: 'sdfa' } Category Filters
-            %select.w-100.d-block.selectpicker#gallery-category-filters{ multiple: true, 'data-selected-text-format': 'static', title: 'Select Categories', 'data-style': 'gallery-category-filters', 'data-size': 'auto', 'data-dropup-auto': 'false' }
+          %div.selectpicker-container.col-12.col-sm-8.col-lg-12.text-center.mb-3
+            %label.h4= t('gallery.category_filters')
+            %select.w-100.d-block.selectpicker#gallery-category-filters{ multiple: true, 'data-selected-text-format': 'static', title: t('gallery.select_categories'), 'data-style': 'gallery-category-filters', 'data-size': 'auto', 'data-dropup-auto': 'false' }
               - Category.all.each do |cat|
                 %option{ value: cat.slug }= cat.name
             %a.d-inline-block.btn.clear-filters-button#clear-filters-button{ 'data-disabled': 'true' }
-              = 'Clear Filters'
+              = t('gallery.clear_filters')
             %ul.list-group.list-group-flush#gallery-active-filters
 
+          %div.col-12.col-sm-4.col-lg-12.text-center.mt-2
+            %a.mb-5.d-block.btn.btn-lg.btn-primary.gallery-results-button#gallery-results-button{ 'data-path': gallery_path, 'data-filters': params[:filter], href: '' }
+              = t('gallery.see_results')
+
 %button.btn.btn-primary.btn-lg.gallery-scroll-top#gallery-scroll-top
-  = 'Top'
+  = t('top')
 
 - content_for :turbolinks_pack do
   = javascript_pack_tag 'gallery', 'data-turbolinks-track': 'reload'

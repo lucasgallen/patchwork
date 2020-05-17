@@ -1,13 +1,12 @@
 tr:
   locale_name: "Türkçe"
   language: "Dil"
-  _about: "Hakkında"
+  _about: "Hakkımızda"
   _contact: "İletişim"
-  dashboard: "Gösterge Paneli"
+  _gallery: "Galeri"
+  _dashboard: "Gösterge Paneli"
   sign_out: "Oturumu Kapat"
   latest: "En Son"
-  articles: "Makaleler"
-  no_articles: "Makale yok"
   created: "Yaratılmış"
   edit: "Düzenle"
   view: "Görünüm"
@@ -36,3 +35,8 @@ tr:
     title: "Bize Ulaşın"
     lead: "Herhangi bir sorunuz veya özel isteğiniz var mı? Lütfen aşağıdaki formu kullanarak\
            bize ulaşın."
+  gallery:
+    category_filters: "Category Filters"
+    no_results: "No Results"
+    see_results: "See Results"
+    select_categories: "Select Categories"

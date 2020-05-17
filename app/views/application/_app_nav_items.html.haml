@@ -8,7 +8,7 @@
       = link_to t('_contact'), contact_path, class: 'nav-link--custom'
     - if user_signed_in? && current_user.role == 'admin'
       %li.nav-item
-        = link_to t('dashboard'), admin_root_path, class: 'nav-link--custom'
+        = link_to t('_dashboard'), admin_root_path, class: 'nav-link--custom'
 
   - if user_signed_in?
     = link_to t('sign_out'), destroy_session_path(current_user),
