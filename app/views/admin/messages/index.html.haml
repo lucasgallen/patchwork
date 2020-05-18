@@ -1,0 +1,6 @@
+%div.row.m-5
+  %aside.col-3
+    = render partial: 'aside'
+  %div.col-9
+    = render partial: 'dashboard/messages'
+    = paginate @messages

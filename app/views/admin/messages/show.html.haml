@@ -1,0 +1,28 @@
+%div.mt-5.row 
+  %div.col-sm-12.col-md-7
+    %div.container-fluid.mb-3
+      %h1.h3= @message.title
+    %div.ml-5
+      %div.message-details.mb-3
+        %p.mb-0
+          %strong= "#{t('admin.message.tag')}: "
+          = @message.about
+        %p.mb-0
+          %strong= "#{t('admin.message.from')}: "
+          = @message.author
+        - if @message.phone.present?
+          %p.mb-0
+            %strong= "#{t('admin.message.phone_number')}: "
+            = @message.phone
+        - if @message.email.present?
+          %p.mb-0
+            %strong= "#{t('admin.message.email')}: "
+            = @message.email
+          %span.check-mark
+      %p.mb-3
+        %strong= "#{t('admin.message.replied')}: "
+      %div.ml-2.message-body
+        %strong.ml-n2= "#{t('admin.message.message')}: "
+        %p= @message.body
+  %aside.col-sm-12.col-md-5
+    = render partial: 'aside'

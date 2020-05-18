@@ -6,7 +6,6 @@ tr:
   _about: "Hakkımızda"
   _contact: "İletişim"
   _gallery: "Galeri"
-  _dashboard: "Gösterge Paneli"
   sign_out: "Oturumu Kapat"
   latest: "En Son"
   created: "Yaratılmış"
@@ -33,6 +32,18 @@ tr:
       patchwork_html: "Biz, Kadriye ve Hilal, Süyümbike isminden esinlenerek, kendi telafumuz ile <i>Sivumbike Patchwork’</i>u kurduğumuzda, eskileri hatırlayarak, severek ve anlayarak, yeniye doğru adım atan bir tasarım hayaliyle yola çıktık. Kültürümüzde <i>kırkyama</i> olarak bilinen <i>“patchwork”</i>, tasarlama, yaratma özgürlüğü ve girişimciliği sağlayan bir el emeği ve sanat çeşididir. Ingilizcede <i>“patchwork”</i>, “parça çalışma” veya “parça birleştirme” anlamına gelir. Kırkyamanın başlangıcı da artan parçaların dikilmesidir zaten. <i>Sivumbike Patchwork</i> ile tasarımlarımızı hem hayat buldurmak, hem de ilgilenen veya ilgilenebilecek kitle ile buluşturmayı hedefliyoruz."
       we: "Sekiz senedir tanışıyor olup birlikte “patchwork” yapan iki arkadaşız. Birimizin sekiz, diğerinin ise yirmi senelik bir “patchwork” tecrübe ve birikimi oluştu. Büyüklerimizden öğrendik, sonrasında kendi merakımızla geliştirdik; ve simdi ise birbirimize öğretmeye devam ediyoruz. Renkler, malzemeler, düzenlemeler arasında pekişen arkadaşlığımızı bir iş ortaklığı etrafında sizlerle buluşturmak istedik. Sitemizde, halihazırda bulunan ürünlerimizi satın alabilir, beğendiğiniz tasarımları sipariş verebilirsiniz, veya kırkyama ve “patchwork” hakkında bizimle iletişime geçebilirsiniz."
       we_html: "Sekiz senedir tanışıyor olup birlikte <i>“patchwork”</i> yapan iki arkadaşız. Birimizin sekiz, diğerinin ise yirmi senelik bir <i>“patchwork”</i> tecrübe ve birikimi oluştu. Büyüklerimizden öğrendik, sonrasında kendi merakımızla geliştirdik; ve simdi ise birbirimize öğretmeye devam ediyoruz. Renkler, malzemeler, düzenlemeler arasında pekişen arkadaşlığımızı bir iş ortaklığı etrafında sizlerle buluşturmak istedik. Sitemizde, halihazırda bulunan ürünlerimizi satın alabilir, beğendiğiniz tasarımları sipariş verebilirsiniz, veya kırkyama ve <i>“patchwork”</i> hakkında bizimle iletişime geçebilirsiniz."
+  admin:
+    categories: "Categories"
+    dashboard: "Gösterge Paneli"
+    messages: "Messages"
+    message:
+      email: "Email"
+      from: "From"
+      message: "Message"
+      phone_number: "Phone number"
+      replied: "Replied to"
+      tag: "Tag"
+    products: "Ürünler"
   category:
     form:
       name: "Name"
