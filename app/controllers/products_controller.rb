@@ -75,6 +75,8 @@ class ProductsController < ApplicationController
 
   def product
     raw_product = params[:id] ? Product.find(params[:id]) : new_product
+    return raw_product if admin_path?
+
     Decorators::Product.new(raw_product)
   end
 

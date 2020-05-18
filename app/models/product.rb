@@ -8,11 +8,11 @@ class Product < ApplicationRecord
   paginates_per 6
 
   def height
-    self.facets['height']
+    facets['height']
   end
 
   def width
-    self.facets['width']
+    facets['width']
   end
 
   def description
