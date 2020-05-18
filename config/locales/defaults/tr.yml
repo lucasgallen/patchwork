@@ -1,6 +1,8 @@
 tr:
   locale_name: "Türkçe"
   language: "Dil"
+  english: "İngilizce"
+  turkish: "Türkçe"
   _about: "Hakkımızda"
   _contact: "İletişim"
   _gallery: "Galeri"
@@ -44,4 +46,7 @@ tr:
     see_results: "See Results"
     select_categories: "Select Categories"
   product:
+    form:
+      description: "Ürün Açıklaması..."
+      description_title: "Açıklama"
     size: "Size"

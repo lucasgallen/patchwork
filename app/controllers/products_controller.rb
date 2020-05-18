@@ -64,8 +64,8 @@ class ProductsController < ApplicationController
 
   def product_params
     temp_params = params.require(:product)
-                        .permit(:available, :name, :description, :gallery_image,
-                                :facets, detail_images: [], category_ids: [])
+                        .permit(:available, :name, :description_tr, :description_en,
+                                :gallery_image, :facets, detail_images: [], category_ids: [])
     temp_params.merge(facets: facet_params)
   end
 
@@ -79,7 +79,8 @@ class ProductsController < ApplicationController
   end
 
   def new_product
-    Product.new(name: 'Name', description: 'Product description...')
+    Product.new(name: 'Name', description_tr: I18n.t('product.form.description', locale: :tr),
+                description_en: I18n.t('product.form.description', locale: :en))
   end
 
   def template(action)

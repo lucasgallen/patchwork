@@ -14,4 +14,8 @@ class Product < ApplicationRecord
   def width
     self.facets['width']
   end
+
+  def description
+    self.send("description_#{I18n.locale}")
+  end
 end

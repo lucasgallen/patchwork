@@ -1,4 +1,5 @@
-= form.hidden_field :description, id: 'trix-content'
+= form.hidden_field :description_en, id: 'trix-content-en'
+= form.hidden_field :description_tr, id: 'trix-content-tr'
 
 %div.row.mb-2
   %div.col-sm-12.col-md-4
@@ -47,9 +48,14 @@
           = image_tag image, { class: 'w-25 mr-2 mb-2' }
 
 
-%div.form-group
-  = form.label :description, class: 'form-label'
-  %trix-editor{ input: 'trix-content' }
+%div.row
+  %h2.ml-2.h2= t('product.form.description_title')
+  %div.form-group.col-sm-12.col-md-6
+    = form.label :description_tr, t('turkish'), class: 'form-label'
+    %trix-editor{ input: 'trix-content-tr' }
+  %div.form-group.col-sm-12.col-md-6
+    = form.label :description_en, t('english'), class: 'form-label'
+    %trix-editor{ input: 'trix-content-en' }
 
 %div.form-group.clearfix
   = link_to "Cancel", :back, class: 'btn btn-danger'

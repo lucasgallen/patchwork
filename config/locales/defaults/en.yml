@@ -1,6 +1,8 @@
 en:
   locale_name: "English"
   language: "Language"
+  english: "English"
+  turkish: "Turkish"
   _about: "About Us"
   _contact: "Contact"
   _gallery: "Gallery"
@@ -47,4 +49,7 @@ en:
     select_categories: "Select Categories"
     top: "Top"
   product:
+    form:
+      description: "Product description..."
+      description_title: "Description"
     size: "Size"
