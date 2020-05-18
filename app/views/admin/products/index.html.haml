@@ -7,7 +7,7 @@
     - @products.each do |product|
       %div.media.mb-4.col-sm-12.col-md-6.col-xl-4
         - if product.gallery_image.attached?
-          = image_tag product.gallery_image, class: 'mr-3', style: 'width: 3rem; height: 3rem;'
+          = image_tag product.gallery_image.imgproxy_url(width: 48, height: 48), class: 'mr-3'
         - else
           %div.mr-3.placeholder-image{ style: 'width: 3rem; height: 3rem; font-size: 6px' }
         %div.media-body
