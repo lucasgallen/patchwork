@@ -31,6 +31,9 @@ en:
       patchwork_html: "When we, Kadriye and Hilal, set up the <i>Sivumbike Patchwork</i>, with our own pronunciation of the name Süvümbike, we set off with the idea of a design that would remember, cherish and understand the past, but also a design that would take a step towards the new. “Patchwork”, known as “kırkyama” in our Turkish culture, is an artisanal handicraft and an art that provides the freedom to design and to create with the spirit of entrepreneurship. In English, “patchwork” signifies the work to patch together pieces. The origins of its Turkish sister “kırkyama”, literally “forty patches”, is the act of sewing together old pieces of fabric. With <i>Sivumbike Patchwork</i>, we aim to bring our designs to life and to introduce them to an audience who is or might be interested."
       we: "We are two friends who have been doing patchwork together for eight years. One of us has eight, and the other twenty years of patchwork experience and know-how. We learned how to do patchwork from our elders, developing it with our own curiosity; and now we continue to teach each other. Our friendship grew while discussing colors, materials and fabric arrangement and now we bring it to you, around a small business partnership. Through our website, you can buy from our existing products, order the designs you like, or contact us to discuss patchwork and “kırkyama”."
     lead: "At Sivumbike Patchworks we not only sell patchwork, but we offer keen insights in the patchwork technique"
+  category:
+    form:
+      name: "Name"
   contact:
     title: "Contact Us"
     lead: "Have any questions or special requests? Please contact us using the form below."

@@ -1,6 +1,12 @@
-%div.form-group.w-25
-  = form.label :name, class: 'form-label'
-  = form.text_field :name, class: 'form-control'
+%h2.h5= t('category.form.name')
+
+%div.container-fluid.ml-2
+  %div.form-group.form-inline
+    = form.label :name_tr, 'Turkish:', class: 'form-label d-inline'
+    = form.text_field :name_tr, class: 'form-control d-inline-block ml-2'
+  %div.form-group.form-inline
+    = form.label :name_en, 'English:', class: 'form-label d-inline'
+    = form.text_field :name_en, class: 'form-control d-inline-block ml-2'
 
 %div.form-group.clearfix
   = link_to "Cancel", :back, class: 'btn btn-danger'

@@ -3,16 +3,20 @@ class Category < ApplicationRecord
 
   has_and_belongs_to_many :products
 
+  def name
+    self.send("name_#{I18n.locale}")
+  end
+
   private
 
   def self.top
-    select('categories.id, categories.name, slug, count(products.id) as product_count')
+    select('categories.id, categories.name_tr, categories.name_en, slug, count(products.id) as product_count')
       .joins(:products)
       .group('id')
       .order('product_count desc')
   end
 
   def generate_slug
-    self.slug = self.name.parameterize
+    self.slug = self.name_en.parameterize
   end
 end
