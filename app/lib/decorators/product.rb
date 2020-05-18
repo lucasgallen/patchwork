@@ -12,10 +12,6 @@ class Decorators::Product < SimpleDelegator
     Decorators::ImageCollection.new(@product.detail_images)
   end
 
-  def attached?
-    false
-  end
-
   def dimensions?
     @product.width.present? && @product.height.present?
   end
