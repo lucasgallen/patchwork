@@ -1,6 +1,11 @@
 = form.hidden_field :description_en, id: 'trix-content-en'
 = form.hidden_field :description_tr, id: 'trix-content-tr'
 
+%div.mt-3.mb-5.w-100
+  %div.custom-control.custom-switch.d-inline-block
+    = form.check_box :available, class: 'custom-control-input'
+    = form.label :available, class: 'custom-control-label'
+
 %div.row.mb-2
   %div.col-sm-12.col-md-4
     %div.form-group
@@ -11,19 +16,15 @@
       = form.label :category_ids, 'Categories', class: 'form-label'
       = form.select :category_ids, Category.all.collect {|c| [c.name, c.id] }, {},
         { id: 'product-categories', class: 'd-block', multiple: true }
-  %div.col-md-4.col-sm-1
+  %div.col-md-4
     = form.label :dimensions, class: 'form-label'
-    %div.row.form-group
+    %div.row.form-group{ name: 'product_dimensions' }
       %div.col-6.pr-0
         = form.label 'facets[width]', 'W:', class: 'form-label'
         = form.number_field 'facets[width]', value: @product.width, class: 'w-75  form-control d-inline'
       %div.col-6.pr-0
         = form.label 'facets[height]', 'H:', class: 'form-label'
         = form.number_field 'facets[height]', value: @product.height, class: 'w-75 form-control d-inline'
-%div.mb-5
-  %div.custom-control.custom-switch
-    = form.check_box :available, class: 'custom-control-input'
-    = form.label :available, class: 'custom-control-label'
 
 %div.row#image-uploads
   %div.col-sm-12.col-md-5.col-lg-4
@@ -48,12 +49,12 @@
           = image_tag image, { class: 'w-25 mr-2 mb-2' }
 
 
-%div.row
-  %h2.ml-2.h2= t('product.form.description_title')
-  %div.form-group.col-sm-12.col-md-6
+%div.container-fluid
+  %h2.w-100.ml-2.h2= t('product.form.description_title')
+  %div.form-group.w-100
     = form.label :description_tr, t('turkish'), class: 'form-label'
     %trix-editor{ input: 'trix-content-tr' }
-  %div.form-group.col-sm-12.col-md-6
+  %div.form-group.w-100
     = form.label :description_en, t('english'), class: 'form-label'
     %trix-editor{ input: 'trix-content-en' }
 
