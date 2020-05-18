@@ -1,10 +1,9 @@
-%h1.h1.mt-5.mb-4 Dashboard
-
-%div.container.mb-5
+%div.container.mt-5.mb-5
   %div.row
+    - if @messages.present?
+      %div.col-12.mb-3
+        = render partial: 'messages'
     %div.col-12.col-md-5.mb-5.mb-md-0
       = render partial: 'categories'
     %div.col-12.col-md-5.offset-md-2
       = render partial: 'products'
-    %div.col-12
-      = render partial: 'messages'

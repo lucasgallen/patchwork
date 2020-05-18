@@ -67,3 +67,15 @@ trix-toolbar .trix-button-group.trix-button-group--file-tools {
     font-size: 1em;
   }
 }
+
+.message-card {
+  width: 100%;
+
+  @media(min-width: map-get($grid-breakpoints, "sm")) {
+    width: 45%;
+  }
+
+  @media(min-width: map-get($grid-breakpoints, "lg")) {
+    width: 30%;
+  }
+}
