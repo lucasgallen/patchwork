@@ -43,3 +43,5 @@ en:
     see_results: "See Results"
     select_categories: "Select Categories"
     top: "Top"
+  product:
+    size: "Size"

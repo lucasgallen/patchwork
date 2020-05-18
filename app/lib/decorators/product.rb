@@ -15,4 +15,20 @@ class Decorators::Product < SimpleDelegator
   def attached?
     false
   end
+
+  def dimensions?
+    @product.width.present? && @product.height.present?
+  end
+
+  def dimensions
+    "#{width} x #{height}"
+  end
+
+  def height
+    "#{@product.height}cm"
+  end
+
+  def width
+    "#{@product.width}cm"
+  end
 end

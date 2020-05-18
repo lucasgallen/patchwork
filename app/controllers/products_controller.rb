@@ -63,9 +63,14 @@ class ProductsController < ApplicationController
   protected
 
   def product_params
-    params.require(:product)
-          .permit(:available, :name, :description, :gallery_image,
-                  detail_images: [], category_ids: [])
+    temp_params = params.require(:product)
+                        .permit(:available, :name, :description, :gallery_image,
+                                :facets, detail_images: [], category_ids: [])
+    temp_params.merge(facets: facet_params)
+  end
+
+  def facet_params
+    params.require(:product).require(:facets).permit(:height, :width)
   end
 
   def product

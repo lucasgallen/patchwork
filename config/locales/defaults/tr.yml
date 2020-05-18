@@ -40,3 +40,5 @@ tr:
     no_results: "No Results"
     see_results: "See Results"
     select_categories: "Select Categories"
+  product:
+    size: "Size"

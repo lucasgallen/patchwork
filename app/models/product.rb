@@ -6,4 +6,12 @@ class Product < ApplicationRecord
   has_many :messages
 
   paginates_per 6
+
+  def height
+    self.facets['height']
+  end
+
+  def width
+    self.facets['width']
+  end
 end

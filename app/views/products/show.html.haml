@@ -22,8 +22,12 @@
           - @product.detail_images.to_a.each_with_index do |image, index|
             %li.product-carousel-indicator{ style: "background-image: url(#{image.imgproxy_url(width: 64, height: 64)})", data: { target: '#product-carousel', 'slide-to': index+1 } }
     %div.col-lg-5.col-sm-12
-      %div.trix-content
+      %div.trix-content.mb-3
         = @product.description.html_safe
+      - if @product.dimensions?
+        %div.product-dimensions
+          %strong= "#{t('product.size')}:"
+          = @product.dimensions
       - if user_signed_in? && current_user.role == 'admin'
         %span.btn-group.mt-3
           = link_to t('edit'), edit_admin_product_path(@product), class: 'btn btn-sm btn-warning'

@@ -1,6 +1,6 @@
 = form.hidden_field :description, id: 'trix-content'
 
-%div.row.mb-5
+%div.row.mb-2
   %div.col-sm-12.col-md-4
     %div.form-group
       = form.label :name, class: 'form-label'
@@ -10,10 +10,19 @@
       = form.label :category_ids, 'Categories', class: 'form-label'
       = form.select :category_ids, Category.all.collect {|c| [c.name, c.id] }, {},
         { id: 'product-categories', class: 'd-block', multiple: true }
-  %div.col-md-2.col-sm-1
-    %div.custom-control.custom-switch.py-4
-      = form.check_box :available, class: 'custom-control-input'
-      = form.label :available, class: 'custom-control-label'
+  %div.col-md-4.col-sm-1
+    = form.label :dimensions, class: 'form-label'
+    %div.row.form-group
+      %div.col-6.pr-0
+        = form.label 'facets[width]', 'W:', class: 'form-label'
+        = form.number_field 'facets[width]', value: @product.width, class: 'w-75  form-control d-inline'
+      %div.col-6.pr-0
+        = form.label 'facets[height]', 'H:', class: 'form-label'
+        = form.number_field 'facets[height]', value: @product.height, class: 'w-75 form-control d-inline'
+%div.mb-5
+  %div.custom-control.custom-switch
+    = form.check_box :available, class: 'custom-control-input'
+    = form.label :available, class: 'custom-control-label'
 
 %div.row#image-uploads
   %div.col-sm-12.col-md-5.col-lg-4
