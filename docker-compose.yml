@@ -3,7 +3,8 @@ services:
   nginx:
     image: nginx:1.17.9-alpine
     depends_on:
-      - app
+      - app_staging
+      - app_prod
     ports:
       - "80:80"
       - "443:443"
@@ -14,7 +15,8 @@ services:
       - ./data/certbot/www:/var/www/certbot
     command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
     links:
-      - app
+      - app_staging
+      - app_prod
       - imgproxy
   certbot:
     image: certbot/certbot
@@ -23,18 +25,19 @@ services:
       - ./data/certbot/www:/var/www/certbot
     entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
 
-  app:
-    image: lucasgallen/patchwork_rails_app:latest
-    container_name: 'patchwork_web'
+  app_staging:
+    image: lucasgallen/patchwork_rails_app:staging
+    container_name: 'patchwork_web_staging'
     depends_on:
       - db
       - imgproxy
     environment:
-      DATABASE_USERNAME: ${DATABASE_USERNAME}
-      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
-      PGPASSWORD: ${DATABASE_PASSWORD}
-      DATABASE_NAME: ${DATABASE_NAME}
-      RAILS_ENV: production
+      DATABASE_USERNAME: ${DATABASE_USERNAME_STAGING}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD_STAGING}
+      PGPASSWORD: ${DATABASE_PASSWORD_STAGING}
+      DATABASE_NAME: ${DATABASE_NAME_STAGING}
+      RAILS_ENV: 'staging'
+      RAILS_PORT: ${RAILS_STAGING_PORT}
       BUNDLE_PATH: /usr/local/bundle
       NODE_PATH: node_modules
       RUBYOPT: -W:no-deprecated -W:no-experimental
@@ -49,7 +52,38 @@ services:
       - gems:/usr/local/bundle
       - node_modules:/usr/src/app/node_modules
     expose:
-      - "3002"
+      - ${RAILS_STAGING_PORT}
+    links:
+      - imgproxy
+
+  app_prod:
+    image: lucasgallen/patchwork_rails_app:latest
+    container_name: 'patchwork_web'
+    depends_on:
+      - db
+      - imgproxy
+    environment:
+      DATABASE_USERNAME: ${DATABASE_USERNAME}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      PGPASSWORD: ${DATABASE_PASSWORD}
+      DATABASE_NAME: ${DATABASE_NAME}
+      RAILS_ENV: 'production'
+      RAILS_PORT: ${RAILS_PROD_PORT}
+      BUNDLE_PATH: /usr/local/bundle
+      NODE_PATH: node_modules
+      RUBYOPT: -W:no-deprecated -W:no-experimental
+      DATABASE_HOST: db
+      IMGPROXY_HOST: ${IMGPROXY_HOST}
+      IMGPROXY_PORT: 8080
+      IMGPROXY_KEY: ${IMGPROXY_KEY}
+      IMGPROXY_SALT: ${IMGPROXY_SALT}
+    volumes:
+      - .:/app
+      - ./data/nginx/conf.d:/usr/src/app/data/nginx/conf.d
+      - gems:/usr/local/bundle
+      - node_modules:/usr/src/app/node_modules
+    expose:
+      - ${RAILS_PROD_PORT}
     links:
       - imgproxy
 

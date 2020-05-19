@@ -25,9 +25,10 @@ else
     # db does not exist; setup db
     # $? is 1
     bin/rails db:setup
+    bin/rails db:migrate
 fi
 
-bin/rails s -e $RAILS_ENV -p 3002
+bin/rails s -e $RAILS_ENV -p $RAILS_PORT
 
 # Then exec the container's main process (what's set as CMD in the Dockerfile).
 exec "$@"
