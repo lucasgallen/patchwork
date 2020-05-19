@@ -1,3 +1,4 @@
+require("bootstrap/js/dist/modal")
 require("bootstrap/js/dist/carousel")
 
 class Product {

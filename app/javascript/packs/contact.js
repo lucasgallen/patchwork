@@ -2,14 +2,21 @@ require("bootstrap/js/dist/tab")
 
 class ContactForm {
   constructor() {
+    this.MESSAGE_SENT_TIMEOUT = 3000; // in milliseconds
+
     this.$aboutSelect = $('#contact-about-select');
+    this.$aboutHidden = $('#message_product_id');
     this.$productInput = $('#product');
     this.$form = $('#contact-form');
     this.$contactContent = $('#contact-form-content');
     this.$successContent = $('#contact-form-success');
+    this.$productModal = $('#product-message-modal');
+    this.$modalOpenBtn = $('#product-message-open-btn');
+    this.$modalCloseBtn = this.$productModal.find('.close');
 
+    this.about = this.$aboutSelect.length ? this.$aboutSelect : this.$aboutHidden;
     this.$inputs = {
-      about: this.$aboutSelect,
+      about: this.about,
       author: $('#message_author'),
       phone: $('#message_phone'),
       email: $('#message_email'),
@@ -21,7 +28,8 @@ class ContactForm {
   }
 
   reset() {
-    this.$aboutSelect.off('change');
+    if (this.$aboutSelect.length) this.$aboutSelect.off('change');
+    this.$form.off('submit');
   }
 
   init() {
@@ -41,6 +49,7 @@ class ContactForm {
 
       if (this.isValid()) {
         this.sendMessage(url, data);
+        return false;
       }
     });
 
@@ -86,14 +95,38 @@ class ContactForm {
       data: data,
       dataType: 'json',
       success: data => {
-        this.$contactContent.fadeOut({
-          complete: () => this.$successContent.removeClass('fade')
-        });
+        this.sendMessageSuccess();
       },
       error: err => {
         console.log(err);
       }
     });
+
+    this.transitionLoadingState();
+  }
+
+  sendMessageSuccess() {
+    this.$contactContent.fadeOut({
+      complete: () => this.$successContent.removeClass('fade'),
+    });
+
+    this.transitionMessageSent();
+  }
+
+  transitionLoadingState() {
+    this.$productModal.addClass('loading');
+  }
+
+  transitionMessageSent() {
+    this.$productModal.removeClass('loading');
+    this.$productModal.addClass('success');
+
+    setTimeout(() => {
+      const sentCopy = this.$modalOpenBtn.data('success-message');
+      this.$modalOpenBtn.text(sentCopy);
+      this.$modalOpenBtn.attr('disabled', 'disabled');
+      this.$modalCloseBtn.trigger('click');
+    }, this.MESSAGE_SENT_TIMEOUT);
   }
 }
 

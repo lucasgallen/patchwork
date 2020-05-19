@@ -106,3 +106,16 @@ body {
     font-size: 1em;
   }
 }
+
+.product-message-loading-button {
+  width: 0;
+  cursor: default;
+}
+
+.checkmark {
+  border-bottom: 1rem solid currentColor;
+  border-right: 1rem solid currentColor;
+  height: 8rem;
+  transform: rotate(45deg);
+  width: 3.5rem;
+}

@@ -4,6 +4,7 @@ class MessagesController < ApplicationController
 
   def create
     message = Message.new(message_params)
+    message.product = Product.find(message_params[:product_id])
 
     if message.save
       render json: { status: 'success' }
@@ -31,7 +32,7 @@ class MessagesController < ApplicationController
   def message_params
     params.require(:message).permit(
       :author, :email, :phone, :about, :title,
-      :body, :product)
+      :body, :product_id)
   end
 
   def message

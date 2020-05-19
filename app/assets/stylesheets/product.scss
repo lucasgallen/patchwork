@@ -3,7 +3,9 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 @import "bootstrap_toolbox";
+@import "bootstrap/scss/modal";
 @import "bootstrap/scss/carousel";
+@import "bootstrap/scss/spinners";
 
 .image-container {
   height: 0;
@@ -108,4 +110,114 @@
       border-bottom: 1rem solid transparent;
     }
   }
+}
+
+.product-message-modal {
+  &-header {
+    border: 0;
+  }
+
+  &-title {
+    font-size: 2rem;
+  }
+
+  &-close {
+    background: transparent;
+    border: 0;
+    float: right;
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: $black;
+    text-shadow: 0 1px 0 $white;
+    opacity: .5;
+  }
+
+  &-body {
+  }
+
+  .product-message-loading-button:disabled {
+    opacity: 0;
+    transition: opacity 0.2s linear;
+  }
+
+  &.loading {
+    .product-message-loading-container {
+      bottom: 0;
+      opacity: 1;
+    }
+
+    .message-form-product-fields {
+      filter: blur(1px);
+    }
+
+    .product-message-submit-button {
+      display: none;
+    }
+
+    .product-message-loading-button {
+      display: block;
+      opacity: 0.65;
+      width: auto;
+    }
+  }
+
+  &.success {
+    .product-message-success {
+      bottom: 0;
+      opacity: 1;
+    }
+
+    .contact-form {
+      opacity: 0;
+    }
+  }
+}
+
+.contact-form {
+  opacity: 1;
+  transition: opacity 0.2s linear;
+}
+
+.product-message {
+  &-loading {
+    &-container {
+      bottom: 100%;
+      opacity: 0;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transition: opacity 0.2s linear;
+      z-index: 1;
+    }
+
+    &-spinner {
+      animation-duration: 5s;
+      animation-timing-function: ease-in-out;
+      border: 1px dashed currentColor;
+      border-right-color: transparent;
+      color: $purple;
+      height: 6rem;
+      width: 6rem;
+    }
+  }
+
+  &-success {
+    bottom: 100%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: opacity 0.2s linear;
+  }
+
+  &-open-btn:disabled {
+    cursor: default;
+  }
+}
+
+.message-form-product-fields {
+  transition: filter 0.2s linear;
 }

@@ -27,4 +27,15 @@ class Decorators::Product < SimpleDelegator
   def width
     "#{@product.width}cm"
   end
+
+  def message_cta
+    return I18n.t('product.order_now') unless @product.available?
+
+    I18n.t('product.for_sale')
+  end
+
+  def message_form_options
+    message = Message.new
+    { about_select: false, message: message, product: @product }
+  end
 end

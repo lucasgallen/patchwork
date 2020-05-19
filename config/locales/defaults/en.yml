@@ -6,6 +6,7 @@ en:
   _about: "About Us"
   _contact: "Contact"
   _gallery: "Gallery"
+  _loading: "Loading..."
   sign_out: "Sign Out"
   latest: "The Latest"
   created: "Created"
@@ -60,7 +61,10 @@ en:
     select_categories: "Select Categories"
     top: "Top"
   product:
+    for_sale: "For Sale"
     form:
       description: "Product description..."
       description_title: "Description"
+    message_sent: "Message sent!"
+    order_now: "Order Now"
     size: "Size"

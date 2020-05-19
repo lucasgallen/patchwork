@@ -6,6 +6,7 @@ tr:
   _about: "Hakkımızda"
   _contact: "İletişim"
   _gallery: "Galeri"
+  _loading: "Loading..."
   sign_out: "Oturumu Kapat"
   latest: "En Son"
   created: "Yaratılmış"
@@ -57,7 +58,10 @@ tr:
     see_results: "See Results"
     select_categories: "Select Categories"
   product:
+    for_sale: "For Sale"
     form:
       description: "Ürün Açıklaması..."
       description_title: "Açıklama"
+    message_sent: "Message sent!"
+    order_now: "Order Now"
     size: "Size"

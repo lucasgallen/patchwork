@@ -1,0 +1,55 @@
+= form_with model: message, url: messages_path, class: 'needs-validation mt-2 contact-form', id: 'contact-form', html: { novalidate: true }, data: { url: messages_url } do |form|
+  - if product
+    = form.hidden_field :product_id, value: product.id
+
+  %div.form-row.form-group.justify-content-center
+    - if about_select
+      %div.col-12.col-md-4.input-group
+        %div.input-group-prepend
+          = form.label :about, 'About', class: 'input-group-text', for: 'contact-about-select'
+        = form.select :about, Message.about_options.map{ |o| [o.titleize, o] }, { include_blank: true}, { id: 'contact-about-select', class: 'custom-select', required: true }
+        %div.invalid-feedback
+          = 'What is this message about?'
+    - else
+      = form.hidden_field :about, value: 'product'
+  %div.d-flex.justify-content-around.product-message-loading-container
+    %div.d-flex.spinner-border.align-self-center.product-message-loading-spinner{ role: 'status' }
+      %span.sr-only= t('_loading')
+  %div.message-form-product-fields
+    %div.form-row.form-group
+      %div.col-12.col-md-3
+        = form.label :author, class: 'form-label sr-only'
+        = form.text_field :author, placeholder: 'Name', class: 'form-control', required: true
+        %div.invalid-feedback
+          = 'Please give us your name'
+      %div.col-12.col-md-3
+        = form.label :phone, class: 'form-label sr-only'
+        = form.phone_field :phone, placeholder: 'Phone Number', class: 'form-control', data: { group: 1 }
+        %div.invalid-feedback
+          = 'Please provide a means for us to get back to you.'
+      %div.col-12.col-md-6
+        = form.label :email, class: 'form-label sr-only'
+        = form.email_field :email, placeholder: 'enter@your.email', class: 'form-control', data: { group: 1 }
+        %div.invalid-feedback
+          = 'Please provide a means for us to get back to you.'
+    %div.form-row.form-group
+      %div.col-5
+        = form.label :title, class: 'form-lable sr-only'
+        = form.text_field :title, placeholder: 'Message Title', class: 'form-control', required: true
+        %div.invalid-feedback
+          = 'Please title your message'
+    %div.form-row.form-group
+      %div.col-12
+        = form.label :body, class: 'form-label sr-only'
+        = form.text_area :body, rows: 7, placeholder: 'Write your message here...', class: 'form-control w-100', required: true
+        %div.invalid-feedback
+          = 'You don\'t have anything to say?'
+
+  %div.form-group.clearfix
+    = form.submit "Send", class: 'btn btn-success float-right product-message-submit-button', id: 'message-submit-button'
+    %button.product-message-loading-button.btn.btn-success.float-right{ disabled: 'disabled' }
+      %span.spinner-border.spinner-border-sm{ role: 'status', 'aria-hidden': 'true' }
+      %span= 'Sending...'
+
+  - content_for :turbolinks_pack do
+    = javascript_pack_tag 'contact', 'data-turbolinks-track': 'reload'

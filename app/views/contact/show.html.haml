@@ -21,7 +21,7 @@
       %div.tab-pane.fade#request{ role: 'tabpanel', 'aria-labelledby': 'request-tab' }
         %p= 'Have a special request for the Queens of Patchwork? Please send us a message and we will try to get back to you!'
 
-    = render :partial => 'form', locals: { message: @message, about_select: true, product: false }
+    = render :partial => 'messages/form', locals: { message: @message, about_select: true, product: false }
   %div.fade#contact-form-success
     %p.h3.my-5= 'Thank you for contacting us!'
 
