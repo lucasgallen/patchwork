@@ -87,7 +87,7 @@ en:
     from: "From"
     invalid_feedback:
       about: "What is this message about?"
-      body: "You don\'t have anything to say?"
+      body: "You don't have anything to say?"
       email: "Please provide a means for us to get back to you."
       name: "Please give us your name"
       phone_number: "Please provide a means for us to get back to you."
