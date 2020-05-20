@@ -2,6 +2,8 @@
   background: $purple;
   border-top: 1px dashed $white;
   height: 5rem;
+  position: relative;
+  z-index: 3;
 
   &-separator {
     border-left: 2px dashed $pink;
