@@ -1,5 +1,24 @@
-%h2.h3= "#{t('admin.messages')}:"
-%div.ml-2
-  %h3.h5 By Category
-  %h3.h5 By Tag
-  %h3.h5 By Product
+%aside.col-sm-12.col-lg-3.pl-0
+  %h2.w-100.text-center.h3= "#{t('admin.messages')}:"
+  %div.d-flex.flex-wrap.justify-content-around
+    %div.message-aside-list-group.mb-3.d-flex.flex-column.text-center
+      %h3.h5= 'By Category'
+      %div.list-group.list-group-flush
+        - @count_by_category.each do |cat|
+          %a.message-aside-list-group-item.list-group-item.list-group-item-action.d-flex.justify-content-between.align-items-center{ href: admin_messages_path(filter_type: 'category', keyword: cat.slug), class: "#{'active' if @view.keyword?(cat.slug)}" }
+            = cat.name
+            %span.badge.badge-primary.badge-pill= cat.message_count
+    %div.message-aside-list-group.mb-3.mx-1.d-flex.flex-column.text-center
+      %h3.h5= 'By Tag'
+      %div.list-group.list-group-flush
+        - @count_by_tag.each do |message|
+          %a.message-aside-list-group-item.list-group-item.list-group-item-action.d-flex.justify-content-between.align-items-center{ href: admin_messages_path(filter_type: 'tag', keyword: message.about), class: "#{'active' if @view.keyword?(message.about)}"  }
+            = message.about
+            %span.badge.badge-primary.badge-pill= message.tag_count
+    %div.message-aside-list-group.mb-3.d-flex.flex-column.text-center
+      %h3.h5= 'By Product'
+      %div.list-group.list-group-flush
+        - @count_by_product.each do |product|
+          %a.message-aside-list-group-item.list-group-item.list-group-item-action.d-flex.justify-content-between.align-items-center{ href: admin_messages_path(filter_type: 'product', keyword: product.id), class: "#{'active' if @view.keyword?(product.id)}" }
+            = product.name
+            %span.badge.badge-primary.badge-pill= product.message_count

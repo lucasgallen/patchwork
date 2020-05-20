@@ -71,11 +71,35 @@ trix-toolbar .trix-button-group.trix-button-group--file-tools {
 .message-card {
   width: 100%;
 
-  @media(min-width: map-get($grid-breakpoints, "sm")) {
+  @media(min-width: map-get($grid-breakpoints, "md")) {
     width: 45%;
   }
 
+  @media(min-width: map-get($grid-breakpoints, "xl")) {
+    width: 33%;
+  }
+
+  &-body {
+    height: 6.5rem;
+    overflow: hidden;
+  }
+}
+
+.message-aside-list-group {
+  width: 100%;
+
+  @media(min-width: map-get($grid-breakpoints, "sm")) {
+    width: 49%;
+  }
+
   @media(min-width: map-get($grid-breakpoints, "lg")) {
-    width: 30%;
+    width: 100%
+  }
+
+  &-item.active {
+    .badge {
+      background-color: $white;
+      color: $blue;
+    }
   }
 }

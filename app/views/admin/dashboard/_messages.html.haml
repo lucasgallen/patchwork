@@ -1,16 +1,34 @@
 %h2.mb-3.h2.text-center
-  = link_to t('dashboard.messages'), admin_messages_path, class: 'text-reset'
+  = link_to t('dashboard.messages'), admin_messages_path, class: 'text-reset d-block d-md-inline'
+  - if @view.title_present?
+    %strong.ml-3= "#{@view.results_title[:label]}: "
+    %span.text-nowrap= @view.results_title[:keyword]
 
 %div.container-fluid.d-flex.justify-content-around.flex-wrap
-  - @messages.each do |message|
-    %div.card.message-card.mb-4
-      %div.card-body
-        %h5.card-title
-          = message.title
-        %h6.card-subtitle.mb-2.text-muted
-          = message.about
-        %h6.card-subtitle.mb-2.text-muted
-          = message.author
-        %p.card-text
-          = message.body
-        = link_to t('admin.view_message'), admin_message_path(message), class: 'card-link stretched-link'
+  - @messages.each_with_index do |message, index|
+    - if index == 0
+      %div.card.message-card.mb-4.mr-2.flex-grow-1.w-100
+        %div.card-body
+          %h5.card-title
+            = message.title
+          %h6.card-subtitle.mb-2.text-muted
+            = message.about
+          %h6.card-subtitle.mb-2.text-muted
+            = message.author
+          %p.card-text.message-card-body
+            %small.text-italics.d-block= l(message.created_at, format: :record)
+            = message.body
+          = link_to t('admin.view_message'), admin_message_path(message), class: 'card-link stretched-link'
+    - else
+      %div.card.message-card.mb-4.mr-2.flex-grow-1
+        %div.card-body
+          %h5.card-title
+            = message.title
+          %h6.card-subtitle.mb-2.text-muted
+            = message.about
+          %h6.card-subtitle.mb-2.text-muted
+            = message.author
+          %p.card-text.message-card-body
+            %small.text-italics.d-block= l(message.created_at, format: :record)
+            = message.body
+          = link_to t('admin.view_message'), admin_message_path(message), class: 'card-link stretched-link'

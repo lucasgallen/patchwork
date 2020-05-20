@@ -45,6 +45,7 @@ tr:
       replied: "Replied to"
       tag: "Tag"
     products: "Ürünler"
+    product_not_found: "Product not found"
   category:
     form:
       name: "Name"

@@ -18,4 +18,13 @@ class Product < ApplicationRecord
   def description
     self.send("description_#{I18n.locale}")
   end
+
+  private
+
+  def self.message_count
+    select('products.id, products.name, count(messages.id) as message_count')
+      .joins(:messages)
+      .group('id')
+      .order('message_count desc')
+  end
 end

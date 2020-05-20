@@ -16,6 +16,12 @@ class Category < ApplicationRecord
       .order('product_count desc')
   end
 
+  def self.message_count
+    select('categories.id, categories.name_tr, categories.name_en, slug, count(messages.id) as message_count')
+      .joins({ :products => :messages })
+      .group('id')
+  end
+
   def generate_slug
     self.slug = self.name_en.parameterize
   end

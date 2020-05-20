@@ -16,18 +16,63 @@ class MessagesController < ApplicationController
   def show
     authorize! :show, Message
     @message ||= message
+    @view = Decorators::Admin::MessagesView.new(params)
+
+    @count_by_category = messages_category_count
+    @count_by_tag = messages_tag_count
+    @count_by_product = messages_product_count
 
     render template: template('show')
   end
 
   def index
     authorize! :index, Message
-    @messages = Message.all.order(:created_at).page(params[:page])
+    @messages ||= messages.order(created_at: :desc).page(params[:page])
+    @view = Decorators::Admin::MessagesView.new(params)
+
+    @count_by_category = messages_category_count
+    @count_by_tag = messages_tag_count
+    @count_by_product = messages_product_count
+
+    @filter_type = params[:filter_type]
+    @keyword = params[:keyword]
 
     render template: template('index')
   end
 
   private
+
+  def messages
+    type = params[:filter_type]
+    keyword = params[:keyword]
+    return Message.all unless type.present?
+
+    send("messages_by_#{type}", keyword)
+  end
+
+  def messages_by_category(slug)
+    Message.by_category(slug)
+  end
+
+  def messages_by_tag(tag_name)
+    Message.by_tag(tag_name)
+  end
+
+  def messages_by_product(product_id)
+    Message.by_product(product_id)
+  end
+
+  def messages_category_count
+    Category.message_count
+  end
+
+  def messages_tag_count
+    Message.count_by_tag
+  end
+
+  def messages_product_count
+    Product.message_count
+  end
 
   def message_params
     params.require(:message).permit(
