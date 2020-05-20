@@ -35,7 +35,10 @@ tr:
       we_html: "Sekiz senedir tanışıyor olup birlikte <i>“patchwork”</i> yapan iki arkadaşız. Birimizin sekiz, diğerinin ise yirmi senelik bir <i>“patchwork”</i> tecrübe ve birikimi oluştu. Büyüklerimizden öğrendik, sonrasında kendi merakımızla geliştirdik; ve simdi ise birbirimize öğretmeye devam ediyoruz. Renkler, malzemeler, düzenlemeler arasında pekişen arkadaşlığımızı bir iş ortaklığı etrafında sizlerle buluşturmak istedik. Sitemizde, halihazırda bulunan ürünlerimizi satın alabilir, beğendiğiniz tasarımları sipariş verebilirsiniz, veya kırkyama ve <i>“patchwork”</i> hakkında bizimle iletişime geçebilirsiniz."
   admin:
     categories: "Categories"
+    category_not_found: "Category not found"
+    create_new: "Create New"
     dashboard: "Gösterge Paneli"
+    edit: "Edit"
     messages: "Messages"
     message:
       email: "Email"
@@ -44,9 +47,10 @@ tr:
       phone_number: "Phone number"
       replied: "Replied to"
       tag: "Tag"
+    page: "Page"
     products: "Ürünler"
     product_not_found: "Product not found"
-    category_not_found: "Category not found"
+    view_messages: "View Messages"
   category:
     form:
       name: "Name"

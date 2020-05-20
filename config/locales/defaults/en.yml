@@ -35,7 +35,10 @@ en:
     lead: "At Sivumbike Patchworks we not only sell patchwork, but we offer keen insights in the patchwork technique"
   admin:
     categories: "Categories"
+    category_not_found: "Category not found"
+    create_new: "Create New"
     dashboard: "Dashboard"
+    edit: "Edit"
     messages: "Messages"
     message:
       email: "Email"
@@ -44,9 +47,10 @@ en:
       phone_number: "Phone number"
       replied: "Replied to"
       tag: "Tag"
+    page: "Page"
     products: "Products"
     product_not_found: "Product not found"
-    category_not_found: "Category not found"
+    view_messages: "View Messages"
   category:
     form:
       name: "Name"
