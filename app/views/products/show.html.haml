@@ -16,10 +16,10 @@
                 %img{ src: image.imgproxy_url(width: 522, height: 300), class: 'd-block w-100 product-carousel-image' }
         %a.product-carousel-control.carousel-control-prev{ href: '#product-carousel', role: 'button', 'data-slide': 'prev' }
           %span.carousel-control-prev-icon.product-carousel-control-icon{ 'aria-hidden': true }
-          %span.sr-only Prev
+          %span.sr-only= t('product.prev')
         %a.product-carousel-control.carousel-control-next{ href: '#product-carousel', role: 'button', 'data-slide': 'next' }
           %span.carousel-control-next-icon.product-carousel-control-icon{ 'aria-hidden': true }
-          %span.sr-only Next
+          %span.sr-only= t('product.next')
       %ol.carousel-indicators#carousel-indicators
         - if @product.gallery_image.attached?
           %li.product-carousel-indicator.active{ style: "background-image: url(#{@product.gallery_image.imgproxy_url(width: 64, height: 64)})", data: { target: '#product-carousel', 'slide-to': 0 } }
@@ -35,7 +35,7 @@
           = @product.dimensions
       - if user_signed_in? && current_user.role == 'admin'
         %span.btn-group.mt-3
-          = link_to t('edit'), edit_admin_product_path(@product), class: 'btn btn-sm btn-warning'
+          = link_to t('admin.edit'), edit_admin_product_path(@product), class: 'btn btn-sm btn-warning'
 
 %div.modal.product-message-modal.message-form-container.fade#product-message-modal{ 'data-keyboard': 'false', tabindex: '-1', role: 'dialog', aria: {labelledby: 'productMessageLabel', hidden: 'true'} }
   = render partial: 'messages/modal', locals: { label: 'productMessageLabel' }

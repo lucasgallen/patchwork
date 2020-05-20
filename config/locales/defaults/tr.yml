@@ -1,35 +1,13 @@
 tr:
-  locale_name: "Türkçe"
-  language: "Dil"
-  english: "İngilizce"
-  turkish: "Türkçe"
-  _about: "Hakkımızda"
-  _contact: "İletişim"
-  _gallery: "Galeri"
-  _loading: "Loading..."
-  sign_out: "Oturumu Kapat"
-  latest: "En Son"
-  created: "Yaratılmış"
-  view: "Görünüm"
-  view_all: "Hepsini Gör"
-  products: "Ürünler"
-  no_products: "Ürün yok"
-  time:
-    days_ago: "%{days} gün önce"
-    formats:
-      record: '%-d/%-m/%Y %H:%M:%S'
-      publishing: '%-d/%-m/%Y'
-  home:
-    title: "Hoşgeldiniz"
-    lead: "Patchwork Sivumbike sizi renkli bir kumaş dünyasına tanıtsın"
+  about_us: "Hakkımızda"
   about:
     title: "Hakkımızda"
     mission: "Hedefimiz"
     body:
-      sivumbike: "Sivumbike, bir başka söyleyişle ile Suyumbike veya Süyümbike, Tatar halkı için bir özgürlük simgesidir. Süyümbike, aslen Nogay soyundan gelen bir asilzade kızıdır. Güzelligi, fedakârlığı ve kahramanlığı ile dillere destan olan Süyümbike, Tatar Hanlığının Rus istilasına karşı verdiği kararlı mücadelesini sembolize de eder. Halkına öncülük etmek için askerlerinin yanında, düşmanlarına karşı omuz omuza savaştığı söylenir bu “büyük ruhlu kadının”. Fakat 1553’de Kazan Hanlığı, Rus Çarı Korkunç İvan’ın eline geçtiğinde, Süyümbike’de Korkunç İvan’ın eline düşer... 1554’te Moskova’da esarette hayatını kaybeden Süyümbike, bugün dahi Tatar milletinin anası olarak özlemle anılır. Efsaneler, kahramaklık ve kahır dolu şarkılar sayesinde toplumun zihninden asla silinmeyecek bir yer edinmiştir. Bugünlerde, Kazan’da bir çok kadın, kızlarına gururla Süyümbike adını vermeye devam eder."
-      sivumbike_html: "Sivumbike, bir başka söyleyişle ile <i>Suyumbike</i> veya <i>Süyümbike</i>, Tatar halkı için bir özgürlük simgesidir. Süyümbike, aslen Nogay soyundan gelen bir asilzade kızıdır. Güzelligi, fedakârlığı ve kahramanlığı ile dillere destan olan Süyümbike, Tatar Hanlığının Rus istilasına karşı verdiği kararlı mücadelesini sembolize de eder. Halkına öncülük etmek için askerlerinin yanında, düşmanlarına karşı omuz omuza savaştığı söylenir bu <i>“büyük ruhlu kadının”</i>. Fakat 1553’de Kazan Hanlığı, Rus Çarı Korkunç İvan’ın eline geçtiğinde, Süyümbike’de Korkunç İvan’ın eline düşer... 1554’te Moskova’da esarette hayatını kaybeden Süyümbike, bugün dahi Tatar milletinin anası olarak özlemle anılır. Efsaneler, kahramaklık ve kahır dolu şarkılar sayesinde toplumun zihninden asla silinmeyecek bir yer edinmiştir. Bugünlerde, Kazan’da bir çok kadın, kızlarına gururla <i>Süyümbike</i> adını vermeye devam eder."
       patchwork: "Biz, Kadriye ve Hilal, Süyümbike isminden esinlenerek, kendi telafumuz ile Sivumbike Patchwork’u kurduğumuzda, eskileri hatırlayarak, severek ve anlayarak, yeniye doğru adım atan bir tasarım hayaliyle yola çıktık. Kültürümüzde kırkyama olarak bilinen “patchwork”, tasarlama, yaratma özgürlüğü ve girişimciliği sağlayan bir el emeği ve sanat çeşididir. Ingilizcede “patchwork”, “parça çalışma” veya “parça birleştirme” anlamına gelir. Kırkyamanın başlangıcı da artan parçaların dikilmesidir zaten. Sivumbike Patchwork ile tasarımlarımızı hem hayat buldurmak, hem de ilgilenen veya ilgilenebilecek kitle ile buluşturmayı hedefliyoruz."
       patchwork_html: "Biz, Kadriye ve Hilal, Süyümbike isminden esinlenerek, kendi telafumuz ile <i>Sivumbike Patchwork’</i>u kurduğumuzda, eskileri hatırlayarak, severek ve anlayarak, yeniye doğru adım atan bir tasarım hayaliyle yola çıktık. Kültürümüzde <i>kırkyama</i> olarak bilinen <i>“patchwork”</i>, tasarlama, yaratma özgürlüğü ve girişimciliği sağlayan bir el emeği ve sanat çeşididir. Ingilizcede <i>“patchwork”</i>, “parça çalışma” veya “parça birleştirme” anlamına gelir. Kırkyamanın başlangıcı da artan parçaların dikilmesidir zaten. <i>Sivumbike Patchwork</i> ile tasarımlarımızı hem hayat buldurmak, hem de ilgilenen veya ilgilenebilecek kitle ile buluşturmayı hedefliyoruz."
+      sivumbike: "Sivumbike, bir başka söyleyişle ile Suyumbike veya Süyümbike, Tatar halkı için bir özgürlük simgesidir. Süyümbike, aslen Nogay soyundan gelen bir asilzade kızıdır. Güzelligi, fedakârlığı ve kahramanlığı ile dillere destan olan Süyümbike, Tatar Hanlığının Rus istilasına karşı verdiği kararlı mücadelesini sembolize de eder. Halkına öncülük etmek için askerlerinin yanında, düşmanlarına karşı omuz omuza savaştığı söylenir bu “büyük ruhlu kadının”. Fakat 1553’de Kazan Hanlığı, Rus Çarı Korkunç İvan’ın eline geçtiğinde, Süyümbike’de Korkunç İvan’ın eline düşer... 1554’te Moskova’da esarette hayatını kaybeden Süyümbike, bugün dahi Tatar milletinin anası olarak özlemle anılır. Efsaneler, kahramaklık ve kahır dolu şarkılar sayesinde toplumun zihninden asla silinmeyecek bir yer edinmiştir. Bugünlerde, Kazan’da bir çok kadın, kızlarına gururla Süyümbike adını vermeye devam eder."
+      sivumbike_html: "Sivumbike, bir başka söyleyişle ile <i>Suyumbike</i> veya <i>Süyümbike</i>, Tatar halkı için bir özgürlük simgesidir. Süyümbike, aslen Nogay soyundan gelen bir asilzade kızıdır. Güzelligi, fedakârlığı ve kahramanlığı ile dillere destan olan Süyümbike, Tatar Hanlığının Rus istilasına karşı verdiği kararlı mücadelesini sembolize de eder. Halkına öncülük etmek için askerlerinin yanında, düşmanlarına karşı omuz omuza savaştığı söylenir bu <i>“büyük ruhlu kadının”</i>. Fakat 1553’de Kazan Hanlığı, Rus Çarı Korkunç İvan’ın eline geçtiğinde, Süyümbike’de Korkunç İvan’ın eline düşer... 1554’te Moskova’da esarette hayatını kaybeden Süyümbike, bugün dahi Tatar milletinin anası olarak özlemle anılır. Efsaneler, kahramaklık ve kahır dolu şarkılar sayesinde toplumun zihninden asla silinmeyecek bir yer edinmiştir. Bugünlerde, Kazan’da bir çok kadın, kızlarına gururla <i>Süyümbike</i> adını vermeye devam eder."
       we: "Sekiz senedir tanışıyor olup birlikte “patchwork” yapan iki arkadaşız. Birimizin sekiz, diğerinin ise yirmi senelik bir “patchwork” tecrübe ve birikimi oluştu. Büyüklerimizden öğrendik, sonrasında kendi merakımızla geliştirdik; ve simdi ise birbirimize öğretmeye devam ediyoruz. Renkler, malzemeler, düzenlemeler arasında pekişen arkadaşlığımızı bir iş ortaklığı etrafında sizlerle buluşturmak istedik. Sitemizde, halihazırda bulunan ürünlerimizi satın alabilir, beğendiğiniz tasarımları sipariş verebilirsiniz, veya kırkyama ve “patchwork” hakkında bizimle iletişime geçebilirsiniz."
       we_html: "Sekiz senedir tanışıyor olup birlikte <i>“patchwork”</i> yapan iki arkadaşız. Birimizin sekiz, diğerinin ise yirmi senelik bir <i>“patchwork”</i> tecrübe ve birikimi oluştu. Büyüklerimizden öğrendik, sonrasında kendi merakımızla geliştirdik; ve simdi ise birbirimize öğretmeye devam ediyoruz. Renkler, malzemeler, düzenlemeler arasında pekişen arkadaşlığımızı bir iş ortaklığı etrafında sizlerle buluşturmak istedik. Sitemizde, halihazırda bulunan ürünlerimizi satın alabilir, beğendiğiniz tasarımları sipariş verebilirsiniz, veya kırkyama ve <i>“patchwork”</i> hakkında bizimle iletişime geçebilirsiniz."
   admin:
@@ -53,12 +31,19 @@ tr:
     galler_image: "Gallery Image"
     messages: "Messages"
     message:
+      about: "About"
+      author: "Author"
+      body: "Message Body"
       email: "Email"
       from: "From"
       message: "Message"
+      name: "Name"
       phone_number: "Phone number"
       replied: "Replied to"
+      send: "Send"
+      sending: "Sending..."
       tag: "Tag"
+      title: "Message Title"
     name: "Name"
     page: "Page"
     product:
@@ -68,24 +53,74 @@ tr:
     product_not_found: "Product not found"
     save: "Save"
     view_messages: "View Messages"
+  _contact: "İletişim"
   contact:
     title: "Bize Ulaşın"
     lead: "Herhangi bir sorunuz veya özel isteğiniz var mı? Lütfen aşağıdaki formu kullanarak\
            bize ulaşın."
+  created: "Yaratılmış"
+  english: "İngilizce"
+  _gallery: "Galeri"
   gallery:
+    available: "Available!"
     category_filters: "Category Filters"
+    clear_filters: "Clear Filters"
     end: "End"
     filters: "Filters"
+    image_missing: "Image Missing"
     no_results: "No Results"
     results: "Results"
     see_results: "See Results"
     select_categories: "Select Categories"
     top: "Top"
+  home:
+    title: "Hoşgeldiniz"
+    lead: "Patchwork Sivumbike sizi renkli bir kumaş dünyasına tanıtsın"
+  loading: "Loading..."
+  language: "Dil"
+  locale_name: "Türkçe"
+  message:
+    about: "About"
+    author: "Author"
+    body: "Message Body"
+    body_placeholder: "Write your message here..."
+    email: "Email"
+    email_placeholder: "enter@your.email"
+    from: "From"
+    invalid_feedback:
+      about: "What is this message about?"
+      body: "You don\'t have anything to say?"
+      email: "Please provide a means for us to get back to you."
+      name: "Please give us your name"
+      phone_number: "Please provide a means for us to get back to you."
+      title: "Please title your message."
+    message: "Message"
+    name: "Name"
+    phone_number: "Phone number"
+    replied: "Replied to"
+    send: "Send"
+    sending: "Sending..."
+    tag: "Tag"
+    title: "Message Title"
+  no_products: "Ürün yok"
   product:
     for_sale: "For Sale"
     form:
       description: "Ürün Açıklaması..."
       description_title: "Açıklama"
     message_sent: "Message sent!"
+    next: "Next"
     order_now: "Order Now"
+    prev: "Previous"
     size: "Size"
+  products: "Ürünler"
+  sign_out: "Oturumu Kapat"
+  sivumbike_patchworks: "Sivumbike Patchworks"
+  time:
+    days_ago: "%{days} gün önce"
+    formats:
+      record: '%-d/%-m/%Y %H:%M:%S'
+      publishing: '%-d/%-m/%Y'
+  turkish: "Türkçe"
+  view: "Görünüm"
+  view_all: "Hepsini Gör"

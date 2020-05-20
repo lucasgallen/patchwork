@@ -1,14 +1,14 @@
 %div.collapse.navbar-collapse#navbar
   %ul.justify-content-around.navbar-nav.mr-auto
     %li.nav-item
-      = link_to t('_about'), about_path, class: 'nav-link--custom'
+      = link_to t('about_us'), about_path, class: 'nav-link--custom'
     %li.nav-item
       = link_to t('_gallery'), gallery_path, class: 'nav-link--custom'
     %li.nav-item
       = link_to t('_contact'), contact_path, class: 'nav-link--custom'
     - if user_signed_in? && current_user.role == 'admin'
       %li.nav-item
-        = link_to t('_dashboard'), admin_root_path, class: 'nav-link--custom'
+        = link_to t('admin.dashboard'), admin_root_path, class: 'nav-link--custom'
 
   - if user_signed_in?
     = link_to t('sign_out'), destroy_session_path(current_user),

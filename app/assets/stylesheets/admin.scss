@@ -15,6 +15,10 @@
 
 @import "admin/category";
 
+.custom-file-label::after {
+  content: attr(data-browse);
+}
+
 /* Disable Trix/ActiveText Attachments */
 trix-toolbar .trix-button-group.trix-button-group--file-tools {
   display: none;

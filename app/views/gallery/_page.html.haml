@@ -5,10 +5,10 @@
         - if item.gallery_image.attached?
           %a.card-img-top.gallery-card-image.d-block.lazyload{ href: product_path(item), 'data-src': url_for(item.gallery_image.imgproxy_url(width: 285, height: 285)) }
         - else
-          %div.card-img-top.gallery-card-image.placeholder-image{ 'data-missing-image': 'image missing' }
+          %div.card-img-top.gallery-card-image.placeholder-image{ 'data-missing-image': t('gallery.image_missing') }
         %div.card-body.gallery-card-body
           - if item.available
-            %span.badge.badge-pill.badge-success Available!
+            %span.badge.badge-pill.badge-success= t('gallery.available')
           %h5.card-title= item.name
           %div.text-left.card-text= item.description.html_safe
 
