@@ -49,7 +49,7 @@ class Decorators::Admin::MessagesView
       begin
         Category.find_by_slug(@keyword).name
       rescue ActiveRecord::RecordNotFound
-        I18n.t('admin.product_not_found')
+        I18n.t('admin.category_not_found')
       end
 
     { label: 'category', keyword: category_name }
