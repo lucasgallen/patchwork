@@ -4,34 +4,34 @@
 %div.mt-3.mb-5.w-100
   %div.custom-control.custom-switch.d-inline-block
     = form.check_box :available, class: 'custom-control-input'
-    = form.label :available, class: 'custom-control-label'
+    = form.label :available, t('admin.available'), class: 'custom-control-label'
 
 %div.row.mb-2
   %div.col-sm-12.col-md-4
     %div.form-group
-      = form.label :name, class: 'form-label'
+      = form.label :name, t('admin.name'), class: 'form-label'
       = form.text_field :name, class: 'form-control'
   %div.col-lg-3.col-md-4.col-sm-12
     %div.form-group.selectpicker-container.w-50
-      = form.label :category_ids, 'Categories', class: 'form-label'
+      = form.label :category_ids, t('admin.categories'), class: 'form-label'
       = form.select :category_ids, Category.all.collect {|c| [c.name, c.id] }, {},
         { id: 'product-categories', class: 'd-block', multiple: true }
   %div.col-md-4
-    = form.label :dimensions, class: 'form-label'
+    = form.label :dimensions, t('admin.dimensions'), class: 'form-label'
     %div.row.form-group{ name: 'product_dimensions' }
       %div.col-6.pr-0
-        = form.label 'facets[width]', 'W:', class: 'form-label'
+        = form.label 'facets[width]', "#{t('admin.facet_width')}:", class: 'form-label'
         = form.number_field 'facets[width]', value: @product.width, class: 'w-75  form-control d-inline'
       %div.col-6.pr-0
-        = form.label 'facets[height]', 'H:', class: 'form-label'
+        = form.label 'facets[height]', "#{t('admin.facet_height')}:", class: 'form-label'
         = form.number_field 'facets[height]', value: @product.height, class: 'w-75 form-control d-inline'
 
 %div.row#image-uploads
   %div.col-sm-12.col-md-5.col-lg-4
-    %h6 Gallery Image
+    %h6= t('admin.gallery_image')
     %div.custom-file
       = form.file_field :gallery_image, direct_upload: true, class: 'custom-file-input', id: 'gallery-image'
-      = form.label :gallery_image, t('admin.product.choose_gallery_image'), class: 'custom-file-label'
+      = form.label :gallery_image, t('admin.product.choose_gallery_image'), class: 'custom-file-label', data: { browse: t('admin.browse') }
     %div.mt-2.mb-4
       - if @product.gallery_image.attached?
         = image_tag @product.gallery_image, { class: 'w-100', id: 'gallery-image-preview' }
@@ -42,7 +42,7 @@
     %h6 Detail Images
     %div.custom-file
       = form.file_field :detail_images, direct_upload: true, class: 'custom-file-input', multiple: true, id: 'detail-images'
-      = form.label :detail_images, t('admin.product.choose_detail_images'), class: 'custom-file-label'
+      = form.label :detail_images, t('admin.product.choose_detail_images'), class: 'custom-file-label', data: { browse: t('admin.browse') }
     %div.mt-2.mb-4#detail-images-preview
       - if @product.detail_images.attached?
         - @product.detail_images.each do |image|
@@ -59,11 +59,11 @@
     %trix-editor{ input: 'trix-content-en' }
 
 %div.form-group.clearfix
-  = link_to "Cancel", :back, class: 'btn btn-danger'
+  = link_to t('admin.cancel'), :back, class: 'btn btn-danger'
   - if @product.new_record?
-    = form.submit "Create", class: 'btn btn-success float-right', id: 'product-submit'
+    = form.submit t('admin.create'), class: 'btn btn-success float-right', id: 'product-submit'
   - else
-    = form.submit "Save", class: 'btn btn-success float-right', id: 'product-submit'
+    = form.submit t('admin.save'), class: 'btn btn-success float-right', id: 'product-submit'
 
 = content_for :turbolinks_pack do
   = javascript_pack_tag 'product_form', 'data-turbolinks-track': 'reload', 'defer': 'defer'

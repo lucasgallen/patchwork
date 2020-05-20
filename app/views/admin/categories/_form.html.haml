@@ -2,15 +2,15 @@
 
 %div.container-fluid.ml-2
   %div.form-group.form-inline
-    = form.label :name_tr, 'Turkish:', class: 'form-label d-inline'
+    = form.label :name_tr, "#{t('turkish')}: ", class: 'form-label d-inline'
     = form.text_field :name_tr, class: 'form-control d-inline-block ml-2'
   %div.form-group.form-inline
-    = form.label :name_en, 'English:', class: 'form-label d-inline'
+    = form.label :name_en, "#{t('english')}: ", class: 'form-label d-inline'
     = form.text_field :name_en, class: 'form-control d-inline-block ml-2'
 
 %div.form-group.clearfix
-  = link_to "Cancel", :back, class: 'btn btn-danger'
+  = link_to t('admin.cancel'), :back, class: 'btn btn-danger'
   - if @category.new_record?
-    = form.submit "Create", class: 'btn btn-success float-right'
+    = form.submit t('admin.create'), class: 'btn btn-success float-right'
   - else
-    = form.submit "Save", class: 'btn btn-success float-right'
+    = form.submit t('admin.save'), class: 'btn btn-success float-right'

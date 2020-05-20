@@ -1,6 +1,6 @@
 %h1.mt-5.mb-4
-  = t('_categories')
-  = link_to t('_create_new'), new_admin_category_path, class: 'btn btn-sm btn-success ml-3'
+  = t('admin.categories')
+  = link_to t('admin.create_new'), new_admin_category_path, class: 'btn btn-sm btn-success ml-3'
 
 %div.container-fluid
   %div.col-sm-12.col-md-6.col-lg-4
@@ -9,4 +9,4 @@
         %button.list-group-item.list-group-item-action{ type: 'button' }
           = cat.name
           %span.list-group-item-edit-action.float-right
-            = link_to 'Edit', edit_admin_category_path(cat), class: 'stretched-link'
+            = link_to t('admin.edit'), edit_admin_category_path(cat), class: 'stretched-link'

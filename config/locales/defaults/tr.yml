@@ -10,7 +10,6 @@ tr:
   sign_out: "Oturumu Kapat"
   latest: "En Son"
   created: "Yaratılmış"
-  edit: "Düzenle"
   view: "Görünüm"
   view_all: "Hepsini Gör"
   products: "Ürünler"
@@ -34,11 +33,24 @@ tr:
       we: "Sekiz senedir tanışıyor olup birlikte “patchwork” yapan iki arkadaşız. Birimizin sekiz, diğerinin ise yirmi senelik bir “patchwork” tecrübe ve birikimi oluştu. Büyüklerimizden öğrendik, sonrasında kendi merakımızla geliştirdik; ve simdi ise birbirimize öğretmeye devam ediyoruz. Renkler, malzemeler, düzenlemeler arasında pekişen arkadaşlığımızı bir iş ortaklığı etrafında sizlerle buluşturmak istedik. Sitemizde, halihazırda bulunan ürünlerimizi satın alabilir, beğendiğiniz tasarımları sipariş verebilirsiniz, veya kırkyama ve “patchwork” hakkında bizimle iletişime geçebilirsiniz."
       we_html: "Sekiz senedir tanışıyor olup birlikte <i>“patchwork”</i> yapan iki arkadaşız. Birimizin sekiz, diğerinin ise yirmi senelik bir <i>“patchwork”</i> tecrübe ve birikimi oluştu. Büyüklerimizden öğrendik, sonrasında kendi merakımızla geliştirdik; ve simdi ise birbirimize öğretmeye devam ediyoruz. Renkler, malzemeler, düzenlemeler arasında pekişen arkadaşlığımızı bir iş ortaklığı etrafında sizlerle buluşturmak istedik. Sitemizde, halihazırda bulunan ürünlerimizi satın alabilir, beğendiğiniz tasarımları sipariş verebilirsiniz, veya kırkyama ve <i>“patchwork”</i> hakkında bizimle iletişime geçebilirsiniz."
   admin:
+    available: "Available"
+    browse: "Browse"
+    cancel: "Cancel"
     categories: "Categories"
     category_not_found: "Category not found"
+    create: "Create"
+    create_category: "Create Category"
     create_new: "Create New"
+    create_product: "Create Product"
     dashboard: "Gösterge Paneli"
+    delete: "Delete"
+    dimensions: "Dimensions"
     edit: "Edit"
+    edit_category: "Edit Category"
+    edit_product: "Edit Product"
+    facet_height: "H"
+    facet_width: "W"
+    galler_image: "Gallery Image"
     messages: "Messages"
     message:
       email: "Email"
@@ -47,22 +59,28 @@ tr:
       phone_number: "Phone number"
       replied: "Replied to"
       tag: "Tag"
+    name: "Name"
     page: "Page"
+    product:
+      choose_gallery_image: "Choose Gallery Image"
+      choose_gallery_image: "Choose Detail Images"
     products: "Ürünler"
     product_not_found: "Product not found"
+    save: "Save"
     view_messages: "View Messages"
-  category:
-    form:
-      name: "Name"
   contact:
     title: "Bize Ulaşın"
     lead: "Herhangi bir sorunuz veya özel isteğiniz var mı? Lütfen aşağıdaki formu kullanarak\
            bize ulaşın."
   gallery:
     category_filters: "Category Filters"
+    end: "End"
+    filters: "Filters"
     no_results: "No Results"
+    results: "Results"
     see_results: "See Results"
     select_categories: "Select Categories"
+    top: "Top"
   product:
     for_sale: "For Sale"
     form:
