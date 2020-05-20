@@ -7,7 +7,6 @@
         %span{ 'aria-hidden': 'true' } &times;
     %div.modal-body.product-message-modal-body
       = render partial: 'messages/form', locals: @product.message_form_options
-      %div.product-message-success.d-flex.justify-content-around
       %div.product-message-success.d-flex.flex-column.justify-content-center.align-items-center
         %span.mt-n5.d-flex.checkmark.text-success
         %h2.mt-5.d-flex= t('product.message_sent')

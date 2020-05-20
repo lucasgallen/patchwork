@@ -10,7 +10,7 @@
 
 %div.container.contact-container
   %h1.h3= t('contact.title')
-  %div#contact-form-content
+  %div.message-form-container#contact-form-content
     %div.tab-content#contact-tab-content
       %div.tab-pane.fade.show.active#default{ role: 'tabpanel', 'aria-labelledby': 'default-tab' }
         %p= t('contact.lead')
@@ -22,8 +22,9 @@
         %p= 'Have a special request for the Queens of Patchwork? Please send us a message and we will try to get back to you!'
 
     = render :partial => 'messages/form', locals: { message: @message, about_select: true, product: false }
-  %div.fade#contact-form-success
-    %p.h3.my-5= 'Thank you for contacting us!'
+    %div.product-message-success.d-flex.flex-column.justify-content-center.align-items-center
+      %span.mt-n5.d-flex.checkmark.text-success
+      %h2.mt-5.d-flex= t('product.message_sent')
 
 - content_for :page_specific_styles do
   = stylesheet_link_tag 'contact', media: 'all', 'data-turbolinks-track': 'reload'

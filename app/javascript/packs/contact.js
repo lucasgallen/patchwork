@@ -24,12 +24,19 @@ class ContactForm {
       body: $('#message_body')
     };
 
+    this.$formContainer = this.getFormContainer();
+
     this.init();
   }
 
   reset() {
     if (this.$aboutSelect.length) this.$aboutSelect.off('change');
     this.$form.off('submit');
+  }
+
+  getFormContainer() {
+    if (this.$contactContent.length) return this.$contactContent;
+    return this.$productModal;
   }
 
   init() {
@@ -95,7 +102,7 @@ class ContactForm {
       data: data,
       dataType: 'json',
       success: data => {
-        this.sendMessageSuccess();
+        this.transitionMessageSent();
       },
       error: err => {
         console.log(err);
@@ -105,21 +112,13 @@ class ContactForm {
     this.transitionLoadingState();
   }
 
-  sendMessageSuccess() {
-    this.$contactContent.fadeOut({
-      complete: () => this.$successContent.removeClass('fade'),
-    });
-
-    this.transitionMessageSent();
-  }
-
   transitionLoadingState() {
-    this.$productModal.addClass('loading');
+    this.$formContainer.addClass('loading');
   }
 
   transitionMessageSent() {
-    this.$productModal.removeClass('loading');
-    this.$productModal.addClass('success');
+    this.$formContainer.removeClass('loading');
+    this.$formContainer.addClass('success');
 
     setTimeout(() => {
       const sentCopy = this.$modalOpenBtn.data('success-message');

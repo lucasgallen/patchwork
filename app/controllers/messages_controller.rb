@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
 
   def create
     message = Message.new(message_params)
-    message.product = Product.find(message_params[:product_id])
+    save_product!(message, message_params[:product_id])
 
     if message.save
       render json: { status: 'success' }
@@ -41,6 +41,12 @@ class MessagesController < ApplicationController
   end
 
   private
+
+  def save_product!(message, product_id)
+    return unless product_id.present?
+
+    message.product = Product.find(message_params[:product_id])
+  end
 
   def messages
     type = params[:filter_type]

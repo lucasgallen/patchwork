@@ -37,7 +37,7 @@
         %span.btn-group.mt-3
           = link_to t('edit'), edit_admin_product_path(@product), class: 'btn btn-sm btn-warning'
 
-%div.modal.product-message-modal.fade#product-message-modal{ 'data-keyboard': 'false', tabindex: '-1', role: 'dialog', aria: {labelledby: 'productMessageLabel', hidden: 'true'} }
+%div.modal.product-message-modal.message-form-container.fade#product-message-modal{ 'data-keyboard': 'false', tabindex: '-1', role: 'dialog', aria: {labelledby: 'productMessageLabel', hidden: 'true'} }
   = render partial: 'messages/modal', locals: { label: 'productMessageLabel' }
 
 - content_for :turbolinks_pack do
