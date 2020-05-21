@@ -33,6 +33,10 @@
         %div.product-dimensions
           %strong= "#{t('product.size')}:"
           = @product.dimensions
+      - if @product.has_category?
+        %ul.pl-2
+          - @product.categories.each do |cat|
+            %li.product-category-tag.mb-1.mr-5= cat.name
       - if user_signed_in? && current_user.role == 'admin'
         %span.btn-group.mt-3
           = link_to t('admin.edit'), edit_admin_product_path(@product), class: 'btn btn-sm btn-warning'
