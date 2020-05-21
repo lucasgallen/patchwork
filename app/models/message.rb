@@ -3,7 +3,7 @@ class Message < ApplicationRecord
 
   ABOUT_OPTIONS = %w(product misc request).freeze
 
-  paginates_per 15
+  paginates_per 5
 
   def self.about_options
     ABOUT_OPTIONS

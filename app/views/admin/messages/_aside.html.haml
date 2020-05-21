@@ -1,4 +1,14 @@
-%aside.col-sm-12.col-lg-3.pl-0
+%aside#message-aside.message-aside.col-sm-12.col-lg-3.pl-0
+  %div#message-aside-open-button.message-aside-open-button
+    %svg.bi.bi-filter{ viewBox: "0 0 16 16", fill: "currentColor", xmlns: "http://www.w3.org/2000/svg" }
+      %path{ 'fill-rule': "evenodd", d: "M6 10.5a.5.5 0 01.5-.5h3a.5.5 0 010 1h-3a.5.5 0 01-.5-.5zm-2-3a.5.5 0 01.5-.5h7a.5.5 0 010 1h-7a.5.5 0 01-.5-.5zm-2-3a.5.5 0 01.5-.5h11a.5.5 0 010 1h-11a.5.5 0 01-.5-.5z", 'clip-rule': "evenodd" }
+
+  %div#message-aside-close-button.message-aside-close-button
+    %svg.bi.bi-x-circle{ viewBox: "0 0 16 16", fill: "currentColor", xmlns: "http://www.w3.org/2000/svg" }
+      %path{ 'fill-rule': "evenodd", d: "M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z", 'clip-rule': "evenodd" }
+      %path{ 'fill-rule': "evenodd", d: "M11.854 4.146a.5.5 0 010 .708l-7 7a.5.5 0 01-.708-.708l7-7a.5.5 0 01.708 0z", 'clip-rule': "evenodd" }
+      %path{ 'fill-rule': "evenodd", d: "M4.146 4.146a.5.5 0 000 .708l7 7a.5.5 0 00.708-.708l-7-7a.5.5 0 00-.708 0z", 'clip-rule': "evenodd" }
+
   %h2.w-100.text-center.h3= "#{t('admin.messages')}:"
   %div.d-flex.flex-wrap.justify-content-around
     %div.message-aside-list-group.mb-3.d-flex.flex-column.text-center
@@ -22,3 +32,6 @@
           %a.message-aside-list-group-item.list-group-item.list-group-item-action.d-flex.justify-content-between.align-items-center{ href: admin_messages_path(filter_type: 'product', keyword: product.id), class: "#{'active' if @view.keyword?(product.id)}" }
             = product.name
             %span.badge.badge-primary.badge-pill= product.message_count
+
+= content_for :turbolinks_pack do
+  = javascript_pack_tag 'aside', 'data-turbolinks-track': 'reload'

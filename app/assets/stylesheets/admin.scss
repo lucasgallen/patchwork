@@ -89,21 +89,94 @@ trix-toolbar .trix-button-group.trix-button-group--file-tools {
   }
 }
 
-.message-aside-list-group {
-  width: 100%;
+.message-aside {
+  background: $white;
+  border: 2px dashed $purple;
+  border-radius: 3px;
+  box-shadow: 0px 0px 20px #00000061;
+  left: calc(100% - 2px);
+  padding: 1rem;
+  position: absolute;
+  top: 0;
+  transition: left 0.1s ease-in-out;
+  z-index: 1;
 
-  @media(min-width: map-get($grid-breakpoints, "sm")) {
-    width: 49%;
+  .open & {
+    left: 0;
   }
 
   @media(min-width: map-get($grid-breakpoints, "lg")) {
-    width: 100%
+    border: inherit;
+    box-shadow: inherit;
+    left: 0;
+    padding: inherit;
+    position: inherit;
   }
 
-  &-item.active {
-    .badge {
-      background-color: $white;
-      color: $blue;
+  &-container {
+    height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+
+    &.open {
+      overflow-x: inherit;
+    }
+  }
+
+  &-close-button {
+    color: $purple;
+    cursor: pointer;
+    height: 3rem;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    width: 3rem;
+
+    @media(min-width: map-get($grid-breakpoints, "lg")) {
+      display: none;
+    }
+  }
+
+  &-open-button {
+    background: $purple;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    color: $white;
+    cursor: pointer;
+    height: 3rem;
+    left: calc(-3rem - 2px);
+    position: absolute;
+    top: 1rem;
+    width: 3rem;
+
+    svg {
+      height: 100%;
+      transform: rotate(-90deg);
+      width: 100%;
+    }
+
+    @media(min-width: map-get($grid-breakpoints, "lg")) {
+      display: none;
+    }
+  }
+
+
+  &-list-group {
+    width: 100%;
+
+    @media(min-width: map-get($grid-breakpoints, "sm")) {
+      width: 49%;
+    }
+
+    @media(min-width: map-get($grid-breakpoints, "lg")) {
+      width: 100%
+    }
+
+    &-item.active {
+      .badge {
+        background-color: $white;
+        color: $blue;
+      }
     }
   }
 }
