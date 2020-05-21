@@ -100,5 +100,10 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
+  config.action_mailer.default_url_options = { :host => 'sivumbike.com' }
+  config.action_mailer.smtp_settings = {
+    address: 'sivumbike.com',
+  }
+
   Rails.application.routes.default_url_options[:host] = 'sivumbike.com'
 end
