@@ -5,6 +5,9 @@ class HomeGallery {
     this.$jumbotronGallery = $('#jumbotron-gallery');
     this.$jumbotronBackground = $('#jumbotron-background');
 
+    this.imagePaths = this.$jumbotronBackground.data('paths');
+    this.absolutePathIndex = 1;
+
     this.init();
   }
 
@@ -13,24 +16,28 @@ class HomeGallery {
   }
 
   startGalleryCycle() {
-    let absolutePathIndex = 1;
-    const imagePaths = this.$jumbotronBackground.data('paths');
+    const firstPathIndex = (this.absolutePathIndex % this.imagePaths.length);
 
-    setInterval(() => {
-      let nextPathIndex = (absolutePathIndex % imagePaths.length);
-      this.imageFade(imagePaths[nextPathIndex]);
+    this.imageFade(this.imagePaths[firstPathIndex]);
 
-      absolutePathIndex += 1;
-    }, this.GALLERY_INTERVAL_MS);
+    this.$jumbotronBackground[0].onload = e => {
+      this.$jumbotronBackground.fadeIn(this.FADE_INTERVAL_MS);
+      this.scheduleNextImage();
+    };
   }
 
   imageFade(path) {
     this.$jumbotronBackground.fadeOut(this.FADE_INTERVAL_MS, () => {
       this.$jumbotronBackground.attr('src', path);
-      setTimeout(() => {
-        this.$jumbotronBackground.fadeIn(this.FADE_INTERVAL_MS);
-      }, this.fade_interval_ms / 3);
+      this.absolutePathIndex += 1;
     });
+  }
+
+  scheduleNextImage() {
+    setTimeout(() => {
+      const nextPathIndex = (this.absolutePathIndex % this.imagePaths.length);
+      this.imageFade(this.imagePaths[nextPathIndex]);
+    }, this.GALLERY_INTERVAL_MS);
   }
 }
 
