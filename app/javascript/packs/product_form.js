@@ -34,7 +34,7 @@ class ProductForm {
     this.$galleryImagePreview = $('#gallery-image-preview');
     this.$detailImages = $('#detail-images');
     this.$detailImagesPreview = $('#detail-images-preview');
-    this.$detailImage = $('<img/>', { class: 'w-25 mr-2 mb-2' });
+    this.$detailImage = $('#preview-image-clone');
     this.$form = $('#product-form');
     this.$fileInputs = $('input[type="file"]');
 
@@ -49,11 +49,49 @@ class ProductForm {
     });
 
     this.$detailImages.change(event => {
-      this.$detailImagesPreview.empty();
       this.prevDetailImages(event.currentTarget);
     });
 
+    this.$detailImagesPreview.on('click', '.detail-image-delete-btn', e => {
+      this.handleDetailImageDelete(e);
+    });
+
     this.setupDirectUploads();
+  }
+
+  handleDetailImageDelete(e) {
+    const $el = $(e.currentTarget);
+    const $container = $el.parent();
+    if ($el.data('attachment-id') === -1) {
+      $container.remove();
+      return;
+    }
+
+    const confirmation = window.confirm($el.data('confirm'));
+    if (!confirmation) return;
+
+    this.deleteDetailImage($el, $container);
+  }
+
+  deleteDetailImage($el, $container) {
+    $container.addClass('loading');
+
+    $.ajax({
+      method: 'delete',
+      url: `/admin/attachments/${$el.data('attachment-id')}`,
+      headers: { 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content') },
+      success: response => {
+        const defaultDelay = 1000; // Just to let the user know something intentionally happened
+        setTimeout(() => $container.remove(), defaultDelay);
+      },
+      error: err => this.handleDetailImageDeleteError($container, err.responseJSON.message)
+    });
+  }
+
+  handleDetailImageDeleteError($container, errMessage) {
+    $container.removeClass('loading')
+    $container.addClass('error');
+    $container.find('.detail-image-error').text(errMessage);
   }
 
   setupDirectUploads() {
@@ -90,9 +128,10 @@ class ProductForm {
       const reader = new FileReader();
 
       reader.onload = e => {
-        const $previewImg = this.$detailImage.clone();
+        const $container = this.$detailImage.clone();
+        const $previewImg = $container.find('.detail-image');
         $previewImg.attr('src', e.currentTarget.result);
-        $previewImg.appendTo(this.$detailImagesPreview);
+        $container.appendTo(this.$detailImagesPreview);
       };
 
       reader.readAsDataURL(file);

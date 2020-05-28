@@ -43,10 +43,19 @@
     %div.custom-file
       = form.file_field :detail_images, direct_upload: true, class: 'custom-file-input', multiple: true, id: 'detail-images'
       = form.label :detail_images, t('admin.product.choose_detail_images'), class: 'custom-file-label', data: { browse: t('admin.browse') }
-    %div.mt-2.mb-4#detail-images-preview
+    %div.mt-2.mb-4#detail-images-preview.d-flex.justify-content-around.flex-wrap.align-items-start
       - if @product.detail_images.attached?
         - @product.detail_images.each do |image|
-          = image_tag image, { class: 'w-25 mr-2 mb-2' }
+          %div.detail-image-container.d-flex.w-25.mr-2.mb-2.position-relative.justify-content-center.flex-column.align-items-center
+            %div.detail-image-delete-loader.d-flex.justify-content-center.align-items-center
+              %span.text-white.spinner-border.spinner-border-lg{ role: 'status', 'aria-hidden': 'true' }
+            %span.detail-image-delete-btn.text-white.btn.btn-sm.btn-danger.d-flex.position-absolute{ |
+              'data-attachment-id': image.id, |
+              'data-confirm': t('admin.are_you_sure') |
+            } |
+              = t('admin.delete')
+            = image_tag image, { class: 'detail-image w-100' }
+            %small.align-self-end.w-100.text-danger.detail-image-error.font-weight-light.font-italic
 
 
 %div.container-fluid
@@ -64,6 +73,17 @@
     = form.submit t('admin.create'), class: 'btn btn-success float-right', id: 'product-submit'
   - else
     = form.submit t('admin.save'), class: 'btn btn-success float-right', id: 'product-submit'
+
+%div#preview-image-clone.detail-image-container.d-flex.w-25.mr-2.mb-2.position-relative.justify-content-center.flex-column.align-items-center
+  %div.detail-image-delete-loader.d-flex.justify-content-center
+    %span.text-white.spinner-border.spinner-border-lg{ role: 'status', 'aria-hidden': 'true' }
+  %span.detail-image-delete-btn.text-white.btn.btn-sm.btn-danger.d-flex.position-absolute{ |
+    'data-attachment-id': -1, |
+    'data-confirm': t('admin.are_you_sure') |
+  } |
+    = t('admin.delete')
+  %img.detail-image.w-100{ src: '' }
+  %small.align-self-end.w-100.text-danger.detail-image-error.font-weight-light.font-italic
 
 = content_for :turbolinks_pack do
   = javascript_pack_tag 'product_form', 'data-turbolinks-track': 'reload', 'defer': 'defer'

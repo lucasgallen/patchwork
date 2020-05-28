@@ -31,7 +31,7 @@ class ProductsController < ApplicationController
     authorize! :create, Product
     @product = Product.new(product_params)
 
-    if @product.save
+    if add_detail_images && @product.save
       redirect_to admin_products_path
     else
       render :new
@@ -42,7 +42,7 @@ class ProductsController < ApplicationController
     authorize! :delete, Product
     @product ||= product
 
-    if @product.destroy
+    if @product.purge_attachments! && @product.destroy
       redirect_to admin_dashboard_path
     else
       render :edit
@@ -53,7 +53,7 @@ class ProductsController < ApplicationController
     authorize! :update, Product
     @product ||= product
 
-    if @product.update(product_params)
+    if add_detail_images && @product.update(product_params)
       redirect_to admin_products_path
     else
       render :edit
@@ -65,12 +65,25 @@ class ProductsController < ApplicationController
   def product_params
     temp_params = params.require(:product)
                         .permit(:available, :name, :description_tr, :description_en,
-                                :gallery_image, :facets, detail_images: [], category_ids: [])
+                                :gallery_image, :facets, category_ids: [])
     temp_params.merge(facets: facet_params)
+  end
+
+  def new_detail_images
+    @new_detail_images ||= params.require(:product).permit(detail_images: [])[:detail_images]
   end
 
   def facet_params
     params.require(:product).require(:facets).permit(:height, :width)
+  end
+
+  def add_detail_images
+    return unless @product.present? && product_params.present?
+    return if new_detail_images.nil?
+
+    new_detail_images.each do |image|
+      @product.detail_images.attach(image)
+    end
   end
 
   def product

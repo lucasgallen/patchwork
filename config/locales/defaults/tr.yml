@@ -11,6 +11,10 @@ tr:
       we: "Sekiz senedir tanışıyor olup birlikte “patchwork” yapan iki arkadaşız. Birimizin sekiz, diğerinin ise yirmi senelik bir “patchwork” tecrübe ve birikimi oluştu. Büyüklerimizden öğrendik, sonrasında kendi merakımızla geliştirdik; ve simdi ise birbirimize öğretmeye devam ediyoruz. Renkler, malzemeler, düzenlemeler arasında pekişen arkadaşlığımızı bir iş ortaklığı etrafında sizlerle buluşturmak istedik. Sitemizde, halihazırda bulunan ürünlerimizi satın alabilir, beğendiğiniz tasarımları sipariş verebilirsiniz, veya kırkyama ve “patchwork” hakkında bizimle iletişime geçebilirsiniz."
       we_html: "Sekiz senedir tanışıyor olup birlikte <i>“patchwork”</i> yapan iki arkadaşız. Birimizin sekiz, diğerinin ise yirmi senelik bir <i>“patchwork”</i> tecrübe ve birikimi oluştu. Büyüklerimizden öğrendik, sonrasında kendi merakımızla geliştirdik; ve simdi ise birbirimize öğretmeye devam ediyoruz. Renkler, malzemeler, düzenlemeler arasında pekişen arkadaşlığımızı bir iş ortaklığı etrafında sizlerle buluşturmak istedik. Sitemizde, halihazırda bulunan ürünlerimizi satın alabilir, beğendiğiniz tasarımları sipariş verebilirsiniz, veya kırkyama ve <i>“patchwork”</i> hakkında bizimle iletişime geçebilirsiniz."
   admin:
+    are_you_sure: "Are you sure?"
+    attachment:
+      not_found: "Image not found. Try saving your work and refreshing the page."
+      internal_error: "There was an internal error. You may try again."
     available: "Available"
     browse: "Browse"
     cancel: "Cancel"

@@ -39,6 +39,7 @@ Rails.application.routes.draw do
       root 'dashboard#show'
 
       resources :categories
+      resources :attachments, only: [:destroy]
     end
   end
 end

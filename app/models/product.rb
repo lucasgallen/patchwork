@@ -19,6 +19,10 @@ class Product < ApplicationRecord
     self.send("description_#{I18n.locale}")
   end
 
+  def purge_attachments!
+    self.gallery_image.purge && self.detail_images.purge
+  end
+
   private
 
   def self.message_count

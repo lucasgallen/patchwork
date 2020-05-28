@@ -12,6 +12,7 @@
 @import "bootstrap/scss/card";
 @import "bootstrap/scss/list-group";
 @import "bootstrap/scss/pagination";
+@import "bootstrap/scss/spinners";
 
 @import "admin/category";
 
@@ -178,5 +179,52 @@ trix-toolbar .trix-button-group.trix-button-group--file-tools {
         color: $blue;
       }
     }
+  }
+}
+
+.detail-image {
+  &-container {
+    &.loading {
+      .detail-image-delete-loader {
+        bottom: 0;
+        opacity: 1;
+        z-index: 2;
+      }
+    }
+
+    &.error {
+      .detail-image-error {
+        display: flex;
+      }
+    }
+
+    &:hover {
+      .detail-image-delete-btn {
+        opacity: 1;
+      }
+    }
+  }
+
+  &-delete-loader {
+    background: #00000057;
+    bottom: 100%;
+    left: 0;
+    overflow: hidden;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  &-delete-btn {
+    bottom: 8px;
+    box-shadow: 0 1px 2px 0px black;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  &-error {
+    display: none;
   }
 }
