@@ -40,6 +40,13 @@ class MessagesController < ApplicationController
     render template: template('index')
   end
 
+  def mark_replied
+    @message ||= message
+    @message.replied = true
+    @message.replied_by = current_user.email
+    @message.save!
+  end
+
   private
 
   def save_product!(message, product_id)

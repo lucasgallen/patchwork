@@ -182,6 +182,45 @@ trix-toolbar .trix-button-group.trix-button-group--file-tools {
   }
 }
 
+.message-replied {
+  &-cross {
+    background: currentColor;
+    bottom: 0.4em;
+    position: absolute;
+    top: 0.4em;
+    width: 1em;
+
+    &-container {
+      border-radius: 100%;
+      background: currentColor;
+      height: 4em;
+      width: 4em;
+      position: relative;
+      font-size: 0.6rem;
+    }
+
+    &--left {
+      transform: rotate(45deg);
+    }
+    &--right {
+      transform: rotate(-45deg);
+    }
+  }
+
+  &-check {
+    margin-bottom: 1em;
+
+    &-container {
+      background-color: $green;
+      border-radius: 100%;
+      color: $white;
+      font-size: 0.14rem;
+      height: 12em;
+      width: 12em;
+    }
+  }
+}
+
 .detail-image {
   &-container {
     &.loading {
@@ -226,5 +265,36 @@ trix-toolbar .trix-button-group.trix-button-group--file-tools {
 
   &-error {
     display: none;
+  }
+}
+
+.checkmark {
+  border-bottom: 1em solid currentColor;
+  border-right: 1em solid currentColor;
+  height: 7.5em;
+  transform: rotate(45deg);
+  width: 3.5em;
+}
+.cross {
+  background: currentColor;
+  bottom: 0.4em;
+  position: absolute;
+  top: 0.4em;
+  width: 0.6em;
+
+  &-container {
+    border-radius: 100%;
+    background: currentColor;
+    height: 4em;
+    width: 4em;
+    position: relative;
+    font-size: 0.6rem;
+  }
+
+  &--left {
+    transform: rotate(45deg);
+  }
+  &--right {
+    transform: rotate(-45deg);
   }
 }

@@ -19,9 +19,24 @@
           %p.mb-0
             %strong= "#{t('admin.message.email')}: "
             = @message.email
-          %span.check-mark
-      %p.mb-3
-        %strong= "#{t('admin.message.replied')}: "
+        %p.my-3.d-inline-flex.align-items-center
+          - if @message.replied?
+            %span.message-replied-check-container.d-inline-flex.justify-content-center.align-items-center.mr-2
+              %span.checkmark.message-replied-check
+            %strong.text-success= t('admin.message.user_replied', email: current_user.email)
+          - else
+            %span.message-replied-cross-container.cross-container.d-flex.justify-content-center.align-items-center.text-danger.mr-2
+              %span.message-replied-cross.cross.cross--left.text-white
+              %span.message-replied-cross.cross.cross--right.text-white
+            %strong.mr-3.text-danger= t('admin.message.unreplied')
+            %button#message-replied-button.btn.btn-warning.btn-sm{ |
+              'data-confirm-message': t('admin.are_you_sure'), |
+              'data-url': admin_message_replied_url |
+            } |
+              %strong.text-dark= t('admin.message.mark_replied')
       %div.ml-2.message-body
         %strong.ml-n2= "#{t('admin.message.message')}: "
         %p= @message.body
+
+= content_for :turbolinks_pack do
+  = javascript_pack_tag 'admin_message', 'data-turbolinks-track': 'reload', 'defer': 'defer'

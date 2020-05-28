@@ -40,6 +40,7 @@ tr:
       body: "Message Body"
       email: "Email"
       from: "From"
+      mark_replied: "I have replied"
       message: "Message"
       name: "Name"
       phone_number: "Phone number"
@@ -48,6 +49,8 @@ tr:
       sending: "Sending..."
       tag: "Tag"
       title: "Message Title"
+      unreplied: "Have you replied to this message yet?"
+      user_replied: "%{email} replied to this message"
     name: "Name"
     page: "Page"
     product:
