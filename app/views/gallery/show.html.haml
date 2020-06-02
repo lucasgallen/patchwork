@@ -23,20 +23,7 @@
           = render :partial => 'page', locals: { page_number: 0, products: @products }
 
     %div.tab-pane.gallery-tab-pane.gallery-tab-pane--filters.fade#gallery-filters{ role: 'tabpanel', 'arial-labelled-by': 'gallery-filters-tab', 'data-turbolinks-permanent': true }
-      %div.container.gallery-container-filters
-        %div.row
-          %div.selectpicker-container.col-12.col-sm-8.col-lg-12.text-center.mb-3
-            %label.h4= t('gallery.category_filters')
-            %select.w-100.d-block.selectpicker#gallery-category-filters{ multiple: true, 'data-selected-text-format': 'static', title: t('gallery.select_categories'), 'data-style': 'gallery-category-filters', 'data-size': 'auto', 'data-dropup-auto': 'false' }
-              - Category.all.each do |cat|
-                %option{ value: cat.slug }= cat.name
-            %a.d-inline-block.btn.clear-filters-button#clear-filters-button{ 'data-disabled': 'true' }
-              = t('gallery.clear_filters')
-            %ul.list-group.list-group-flush#gallery-active-filters
-
-          %div.col-12.col-sm-4.col-lg-12.text-center.mt-2
-            %a.mb-5.d-block.btn.btn-lg.btn-primary.gallery-results-button#gallery-results-button{ 'data-path': gallery_path, 'data-filters': params[:filter], href: '' }
-              = t('gallery.see_results')
+      = render :partial => 'filters'
 
 %button.btn.btn-primary.btn-lg.gallery-scroll-top#gallery-scroll-top
   = t('gallery.top')
