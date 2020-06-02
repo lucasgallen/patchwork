@@ -7,8 +7,6 @@
         - else
           %div.card-img-top.gallery-card-image.placeholder-image{ 'data-missing-image': t('gallery.image_missing') }
         %div.card-body.gallery-card-body
-          - if item.available
-            %span.badge.badge-pill.badge-success= t('gallery.available')
           %h5.card-title= item.name
           %div.text-left.card-text= item.description.html_safe
 
