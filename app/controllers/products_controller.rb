@@ -56,7 +56,7 @@ class ProductsController < ApplicationController
     if add_detail_images && @product.update(product_params)
       redirect_to admin_products_path
     else
-      render :edit
+      render :edit, status: 500
     end
   end
 
@@ -65,21 +65,21 @@ class ProductsController < ApplicationController
   def product_params
     temp_params = params.require(:product)
                         .permit(:available, :name, :description_tr, :description_en,
-                                :gallery_image, :facets, category_ids: [])
+                                :gallery_image, facets: {}, category_ids: [])
     temp_params.merge(facets: facet_params)
   end
 
   def new_detail_images
-    @new_detail_images ||= params.require(:product).permit(detail_images: [])[:detail_images]
+    @new_detail_images ||= params[:product][:detail_images]
   end
 
   def facet_params
-    params.require(:product).require(:facets).permit(:height, :width)
+    params[:product][:facets].permit(:height, :width)
   end
 
   def add_detail_images
-    return unless @product.present? && product_params.present?
-    return if new_detail_images.nil?
+    return false unless @product.present? && product_params.present?
+    return true if new_detail_images.nil?
 
     new_detail_images.each do |image|
       @product.detail_images.attach(image)
