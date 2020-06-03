@@ -113,9 +113,10 @@ body {
 }
 
 .checkmark {
-  border-bottom: 1rem solid currentColor;
-  border-right: 1rem solid currentColor;
-  height: 8rem;
+  border-bottom: 1.5em solid currentColor;
+  border-right: 1.5em solid currentColor;
+  display: block;
+  height: 6.5em;
   transform: rotate(45deg);
-  width: 3.5rem;
+  width: 3.5em;
 }
