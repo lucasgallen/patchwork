@@ -1,22 +1,15 @@
 require("bootstrap/js/dist/tab")
 require('lazyload/lazyload');
-require("bootstrap-select");
-$.fn.selectpicker.Constructor.BootstrapVersion = '4.4.1';
 
 class Gallery {
   constructor() {
     this.INF_SCROLL_THRESHOLD_PX = 250;
     this.TIMEOUT_MS = 300;
-    this.BS_SELECT_ID = 'bs-select-1'; // No options to manually set this
-    this.BS_SELECT_BTN_CLASS = 'gallery-category-filters';
+    this.GALLERY_FILTER_ROUTE_REGEX = /\/gallery\/(.*)(\/{0-9}*)*/;
 
     this.$window = $(window);
     this.$infScroll = $('#infinite-scroll-container');
-    this.$filterSelect = $('#gallery-category-filters');
-    this.$activeFilters = $('#gallery-active-filters');
-    this.$clearFiltersBtn = $('#clear-filters-button');
-    this.$closeIcon = $('.close-icon').first();
-    this.$resultsBtn = $('#gallery-results-button');
+    this.$filters = $('#gallery-filters');
     this.$resultsTab = $('#gallery-results-tab');
     this.$filtersTab = $('#gallery-filters-tab');
     this.$fader = $('#gallery-tab-content').find('[data-fader]');
@@ -44,19 +37,20 @@ class Gallery {
       $('html, body').animate({ scrollTop: 0 }, 500);
     });
 
-    this.setupFilters();
+    this.$filters.on('click', '.gallery-filter-button', e => {
+      const $btn = $(e.currentTarget);
+      const filterVal = $btn.data('filter-slug');
+
+      this.visitFilteredGallery(filterVal);
+    });
 
     this.$fader.removeClass('fade');
   }
 
   reset() {
     this.$infScroll.off('gallery:load');
-    this.$filterSelect.off('loaded.bs.select');
-    this.$resultsBtn.off('click');
+    this.$filters.off('click');
     this.$resultsTab.off('shown.bs.tab');
-    this.$filterSelect.off('changed.bs.select');
-    this.$activeFilters.off('click');
-    this.$clearFiltersBtn.off('click');
     this.$window.off('scroll');
     this.$infScroll.off('scroll');
     this.$scrollTopBtn.off('click');
@@ -68,108 +62,46 @@ class Gallery {
     this.$filtersTab.removeClass('active');
   }
 
-  setupFilters() {
-    this.handleFilterSelect();
-    this.handleRemoveFilterClick();
-    this.handleFilterClear();
-    this.handleGetResults();
+  visitFilteredGallery(filter) {
+    const url = `/gallery/${this.createFilterPath(filter)}`;
 
-    this.initFromParams();
+    Turbolinks.visit(url, { action: 'advance' });
   }
 
-  initFromParams() {
-    const filters = this.$resultsBtn.data('filters');
-    if (!filters) return;
+  createFilterPath(filter) {
+    const pathMatch = window.location.pathname.match(this.GALLERY_FILTER_ROUTE_REGEX) || [];
+    let filterPath = pathMatch.length ? pathMatch[1] : '';
 
-    this.$filterSelect.on('loaded.bs.select', () => {
-      $(`.${this.BS_SELECT_BTN_CLASS}`).trigger('click');
-      $(`.${this.BS_SELECT_BTN_CLASS}`).trigger('click');
+    if (filterPath === filter) {
+      filterPath = '';
+    } else {
+      filterPath = filter;
+    }
 
-      filters.split('_').forEach(filter => {
-        let index = this.$filterSelect.find(`[value="${filter}"]`).index();
-        $(`#${this.BS_SELECT_ID}-${index}`).trigger('click');
-      });
-    });
+    return filterPath;
   }
 
-  handleGetResults() {
-    this.$resultsBtn.on('click', e => {
-      e.preventDefault();
+  /*
+   * This can be used to handle allowing for simultaneous category filtering
+   *
+   * param  filter string
+   * return path string
+  createFilterPath(filter) {
+    const pathMatch = window.location.pathname.match(this.GALLERY_FILTER_ROUTE_REGEX) || [];
+    let filterPath = pathMatch.length ? pathMatch[1].split('_') : [];
 
-      if (this.$resultsTab.is(':visible')) {
-        this.$resultsTab.tab('show');
-      } else {
-        this.$fader.fadeOut({
-          done: () => Turbolinks.visit(this.$resultsBtn.attr('href'))
-        });
-      }
-    });
+    if (!filterPath.filter(v => v.length).length) {
+      filterPath = filter;
+    } else if (filterPath.indexOf(filter) === -1) {
+      filterPath = filterPath.length ? `${filterPath.join('_')}_${filter}` : filter;
+    } else {
+      filterPath.splice(filterPath.indexOf(filter), 1);
+      filterPath = filterPath.join('_');
+    }
 
-    this.$resultsTab.on('shown.bs.tab', () => {
-      Turbolinks.visit(this.$resultsBtn.attr('href'));
-    });
+    return filterPath;
   }
-
-  handleFilterSelect() {
-    const $activeFilter = $('<li/>', { class: 'list-group-item active-filter' });
-
-    this.$filterSelect.on('changed.bs.select', (e, clickedIndex, isSelected, prevVal) => {
-      const $selectedItem = $(`#${this.BS_SELECT_ID}-${clickedIndex}`);
-
-      this.setResultsButton($(e.currentTarget).val());
-
-      if (isSelected) {
-        this.addActiveFilter($activeFilter.clone(), clickedIndex, $selectedItem);
-      } else {
-        this.removeActiveFilter(clickedIndex);
-      }
-
-      this.$clearFiltersBtn.attr('data-disabled', !$('.active-filter').length);
-    });
-  }
-
-  handleRemoveFilterClick() {
-    this.$activeFilters.on('click', '.active-filter', e => {
-      const $activeFilter = $(e.currentTarget);
-      const selectpickerID = $activeFilter.data('selectpicker-id');
-      $(`#${selectpickerID}`).trigger('click');
-    });
-  }
-
-  handleFilterClear() {
-    this.$clearFiltersBtn.on('click', e => {
-      const $btn = $(e.currentTarget);
-      if ($btn.data('disabled')) return;
-
-      this.removeAllActiveFilters();
-    });
-  }
-
-  setResultsButton(selectpickerValues) {
-    const galleryPath = this.$resultsBtn.data('path');
-    this.$resultsBtn.attr('href', `${galleryPath}/${selectpickerValues.join('_')}`);
-  }
-
-  addActiveFilter($filterClone, clickedIndex, $selectedItem) {
-    let $closeIcon = this.$closeIcon.clone();
-    $closeIcon.removeClass('d-none');
-
-    $filterClone.attr('data-index', clickedIndex);
-    $filterClone.attr('data-selectpicker-id', $selectedItem.attr('id'));
-    $filterClone.text($selectedItem.text());
-    $filterClone.append($closeIcon);
-    this.$activeFilters.append($filterClone);
-  }
-
-  removeActiveFilter(index) {
-    this.$activeFilters.find(`[data-index="${index}"]`).remove();
-  }
-
-  removeAllActiveFilters() {
-    $('.active-filter').each((_, filter) => {
-      $(filter).trigger('click');
-    });
-  }
+  */
 
   /* Infinite Scroll */
   setupInfScroll() {

@@ -17,6 +17,6 @@ class HomeController < ApplicationController
   end
 
   def top_five_categories
-    Category.top.limit(5)
+    Category.with_product_count_ordered.limit(5)
   end
 end

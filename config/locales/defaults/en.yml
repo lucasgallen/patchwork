@@ -68,7 +68,7 @@ en:
   _gallery: "Gallery"
   gallery:
     available: "Available!"
-    category_filters: "Category Filters"
+    filters: "Filters"
     clear_filters: "Clear Filters"
     end: "End"
     filters: "Filters"

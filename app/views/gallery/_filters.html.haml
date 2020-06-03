@@ -1,14 +1,15 @@
 %div.container.gallery-container-filters
-  %div.row
-    %div.selectpicker-container.col-12.col-sm-8.col-lg-12.text-center.mb-3
-      %label.h4= t('gallery.category_filters')
-      %select.w-100.d-block.selectpicker#gallery-category-filters{ multiple: true, 'data-selected-text-format': 'static', title: t('gallery.select_categories'), 'data-style': 'gallery-category-filters', 'data-size': 'auto', 'data-dropup-auto': 'false' }
-        - Category.all.each do |cat|
-          %option{ value: cat.slug }= cat.name
-      %a.d-inline-block.btn.clear-filters-button#clear-filters-button{ 'data-disabled': 'true' }
-        = t('gallery.clear_filters')
-      %ul.list-group.list-group-flush#gallery-active-filters
+  %label.h4= t('gallery.filters')
+  %ul.list-group.list-group-flush#gallery-filters
+    - @categories.find_each do |cat|
+      %li.d-flex.align-items-center.justify-content-start.list-group-item
+        %span.gallery-filter-button.text-success.d-flex.align-items-center.justify-content-center{ |
+        class: "#{'active' if active_filters.include?(cat.slug)}", |
+        'data-filter-slug': cat.slug, |
+      }
+          %span.checkmark
+          %svg.close-icon{ viewBox: '0 0 10 10', fill: 'none', 'stroke-width': '0.07', stroke: 'black' }
+            %path{ d: 'M0 0 l10 10 M10 0 l-10 10' }
 
-    %div.col-12.col-sm-4.col-lg-12.text-center.mt-2
-      %a.mb-5.d-block.btn.btn-lg.btn-primary.gallery-results-button#gallery-results-button{ 'data-path': gallery_path, 'data-filters': params[:filter], href: '' }
-        = t('gallery.see_results')
+        %span.ml-2.gallery-filter-name= cat.name
+        %span.ml-auto.gallery-filter-count= cat.product_count

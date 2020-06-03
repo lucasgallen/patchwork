@@ -9,7 +9,13 @@ class Category < ApplicationRecord
 
   private
 
-  def self.top
+  def self.with_product_count
+    select('categories.id, categories.name_tr, categories.name_en, slug, count(products.id) as product_count')
+      .joins(:products)
+      .group('id')
+  end
+
+  def self.with_product_count_ordered
     select('categories.id, categories.name_tr, categories.name_en, slug, count(products.id) as product_count')
       .joins(:products)
       .group('id')

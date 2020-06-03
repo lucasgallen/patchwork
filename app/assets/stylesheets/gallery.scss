@@ -1,4 +1,3 @@
-@import "bootstrap-select/sass/bootstrap-select";
 @import "bootstrap_toolbox";
 @import "bootstrap/scss/card";
 @import "bootstrap/scss/list-group";
@@ -17,115 +16,89 @@
   }
 }
 
+.gallery-filter {
+  &-button {
+    background: $faint-yellow;
+    border: 1px dotted $purple;
+    border-radius: 100%;
+    cursor: pointer;
+    font-size: 4px;
+    height: 3rem;
+    overflow: hidden;
+    transition: all 0.25s ease-in-out;
+    width: 3rem;
+
+    .checkmark {
+      display: none;
+      opacity: 0;
+      margin-top: -4px;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .close-icon {
+      display: none;
+      opacity: 0;
+      stroke-width: 0.7px;
+      transition: opacity 0.2s ease-in-out;
+      width: calc(100% - 1.5rem);
+    }
+
+    &:hover {
+      background: $light-yellow;
+      border-width: 2px;
+
+      .checkmark {
+        display: block;
+        opacity: 0.5;
+      }
+    }
+
+    &.active {
+      background: $light-yellow;
+      border-width: 2px;
+
+      .checkmark {
+        display: block;
+        opacity: 1;
+      }
+
+      &:hover {
+        .checkmark {
+          display: none;
+          opacity: 0;
+        }
+
+        .close-icon {
+          display: block;
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
 .gallery-container {
   min-height: 100%;
 
   &-filters {
     margin-top: 2rem;
-
-    .clear-filters-button {
-      background: $purple;
-      border: 2px solid $white;
-      border-radius: 0.5rem;
-      color: $white;
-      font-weight: 600;
-
-      &:hover {
-        background: $white;
-        border: 2px solid $purple;
-        color: $purple;
-      }
-
-      &[data-disabled="true"], &[data-disabled="true"]:hover {
-        background-color: $pink;
-        border-color: $white;
-        color: $white;
-        cursor: not-allowed;
-      }
-    }
+    max-width: 540px;
   }
 }
 
-.gallery-category-filters.btn {
-  background: $purple;
-  border: 2px solid $white;
-  border-radius: 0.5rem;
-  color: $white;
-  font-weight: 600;
-  margin-bottom: 1rem;
-
-  .show > & {
-    margin-bottom: 10rem;
-  }
-
-  & + .dropdown-menu {
-    height: 9.7rem !important;
-    overflow: scroll !important;
-  }
-
-  &:hover {
-    background-color: $white;
-    border-color: $purple;
-    color: $purple;
-  }
-
-  &.bs-placeholder.dropdown-toggle {
-    border-color: $purple;
-    color: $white;
-
-    &:hover, &:focus {
-      background-color: $white;
-      border-color: $purple;
-      color: $purple;
-    }
-  }
-
-  .dropdown-menu {
-    border-radius: 0.5rem;
-  }
-}
-
-.gallery-results-button.btn {
-  background: $blue;
-  border-radius: 0.5rem;
-  border: 4px dashed $yellow;
-  box-shadow: 0 0 0 3px $purple, 0 0 0 5px $blue;
-  color: $white;
-  font-weight: 600;
-
-  &:hover {
-    border-color: $white;
-    box-shadow: 0 0 0 3px $yellow, 0 0 0 5px $purple, 0 0 0 7px $blue;
-  }
-}
-
-.active-filter {
-  pointer-events: none;
-  position: relative;
-
-  & .close-icon {
-    background: #ad1061;
-    box-shadow: 0px 0 2px 0px black;
-    border-radius: 1rem;
-    cursor: pointer;
-    height: 2rem;
-    margin-top: -1rem;
-    pointer-events: all;
-    position: absolute;
-    padding: 0.3rem;
-    right: 1rem;
-    stroke-width: 0.8;
-    stroke: #fefdfd;
-    top: 50%;
-    transition: all 0.05s linear;
-    width: 2rem;
-
-    &:hover {
-      box-shadow: 2px 0 4px 0px #6d3b5c;
-      right: calc(1rem + 2px);
-    }
-  }
-}
+//.gallery-results-button.btn {
+//  background: $blue;
+//  border-radius: 0.5rem;
+//  border: 4px dashed $yellow;
+//  box-shadow: 0 0 0 3px $purple, 0 0 0 5px $blue;
+//  color: $white;
+//  font-weight: 600;
+//
+//  &:hover {
+//    border-color: $white;
+//    box-shadow: 0 0 0 3px $yellow, 0 0 0 5px $purple, 0 0 0 7px $blue;
+//  }
+//}
 
 .gallery-title {
   font-size: calc(3rem + 1.5vw);

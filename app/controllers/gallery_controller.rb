@@ -1,6 +1,8 @@
 class GalleryController < ApplicationController
   def show
     @products = products.page(0)
+    @categories = Category.with_product_count.all
+    @active_filters = active_filters
   end
 
   def page
@@ -27,8 +29,16 @@ class GalleryController < ApplicationController
   def filtered_results
     return Product.all if params[:filter].blank?
 
-    Product.joins(:categories)
-      .where('categories.slug IN (?)', params[:filter].split('_'))
-      .distinct.order(created_at: :desc)
+    Product
+      .select('products.*, array_agg(categories.slug)')
+      .joins(:categories)
+      .group('id')
+      .having('array_agg(categories.slug)::text[] @> ARRAY[?]', active_filters)
+      .order(created_at: :desc)
+  end
+
+  def active_filters
+    return [] if params[:filter].blank?
+    params[:filter].split('_')
   end
 end

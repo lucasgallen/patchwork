@@ -70,7 +70,7 @@ tr:
   _gallery: "Galeri"
   gallery:
     available: "Available!"
-    category_filters: "Category Filters"
+    filters: "Filters"
     clear_filters: "Clear Filters"
     end: "End"
     filters: "Filters"
