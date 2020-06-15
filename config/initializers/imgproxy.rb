@@ -1,6 +1,6 @@
 Imgproxy.configure do |config|
   # Full URL to where imgproxy lives.
-  config.endpoint = ENV['IMGPROXY_HOST']
+  config.endpoint = "#{ENV['IMGPROXY_HOST']}:#{ENV['IMGPROXY_PORT']}"
 
   # Hex-encoded signature key
   config.hex_key = ENV['IMGPROXY_KEY']
