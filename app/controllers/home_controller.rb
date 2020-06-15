@@ -7,6 +7,8 @@ class HomeController < ApplicationController
   private
 
   def gallery_images
+    return [] unless Product.any?
+
     recent_products = Product.last(5)
     images = recent_products.map do |prod|
       next unless prod.gallery_image.attached?
@@ -17,6 +19,8 @@ class HomeController < ApplicationController
   end
 
   def top_five_categories
+    return Category.none unless Category.any?
+
     Category.with_product_count_ordered.limit(5)
   end
 end

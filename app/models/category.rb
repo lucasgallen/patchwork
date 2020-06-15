@@ -16,6 +16,8 @@ class Category < ApplicationRecord
   end
 
   def self.with_product_count_ordered
+    return Category.none unless Product.any?
+
     select('categories.id, categories.name_tr, categories.name_en, slug, count(products.id) as product_count')
       .joins(:products)
       .group('id')
