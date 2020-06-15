@@ -249,7 +249,7 @@
   .infinite-scroll-container {
     border-top: 1px solid $purple;
     height: calc(100% - 5rem);
-    overflow: scroll;
+    overflow: hidden scroll;
   }
 
   .no-results-container {
@@ -286,7 +286,7 @@
         display: inline-block;
         height: calc(100% - 5rem);
         max-width: 20rem;
-        overflow: scroll;
+        overflow: hidden;
       }
     }
   }
