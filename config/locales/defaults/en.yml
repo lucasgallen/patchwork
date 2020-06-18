@@ -81,6 +81,8 @@ en:
   home:
     title: "Welcome"
     lead: "Let the Queens of Patchwork introduce you to a colorful world of fabric"
+    page_not_found: "Page Not Found"
+    sorry_page_dne: "Sorry, it looks like the page you were looking for doesn't exist."
   loading: "Loading..."
   language: "Language"
   locale_name: "English"

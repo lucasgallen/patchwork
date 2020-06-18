@@ -4,6 +4,9 @@ class HomeController < ApplicationController
     @gallery_images = gallery_images
   end
 
+  def not_found
+  end
+
   private
 
   def gallery_images

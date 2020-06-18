@@ -1,0 +1,7 @@
+%div.container--page-not-found.container-fluid
+  %h1.text-center.mt-5= t('home.page_not_found')
+  %div.container-sm.mt-5
+    %h5.mx-5.text-center= t('home.sorry_page_dne')
+
+- content_for :page_specific_styles do
+  = stylesheet_link_tag 'home', media: 'all', 'data-turbolinks-track': 'reload'

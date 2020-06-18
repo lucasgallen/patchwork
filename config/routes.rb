@@ -42,5 +42,7 @@ Rails.application.routes.draw do
       resources :categories
       resources :attachments, only: [:destroy]
     end
+
+    get '/:anything', to: 'home#not_found'
   end
 end
