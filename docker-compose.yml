@@ -43,7 +43,6 @@ services:
       RUBYOPT: -W:no-deprecated -W:no-experimental
       DATABASE_HOST: db
       IMGPROXY_HOST: ${IMGPROXY_HOST}
-      IMGPROXY_PORT: 8080
       IMGPROXY_KEY: ${IMGPROXY_KEY}
       IMGPROXY_SALT: ${IMGPROXY_SALT}
     volumes:
@@ -74,7 +73,6 @@ services:
       RUBYOPT: -W:no-deprecated -W:no-experimental
       DATABASE_HOST: db
       IMGPROXY_HOST: ${IMGPROXY_HOST}
-      IMGPROXY_PORT: 8080
       IMGPROXY_KEY: ${IMGPROXY_KEY}
       IMGPROXY_SALT: ${IMGPROXY_SALT}
     volumes:
