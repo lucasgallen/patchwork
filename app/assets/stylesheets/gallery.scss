@@ -18,8 +18,8 @@
 
 .gallery-filter {
   &-button {
-    background: $faint-yellow;
-    border: 1px dotted $purple;
+    background: $white-faint;
+    border: 1px dotted $charcoal;
     border-radius: 100%;
     cursor: pointer;
     font-size: 4px;
@@ -44,7 +44,7 @@
     }
 
     &:hover {
-      background: $light-yellow;
+      background: $white;
       border-width: 2px;
 
       .checkmark {
@@ -54,7 +54,7 @@
     }
 
     &.active {
-      background: $light-yellow;
+      background: $white;
       border-width: 2px;
 
       .checkmark {
@@ -101,6 +101,8 @@
 //}
 
 .gallery-title {
+  color: $charcoal;
+  filter: drop-shadow(1px 1px 0 $peach-crayola);
   font-size: calc(3rem + 1.5vw);
 }
 
@@ -168,7 +170,8 @@
 }
 
 .gallery-card {
-  border: 2px dashed $purple;
+  background-color: $charcoal;
+  border: 2px dashed $peach-crayola;
   border-radius: 0.5rem;
   box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.22);
   overflow: hidden;
@@ -195,7 +198,8 @@
 
   &-body {
     bottom: 0;
-    background: $white;
+    background-color: $charcoal;
+    color: $white;
     height: 0;
     padding-bottom: calc(5.5rem + 0.5vw);
     pointer-events: none;
@@ -247,9 +251,16 @@
   }
 
   .infinite-scroll-container {
-    border-top: 1px solid $purple;
+    border-top: 1px solid $english-lavender;
     height: calc(100% - 5rem);
     overflow: hidden scroll;
+
+    /*** Hide scrollbar ***/
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer and Edge */
+    &::-webkit-scrollbar {
+      width: 0; /* For Chrome, Safari, and Opera */
+    }
   }
 
   .no-results-container {

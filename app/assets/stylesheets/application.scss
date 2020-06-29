@@ -22,6 +22,7 @@
 @import "footer";
 
 html, body {
+  background-color: $bone;
   font-family: 'Crimson';
   height: 100%;
 }
@@ -57,13 +58,13 @@ body {
 
 .jumbotron.jumbotron-top {
   border-bottom: 1px dashed $white;
-  color: $white;
+  color: $bone;
   margin-top: -7rem;
   min-height: calc(100vh - 7rem);
   text-align: center;
 
   .jumbotron-container {
-    background: $purple;
+    background: $charcoal;
     border: 1px dashed $white;
     border-radius: 10px;
     display: inline-block;

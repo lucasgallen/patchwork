@@ -18,9 +18,9 @@
     %div.col-md-3
       %h2 Categories
       - if @categories.present?
-        %ul.list-group.list-group-flush
+        %ul.list-group.list-group-flush.categories-list
           - @categories.each do |cat|
-            %button.h5.mb-0.list-group-item.list-group-item-action.d-flex.justify-content-between.align-items-center
+            %button.h5.mb-0.list-group-item.list-group-item-action.d-flex.justify-content-between.align-items-center.categories-list-item.asdf
               %span.category-highlight
               = link_to cat.name, gallery_path(cat.slug), class: 'stretched-link'
               %span.badge.badge-primary.badge-pill.float-right.font-weight-normal.text-monospace= cat.product_count

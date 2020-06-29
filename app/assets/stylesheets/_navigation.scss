@@ -1,5 +1,5 @@
 .navbar {
-  background: $pink;
+  background: $english-lavender;
   flex-direction: row-reverse;
   position: fixed;
   top: 0;
@@ -20,41 +20,50 @@
 }
 
 .navbar-brand {
-  background: #ad1061;
-  border-bottom: 2px dashed #fefdfd;
-  border-right: 2px dashed #fefdfd;
+  align-items: center;
+  background-color: $charcoal;
+  border-bottom: 2px dashed $white;
+  border-right: 2px dashed $white;
   bottom: 0;
+  display: inline-flex;
   left: 0;
-  line-height: 2.5;
   margin: 0;
-  padding: 0 10px;
+  padding: 0 1rem;
   position: absolute;
   top: 0;
   transition: all 0.2s ease-in;
 }
 
 .navbar-dark {
+  .navbar-brand {
+    color: $bone;
+  }
+
   .navbar-brand:hover {
-    background: whitesmoke;
-    color: $purple;
-    border-color: $purple;
+    background: $white;
+    color: $charcoal;
+    border-color: $charcoal;
   }
 }
 
 .nav-link--custom {
-  color: $white;
+  color: $charcoal;
   display: block;
-  padding: 0.5rem;
+  font-size: 1.3rem;
+  letter-spacing: 5px;
+  padding: 0.5rem 1.8rem;
   text-decoration: none;
+  text-transform: uppercase;
 
   &:hover {
+    background-color: $charcoal;
     border: none;
     padding-bottom: 0.5rem;
-    color: $white;
+    color: $bone;
     text-decoration: none;
 
     @media (min-width: map-get($grid-breakpoints, "md")) {
-      border-bottom: 2px solid $white;
+      border-bottom: 2px solid $bone;
       padding-bottom: calc(0.5rem - 2px);
     }
   }

@@ -10,6 +10,7 @@
 }
 
 .about-description {
+  background-color: $charcoal;
   padding: 3rem 0 0;
 
   &--paragraph {
@@ -45,12 +46,13 @@
   }
 
   &--sivumbike {
+    color: $white;
     z-index: 1;
 
     &:after {
       border-left: 1.5rem solid transparent;
       border-right: 1.5rem solid transparent;
-      border-top: 1rem solid $white;
+      border-top: 1rem solid $charcoal;
       content: '';
       height: 0;
       left: calc(50% - 1.5rem);
@@ -65,7 +67,7 @@
   font-size: 4.5rem;
 
   &-container {
-    background: $purple;
+    background-color: $charcoal;
     color: $light-pink;
     margin-top: -7rem;
     overflow: hidden;

@@ -13,3 +13,13 @@
 @import "bootstrap/scss/nav";
 @import "bootstrap/scss/navbar";
 @import "bootstrap/scss/utilities";
+
+
+// Overrides
+.dropdown-item.active {
+  background-color: $charcoal;
+}
+
+.list-group-item {
+  background: transparent;
+}
