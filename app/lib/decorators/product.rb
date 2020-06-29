@@ -1,7 +1,13 @@
 class Decorators::Product < SimpleDelegator
+  CAN_SELL_PRODUCT = false
+
   def initialize(product)
     @product = product
     super
+  end
+
+  def can_sell?
+    CAN_SELL_PRODUCT
   end
 
   def gallery_image

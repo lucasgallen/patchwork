@@ -2,8 +2,9 @@
   %div.row.mx-auto.mb-2.clearfix.justify-content-center{ style: 'max-width: 60rem' }
     %div.col-12.clear.mb-3.d-flex.flex-column.flex-sm-row.justify-content-sm-around
       %h1.product-title.mb-1.d-flex.product-title= @product.name
-      %button.product-message-open-btn.btn.btn-success.d-flex.align-self-start.align-self-sm-center#product-message-open-btn{ type: 'button', data: {toggle: 'modal', target: '#product-message-modal', 'success-message': t('product.message_sent')} }
-        = @product.message_cta
+      - if @product.can_sell?
+        %button.product-message-open-btn.btn.btn-success.d-flex.align-self-start.align-self-sm-center#product-message-open-btn{ type: 'button', data: {toggle: 'modal', target: '#product-message-modal', 'success-message': t('product.message_sent')} }
+          = @product.message_cta
     %div.col-lg-7.col-sm-12.product-carousel
       %div.w-100.carousel.slide#product-carousel
         %div.carousel-inner.product-carousel-inner
@@ -41,8 +42,9 @@
         %span.btn-group.mt-3
           = link_to t('admin.edit'), edit_admin_product_path(@product), class: 'btn btn-sm btn-warning'
 
-%div.modal.product-message-modal.message-form-container.fade#product-message-modal{ 'data-keyboard': 'false', tabindex: '-1', role: 'dialog', aria: {labelledby: 'productMessageLabel', hidden: 'true'} }
-  = render partial: 'messages/modal', locals: { label: 'productMessageLabel' }
+- if @product.can_sell?
+  %div.modal.product-message-modal.message-form-container.fade#product-message-modal{ 'data-keyboard': 'false', tabindex: '-1', role: 'dialog', aria: {labelledby: 'productMessageLabel', hidden: 'true'} }
+    = render partial: 'messages/modal', locals: { label: 'productMessageLabel' }
 
 - content_for :turbolinks_pack do
   = javascript_pack_tag 'product', 'data-turbolinks-track': 'reload', 'defer': 'defer'
