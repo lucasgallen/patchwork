@@ -1,5 +1,5 @@
-%div.product-container.container-fluid
-  %div.row.mx-auto.mb-2.clearfix.justify-content-center{ style: 'max-width: 60rem' }
+%div.product-outer-container.container-fluid
+  %div.product-inner-container.row.mx-auto.mb-2.clearfix.justify-content-center
     %div.col-12.clear.mb-3.d-flex.flex-column.flex-sm-row.justify-content-sm-around
       %h1.product-title.mb-1.d-flex.product-title= @product.name
       - if @product.can_sell?
@@ -37,7 +37,10 @@
       - if @product.has_category?
         %ul.pl-2
           - @product.categories.each do |cat|
-            %li.product-category-tag.mb-1.mr-5= cat.name
+            %li.product-category-tag.mb-1.mr-5
+              %span.product-category-tag-before
+              %span.product-category-tag-copy= cat.name
+              %span.product-category-tag-after
       - if user_signed_in? && current_user.role == 'admin'
         %span.btn-group.mt-3
           = link_to t('admin.edit'), edit_admin_product_path(@product), class: 'btn btn-sm btn-warning'

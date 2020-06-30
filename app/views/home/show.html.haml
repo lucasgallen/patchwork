@@ -25,8 +25,8 @@
               = link_to cat.name, gallery_path(cat.slug), class: 'stretched-link'
               %span.badge.badge-primary.badge-pill.float-right.font-weight-normal.text-monospace= cat.product_count
 
-.blue-lavender-square
-  = render :partial => 'decorative_patches/purple_square', :locals => { patch_color: '#c76da9', image: image_path('textures/blue_lavender.jpg') }
+.floating-logo
+  %img.w-100{ src: image_path('main-page-logo.png') }
 
 - content_for :turbolinks_pack do
   = javascript_pack_tag 'home_gallery', 'data-turbolinks-track': 'reload', 'defer': 'defer'

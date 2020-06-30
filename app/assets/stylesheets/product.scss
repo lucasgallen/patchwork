@@ -15,8 +15,12 @@
 }
 
 .product {
-  &-container {
+  &-outer-container {
     min-height: calc(100vh - 11.4rem);
+  }
+
+  &-inner-container {
+    max-width: 60rem;
   }
 
   &-title {
@@ -29,9 +33,10 @@
   }
 
   &-carousel-inner {
+    background-color: $charcoal;
     border-radius: 0.5rem;
-    border: 4px dashed #ff4cc5;
-    box-shadow: 0 0 0 3px $purple, 0 0 0 5px $yellow;
+    border: 2px dashed $peach-crayola;
+    box-shadow: 0 0 0 3px $lavender-gray, 0 0 0 5px $charcoal;
     height: 0;
     padding-bottom: calc(9/16 * 100%);
   }
@@ -99,14 +104,14 @@
 
     .carousel-control-prev-icon:after {
       left: calc(50% - 0.707rem);
-      border-right: 1.414rem solid #ff4cc5;
+      border-right: 1.414rem solid $bright-pale-green;
       border-top: 1rem solid transparent;
       border-bottom: 1rem solid transparent;
     }
 
     .carousel-control-next-icon:after {
       right: calc(50% - 0.707rem);
-      border-left: 1.414rem solid #ff4cc5;
+      border-left: 1.414rem solid $bright-pale-green;
       border-top: 1rem solid transparent;
       border-bottom: 1rem solid transparent;
     }
@@ -136,7 +141,7 @@
 }
 
 .product-category-tag {
-  background: $pink;
+  background: $charcoal;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 10px;
   border-top-right-radius: 3px;
@@ -147,7 +152,7 @@
   padding: 0.5rem 1rem 0.5rem;
   position: relative;
 
-  &::before {
+  &-before {
     background: #fefdfd;
     border-radius: 100%;
     content: '';
@@ -156,11 +161,16 @@
     position: absolute;
     top: calc(50% - 0.25rem);
     width: 0.5rem;
-    z-index: 1;
+    z-index: 2;
   }
 
-  &::after {
-    background: #c76ca9;
+  &-copy {
+    position: relative;
+    z-index: 3;
+  }
+
+  &-after {
+    background: $charcoal;
     border-radius: 100%;
     bottom: 0;
     content: '';
@@ -168,6 +178,6 @@
     position: absolute;
     top: 0;
     width: 4rem;
-    z-index: -1;
+    z-index: 1;
   }
 }

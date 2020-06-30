@@ -3,16 +3,20 @@
 @import "bootstrap/scss/list-group";
 
 .gallery-scroll-top.btn {
+  background-color: $charcoal;
   bottom: 1rem;
   border-radius: 1rem;
-  border: 2px dotted $white;
-  box-shadow: inset 0 0 0 2px $purple, 0 0 0 2px $purple;
+  border: 2px dotted $bone;
+  box-shadow: inset 0 0 0 2px $peach-crayola, 0 0 0 2px $peach-crayola;
   right: 1rem;
   position: fixed;
   z-index: 2;
 
   &:hover {
-    border-color: $white;
+    background-color: $charcoal;
+    border-color: $yellow;
+    box-shadow: inset 0 0 0 2px transparent, 0 0 0 2px $peach-crayola;
+    color: $peach-crayola;
   }
 }
 
@@ -136,34 +140,36 @@
 
 .gallery {
   &-nav-tabs.nav-tabs {
-    border-bottom: 2px dashed $purple;
+    border-bottom: 2px dashed $charcoal;
     font-size: 1.7rem;
     justify-content: space-evenly;
 
     .gallery-nav-item {
-      border: 2px dashed $purple;
+      border: 2px dashed $lavender-gray;
       color: $pink;
       transition: all 0.2s linear;
 
       &.active {
-        background: $purple;
-        border-color: $white;
+        background: $charcoal;
+        border-color: $lavender-gray;
         margin-bottom: -2px;
         border-bottom-color: transparent;
         color: $white;
-        box-shadow: 0 -3px 0 3px $pink, 0 -7px 0 6px $purple, 0 -14px 0 3px $yellow;
+        box-shadow: 0 -3px 0 3px $pink, 0 -7px 0 6px $charcoal, 0 -14px 0 3px $lavender-gray;
       }
 
       &:not(.active) {
-        border-color: $pink;
+        background-color: $charcoal;
+        border-color: $bone;
         border-bottom-color: transparent;
+        color: $lavender-gray;
       }
 
       &:hover:not(.active) {
-        border-color: $pink;
-        color: $purple;
+        border-color: $lavender-gray;
+        color: $white;
         border-bottom-color: transparent;
-        box-shadow: 0 -3px 0 3px $purple, 0 -6px 0 3px $pink;
+        box-shadow: 0 -3px 0 3px $pink, 0 -6px 0 3px $charcoal;
       }
     }
   }

@@ -11,5 +11,8 @@
     %p.about-description--we.about-description--paragraph= t('about.body.we')
 
 
+.floating-logo.floating-logo--about
+  %img.w-100{ src: image_path('main-page-logo.png') }
+
 - content_for :page_specific_styles do
   = stylesheet_link_tag 'about', media: 'all', 'data-turbolinks-track': 'reload'

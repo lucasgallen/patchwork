@@ -1,11 +1,15 @@
 %nav.navbar.navbar-expand-md.navbar-dark.shadow--light
-  = link_to t('sivumbike_patchworks'), root_path, class: 'navbar-brand'
+  %a.navbar-brand.d-flex.flex-column{ href: root_path }
+    %span Sivumbike
+    %small Patchworks
   %button.navbar-toggler{ |
     type: 'button', |
     data: { toggle: 'collapse', target: '#navbar' }, |
     aria: { controls: 'navbar', expanded: 'false', label: 'Toggle navigation' } |
   } |
-    %span.navbar-toggler-icon
+    %span.navbar-toggler-bar.navbar-toggler-bar--top
+    %span.navbar-toggler-bar.navbar-toggler-bar--mid
+    %span.navbar-toggler-bar.navbar-toggler-bar--bot
 
   - if type === 'app'
     = render :partial => 'app_nav_items'

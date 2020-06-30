@@ -1,6 +1,7 @@
 .navbar {
   background: $english-lavender;
   flex-direction: row-reverse;
+  min-height: 4.5rem;
   position: fixed;
   top: 0;
   width: 100%;
@@ -9,9 +10,68 @@
   &-nav {
     margin: 0 auto;
   }
+
+  &-toggler {
+    background: $charcoal;
+    border-radius: 0.5rem;
+    border: 1px dashed $lavender-gray;
+    height: 2.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    width: 2.5rem;
+
+    &[aria-expanded='true'] {
+      .navbar-toggler-bar {
+        transform-origin: center;
+        top: calc(50% - 1.5px);
+
+        &--top {
+          transform: rotate(45deg);
+        }
+
+        &--mid {
+          opacity: 0;
+        }
+
+        &--bot {
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+
+  &-toggler-bar {
+    background: $bone;
+    display: block;
+    height: 3px;
+    left: 3px;
+    margin-bottom: 6px;
+    position: absolute;
+    right: 3px;
+    top: calc(50% - 1.5px);
+    transition: all 0.2s ease-in-out;
+
+    &--top {
+      top: calc(50% - 9.5px);
+    }
+
+    &--bot {
+      top: calc(50% + 6.5px);
+    }
+
+    &:last-child {
+      margin: 0;
+    }
+  }
 }
 
 .navbar-collapse {
+  flex-grow: 0;
+  margin-top: 4rem;
+  width: calc(100% - #{$navbar-brand-width});
   z-index: 1;
 
   @media (min-width: map-get($grid-breakpoints, "md")) {
@@ -19,41 +79,74 @@
   }
 }
 
+.nav-items {
+  max-width: 39rem;
+}
+
 .navbar-brand {
   align-items: center;
-  background-color: $charcoal;
-  border-bottom: 2px dashed $white;
-  border-right: 2px dashed $white;
+  background: {
+    color: $charcoal;
+    image: url(image-path('brand-background.png'));
+    position: center;
+    size: cover;
+  }
+  border-bottom: 2px dashed $charcoal;
+  border-right: 2px dashed $charcoal;
   bottom: 0;
-  display: inline-flex;
+  text-shadow: 2px 0 0 $bone;
   left: 0;
+  font-size: 2.2rem;
   margin: 0;
-  padding: 0 1rem;
   position: absolute;
   top: 0;
-  transition: all 0.2s ease-in;
+  width: $navbar-brand-width;
+
+  small {
+    display: inline-block;
+    font-family: 'Colendra';
+    font-size: 65%;
+    letter-spacing: 5px;
+    margin-top: -1.3rem;
+  }
+
+  span {
+    display: block;
+    font-family: 'Colendra-Alternate';
+    letter-spacing: 12px;
+    margin: 0;
+    margin-top: -0.5rem;
+  }
 }
 
 .navbar-dark {
-  .navbar-brand {
-    color: $bone;
+  .navbar-toggler {
+    border-color: $lavender-gray;
   }
 
-  .navbar-brand:hover {
-    background: $white;
+  .navbar-brand {
     color: $charcoal;
+    text-shadow: 0 0 0 $charcoal;
+  }
+
+  .navbar-brand:hover, .navbar-brand:focus {
+    background: $white;
     border-color: $charcoal;
+    color: $charcoal;
+    text-shadow: none;
   }
 }
 
 .nav-link--custom {
-  color: $charcoal;
+  color: $bone;
   display: block;
   font-size: 1.3rem;
+  font-weight: bold;
   letter-spacing: 5px;
   padding: 0.5rem 1.8rem;
   text-decoration: none;
   text-transform: uppercase;
+  text-shadow: 1px 1px 1px $charcoal;
 
   &:hover {
     background-color: $charcoal;
