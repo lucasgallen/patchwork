@@ -1,5 +1,5 @@
 %div.container-fluid.about-title-container
-  %h1.about-title.pb-5.text-center= t('about.title')
+  %h1.about-title.text-center= t('about.title')
 
 %div.container-fluid.px-0.about-description
   %div.container-fluid.about-container.about-container--sivumbike
@@ -11,8 +11,11 @@
     %p.about-description--we.about-description--paragraph= t('about.body.we')
 
 
-.floating-logo.floating-logo--about
-  %img.w-100{ src: image_path('main-page-logo.png') }
+.floating-logo.floating-logo--about#floating-logo
+  %img.floating-logo-image{ src: image_path('main-page-logo.png') }
+
+- content_for :turbolinks_pack do
+  = javascript_pack_tag 'floating_logo', 'data-turbolinks-track': 'reload', 'defer': 'defer'
 
 - content_for :page_specific_styles do
   = stylesheet_link_tag 'about', media: 'all', 'data-turbolinks-track': 'reload'

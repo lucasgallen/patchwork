@@ -22,15 +22,18 @@
 @import "navigation";
 @import "footer";
 
+$logo-width: calc(8rem + 8vw);
+
 html, body {
   background-color: $bone;
-  font-family: 'Crimson';
+  font-family: 'CaviarDreams';
   height: 100%;
 }
 
 body {
   height: calc(100% - 7rem - 5rem);
   margin-top: 7rem;
+  overflow-x: hidden;
 }
 
 .h1, .h2 {
@@ -38,16 +41,32 @@ body {
 }
 
 .floating-logo {
+  cursor: grab;
   filter: drop-shadow(0px 0px 0.8rem black);
+  left: calc(50% - 4rem - 4vw);
+  max-height: $logo-width;
+  overflow: hidden;
   position: absolute;
-  right: 0;
-  top: 0;
-  transition: transform 0.5s ease-in-out;
-  width: calc(10rem + 8vw);
+  top: calc(50% - 8rem - 10vw);
+  transform: rotate(-45deg);
+  transition: all 0.5s ease-in;
+  width: $logo-width;
+  z-index: 1;
+
+  &.moving {
+    cursor: grabbing;
+    transition: none;
+  }
+
+  &-image {
+    margin-left: calc(-1rem - 2.5vw);
+    margin-top: calc(-1rem - 2.5vw);
+    transform: rotate(45deg);
+    width: calc(100% + 2rem + 5vw);
+  }
 
   &--about {
-    transform: translate(0, 8rem);
-    width: 10rem;
+    top: calc(22rem - #{$logo-width / 2});
   }
 }
 
@@ -83,7 +102,7 @@ body {
     border: 1px dashed $white;
     border-radius: 10px;
     display: inline-block;
-    margin-top: calc((50vh - 12rem));
+    margin-top: 50vh;
     text-align: left;
     width: auto;
   }

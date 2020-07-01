@@ -25,11 +25,14 @@
               = link_to cat.name, gallery_path(cat.slug), class: 'stretched-link'
               %span.badge.badge-primary.badge-pill.float-right.font-weight-normal.text-monospace= cat.product_count
 
-.floating-logo
-  %img.w-100{ src: image_path('main-page-logo.png') }
+.floating-logo#floating-logo
+  %img.floating-logo-image{ src: image_path('main-page-logo.png') }
 
 - content_for :turbolinks_pack do
   = javascript_pack_tag 'home_gallery', 'data-turbolinks-track': 'reload', 'defer': 'defer'
+
+- content_for :turbolinks_pack do
+  = javascript_pack_tag 'floating_logo', 'data-turbolinks-track': 'reload', 'defer': 'defer'
 
 - content_for :page_specific_styles do
   = stylesheet_link_tag 'home', media: 'all', 'data-turbolinks-track': 'reload'
