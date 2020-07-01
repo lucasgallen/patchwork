@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'CaviarDreams';
+  src: font_url('CaviarDreams.woff') format('woff'),
+       font_url('CaviarDreams.woff2') format('woff2'),
+       font_url('CaviarDreams.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'CaviarDreams';
+  src: font_url('CaviarDreams_BoldItalic.woff') format('woff'),
+       font_url('CaviarDreams_BoldItalic.woff2') format('woff2'),
+       font_url('CaviarDreams_BoldItalic.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'CaviarDreams';
+  src: font_url('CaviarDreams_Italic.woff') format('woff'),
+       font_url('CaviarDreams_Italic.woff2') format('woff2'),
+       font_url('CaviarDreams_Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'CaviarDreams';
+  src: font_url('Caviar_Dreams_Bold.woff') format('woff'),
+       font_url('Caviar_Dreams_Bold.woff2') format('woff2'),
+       font_url('Caviar_Dreams_Bold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
