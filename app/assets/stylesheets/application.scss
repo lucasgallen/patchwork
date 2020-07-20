@@ -12,7 +12,7 @@
  *
  */
 
-@import "caviar_dreams_font";
+@import "josefin_sans_font";
 @import "colendra_font";
 
 @import "global_bootstrap";
@@ -26,7 +26,7 @@ $logo-width: calc(8rem + 8vw);
 
 html, body {
   background-color: $bone;
-  font-family: 'CaviarDreams';
+  font-family: 'JosefinSans';
   height: 100%;
 }
 
