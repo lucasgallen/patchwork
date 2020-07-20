@@ -4,12 +4,15 @@
 
   %div.form-row.form-group.justify-content-center
     - if about_select
-      %div.col-12.col-md-4.input-group
-        %div.input-group-prepend
-          = form.label :about, t('message.about'), class: 'input-group-text', for: 'contact-about-select'
-        = form.select :about, Message.about_options.map{ |o| [o.titleize, o] }, { include_blank: true}, { id: 'contact-about-select', class: 'custom-select', required: true }
-        %div.invalid-feedback
-          = t('message.invalid_feedback.about')
+      = form.hidden_field :about, value: 'misc'
+      -#
+        TODO: Permanently remove?
+        %div.col-12.col-md-4.input-group
+          %div.input-group-prepend
+            = form.label :about, t('message.about'), class: 'input-group-text', for: 'contact-about-select'
+          = form.select :about, Message.about_options.map{ |o| [o.titleize, o] }, { include_blank: true}, { id: 'contact-about-select', class: 'custom-select', required: true }
+          %div.invalid-feedback
+            = t('message.invalid_feedback.about')
     - else
       = form.hidden_field :about, value: 'product'
   %div.d-flex.justify-content-around.product-message-loading-container

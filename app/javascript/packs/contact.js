@@ -4,7 +4,8 @@ class ContactForm {
   constructor() {
     this.MESSAGE_SENT_TIMEOUT = 3000; // in milliseconds
 
-    this.$aboutSelect = $('#contact-about-select');
+    // TODO: Permanently remove?
+    //this.$aboutSelect = $('#contact-about-select');
     this.$aboutHidden = $('#message_product_id');
     this.$productInput = $('#product');
     this.$form = $('#contact-form');
@@ -14,9 +15,9 @@ class ContactForm {
     this.$modalOpenBtn = $('#product-message-open-btn');
     this.$modalCloseBtn = this.$productModal.find('.close');
 
-    this.about = this.$aboutSelect.length ? this.$aboutSelect : this.$aboutHidden;
+    //this.about = this.$aboutSelect.length ? this.$aboutSelect : this.$aboutHidden;
     this.$inputs = {
-      about: this.about,
+      //about: this.about,
       author: $('#message_author'),
       phone: $('#message_phone'),
       email: $('#message_email'),
@@ -30,7 +31,7 @@ class ContactForm {
   }
 
   reset() {
-    if (this.$aboutSelect.length) this.$aboutSelect.off('change');
+    //if (this.$aboutSelect.length) this.$aboutSelect.off('change');
     this.$form.off('submit');
   }
 
@@ -42,10 +43,12 @@ class ContactForm {
   init() {
     this.reset();
 
+    /*
     this.$aboutSelect.on('change', e => {
       const val = $(e.currentTarget).val();
       $(`#${val}-tab`).tab('show');
     });
+    */
 
     this.$form.on('submit', e => {
       const $this = $(e.currentTarget);
