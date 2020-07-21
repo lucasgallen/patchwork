@@ -1,7 +1,7 @@
 class GalleryController < ApplicationController
   def show
     @products = products.page(0)
-    @categories = Category.with_product_count.all
+    @categories = Decorators::Categories.new(Category.with_product_count.all)
     @active_filters = active_filters
   end
 

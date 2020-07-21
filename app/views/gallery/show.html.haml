@@ -16,6 +16,9 @@
       - if @products.empty?
         = render :partial => 'no_results'
       - else
+        %h4.my-2
+          = @categories.results_for(params[:filter], @products.length).html_safe
+
         %div.infinite-scroll-container.fade#infinite-scroll-container{ data: { 'current-page': 0, 'last-page': @products.last_page?.to_s, 'url': gallery_url(filter: params[:filter]), fader: true } }
           = render :partial => 'page', locals: { page_number: 0, products: @products }
 
