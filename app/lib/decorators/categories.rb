@@ -11,7 +11,7 @@ class Decorators::Categories < SimpleDelegator
     key = category.product_count == 1 ? 'result_for' : 'results_for'
     count = category.product_count
 
-    I18n.t("gallery.#{key}", count: count, filter: filter)
+    I18n.t("gallery.#{key}", count: count, filter: category.name)
   end
 
   def no_filter(total)
