@@ -10,11 +10,11 @@
         %div.carousel-inner.product-carousel-inner
           - if @product.gallery_image.attached?
             %div.carousel-item.product-carousel-item.active
-              %img{ src: @product.gallery_image.imgproxy_url(width: 522, height: 300), class: 'd-block w-100 product-carousel-image' }
+              %img{ src: @product.gallery_image.imgproxy_url(width: @size[:width], height: @size[:height]), class: 'd-block w-100 product-carousel-image' }
           - if @product.detail_images.attached?
             - @product.detail_images.to_a.each do |image|
               %div.carousel-item.product-carousel-item
-                %img{ src: image.imgproxy_url(width: 522, height: 300), class: 'd-block w-100 product-carousel-image' }
+                %img{ src: image.imgproxy_url(width: @size[:width], height: @size[:height]), class: 'd-block w-100 product-carousel-image' }
         %a.product-carousel-control.carousel-control-prev{ href: '#product-carousel', role: 'button', 'data-slide': 'prev' }
           %span.carousel-control-prev-icon.product-carousel-control-icon{ 'aria-hidden': true }
           %span.sr-only= t('product.prev')

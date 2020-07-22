@@ -1,7 +1,10 @@
 class HomeController < ApplicationController
+  IMG_WIDTH = 772
+
   def show
     @categories = top_five_categories
     @gallery_images = gallery_images
+    @image_width = IMG_WIDTH * 2
   end
 
   def not_found

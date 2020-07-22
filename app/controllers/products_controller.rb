@@ -4,6 +4,9 @@ class ProductsController < ApplicationController
   layout :resolve_layout
   before_action :set_current_view_path
 
+  IMG_HEIGHT = 298
+  IMG_WIDTH  = 527
+
   def index
     @products = Product.all.to_a.map{ |p| Decorators::Product.new(p) }
 
@@ -12,6 +15,7 @@ class ProductsController < ApplicationController
 
   def show
     @product ||= product
+    @size = { height: IMG_HEIGHT * 2, width: IMG_WIDTH * 2 }
     render template: template('show')
   end
 
