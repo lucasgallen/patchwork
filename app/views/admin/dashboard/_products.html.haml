@@ -4,5 +4,5 @@
 %ul.list-group.list-group-flush
   - @products.each do |product|
     %li.list-group-item
-      = product.name
+      = link_to product.name, edit_admin_product_path(product), class: 'text-reset'
       %small.float-right= l(product.created_at, format: :record)
