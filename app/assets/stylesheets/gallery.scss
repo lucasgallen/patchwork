@@ -108,6 +108,7 @@
   color: $charcoal;
   filter: drop-shadow(1px 1px 0 $peach-crayola);
   font-size: calc(3rem + 1.5vw);
+  margin-top: 2rem;
 }
 
 .page-end {
@@ -248,7 +249,8 @@
 
 @media (min-width: map-get($grid-breakpoints, "lg")) {
   .gallery-card {
-    width: calc(33% - 2rem - 1px);
+    margin-right: 2rem;
+    width: 13rem;
   }
 
   .gallery-container {
@@ -258,7 +260,7 @@
 
   .infinite-scroll-container {
     border-top: 1px solid $english-lavender;
-    height: calc(100% - 5rem);
+    height: calc(100% - 7rem);
     overflow: hidden scroll;
 
     /*** Hide scrollbar ***/
@@ -274,7 +276,7 @@
   }
 
   .gallery-tab-pane {
-    height: 100%;
+    min-height: 100%;
     overflow: hidden;
 
     &--results {
