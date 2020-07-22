@@ -4,7 +4,7 @@ class Admin::AttachmentsController < Admin::BaseController
 
     if attachment.nil?
       render json: { message: t('admin.attachment.not_found') }, status: 404
-    elsif attachment.purge
+    elsif attachment.purge_later
       render json: {}, status: 200
     else
       render json: { message: t('admin.attachment.internal_error') }, status: 500
