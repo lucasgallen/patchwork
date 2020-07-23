@@ -45,7 +45,7 @@ body {
   max-height: $logo-width;
   overflow: hidden;
   position: absolute;
-  top: calc(50% - #{$logo-width / 2} - 9vw);
+  top: calc(35% - #{$logo-width / 2});
   transform: rotate(-45deg);
   transition: all 0.5s ease-in;
   width: $logo-width;
