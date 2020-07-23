@@ -1,6 +1,10 @@
 class GalleryController < ApplicationController
+  IMG_HEIGHT = 285
+  IMG_WIDTH  = 285
+
   def show
     @products = products.page(0)
+    @img_size = { w: IMG_WIDTH * 2, h: IMG_HEIGHT * 2 }
     @categories = Decorators::Categories.new(Category.with_product_count.all)
     @active_filters = active_filters
   end
@@ -9,7 +13,8 @@ class GalleryController < ApplicationController
     return if params[:page].blank?
 
     paginated_items = products.page(params[:page])
-    page_locals = { page_number: params[:page], products: paginated_items }
+    page_locals = { page_number: params[:page], products: paginated_items,
+                    img_size: { w: IMG_WIDTH * 2, h: IMG_HEIGHT * 2 } }
 
     render json: {
       html: render_to_string('/gallery/page', locals: page_locals, partial: true),
