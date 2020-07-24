@@ -154,6 +154,7 @@
     padding-bottom: 0.5rem;
     color: $bone;
     text-decoration: none;
+    text-shadow: 1px 1px 1px $black;
 
     @media (min-width: map-get($grid-breakpoints, "md")) {
       border-bottom: 2px solid $bone;
