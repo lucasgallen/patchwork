@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
   layout :resolve_layout
   before_action :set_current_view_path
+  before_action :check_for_spam, only: [:create]
 
   def create
     message = Message.new(message_params)
@@ -95,6 +96,15 @@ class MessagesController < ApplicationController
 
   def message
     Message.find(params[:id])
+  end
+
+  def spam?
+    params[:message][:special_type].present?
+  end
+
+  def check_for_spam
+    return unless spam?
+    render json: { status: 'success' }
   end
 
   def template(action)

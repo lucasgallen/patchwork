@@ -1,4 +1,7 @@
 = form_with model: message, url: messages_path, class: 'needs-validation mt-2 contact-form', id: 'contact-form', html: { novalidate: true }, data: { url: messages_url } do |form|
+  -# Simple honeypot to catch bots spamming the form
+  = form.text_field :special_type, class: 'special-input', autocomplete: 'off'
+
   - if product
     = form.hidden_field :product_id, value: product.id
 
