@@ -1,7 +1,6 @@
 .footer {
   background: $charcoal;
   border-top: 1px dashed $white;
-  height: 5rem;
   position: relative;
   z-index: 3;
 
@@ -31,4 +30,9 @@
     background: $yellow;
     color: $dark;
   }
+}
+
+.instagram--footer {
+  filter: invert(1);
+  width: 1.8rem;
 }

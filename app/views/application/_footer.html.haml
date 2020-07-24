@@ -1,21 +1,28 @@
-%footer.footer.container-fluid.d-flex.p-3.justify-content-between.align-items-center
-  %div
-    = link_to t('about_us'), about_path, class: 'footer-link'
-    %span.footer-separator
-    = link_to t('_contact'), contact_path, class: 'footer-link'
+%footer.footer.container-fluid.d-flex.p-3.justify-content-between.align-items-center.flex-column
+  %div.d-flex.flex-row.justify-content-between.align-content-center.w-100
+    %div
+      = link_to t('about_us'), about_path, class: 'footer-link'
+      %span.footer-separator
+      = link_to t('_contact'), contact_path, class: 'footer-link'
 
-  %div.btn-group.dropup
-    %button.btn.btn-md.dropdown-toggle{ |
-      type: 'button', |
-      data: { toggle: 'dropdown', offset: '0,10' }, |
-      aria: { haspopup: 'true', expanded: 'false' } |
-    } |
-      = t('language')
-    %div.dropdown-menu.dropdown-menu-right
-      - I18n.available_locales.each do |locale|
-        - if locale != I18n.default_locale
-          = link_to t('locale_name', locale: locale), url_for(locale: locale.to_s),
-              class: "dropdown-item #{'active' if locale == I18n.locale}"
-        - else
-          = link_to t('locale_name', locale: locale), url_for(locale: nil),
-              class: "dropdown-item #{'active' if locale == I18n.locale}"
+    %div.btn-group.dropup
+      %button.btn.btn-md.dropdown-toggle{ |
+        type: 'button', |
+        data: { toggle: 'dropdown', offset: '0,10' }, |
+        aria: { haspopup: 'true', expanded: 'false' } |
+      } |
+        = t('language')
+      %div.dropdown-menu.dropdown-menu-right
+        - I18n.available_locales.each do |locale|
+          - if locale != I18n.default_locale
+            = link_to t('locale_name', locale: locale), url_for(locale: locale.to_s),
+                class: "dropdown-item #{'active' if locale == I18n.locale}"
+          - else
+            = link_to t('locale_name', locale: locale), url_for(locale: nil),
+                class: "dropdown-item #{'active' if locale == I18n.locale}"
+  %ul.d-flex.flex-row.my-3.text-white.list-inline.justify-content-between.align-self-start.w-50
+    %li.list-inline-item.instagram--footer
+      %a{ href: 'https://www.instagram.com/sivumbikes_of_patchwork/', target: '_blank' }
+        %span.sr-only instagram
+        %img.w-100{ src: image_path('share_icons/instagram_black.png') }
+  %small.d-flex.align-self-center.text-white= "© 2020 Sivumbike Patchworks"
