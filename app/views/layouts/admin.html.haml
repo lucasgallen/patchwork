@@ -10,7 +10,7 @@
     = javascript_pack_tag 'admin', 'data-turbolinks-track': 'reload'
     = yield :turbolinks_pack
     = yield :page_specific_styles
-  %body
+  %body{ class: locale }
     = render :partial => 'navigation', locals: { type: 'admin' }
     - if notice.present?
       %div.patchworks-alert.alert.alert-success{ role: 'alert' }

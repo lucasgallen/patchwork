@@ -42,6 +42,10 @@ class ProductForm {
   }
 
   init() {
+    if ($('body').hasClass('tr')) {
+      require("bootstrap-select/dist/js/i18n/defaults-tr_TR.min.js");
+    }
+
     this.$productCategories.selectpicker();
 
     this.$galleryImage.change(event => {
