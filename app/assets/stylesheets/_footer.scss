@@ -30,6 +30,21 @@
     background: $yellow;
     color: $dark;
   }
+
+  &-language {
+    color: $white;
+    padding: 0.25rem;
+    text-decoration: none;
+
+    &:hover {
+      background: $white;
+      color: $charcoal;
+    }
+
+    &.active {
+      pointer-events: none;
+    }
+  }
 }
 
 .instagram--footer {
