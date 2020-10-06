@@ -8,7 +8,6 @@
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-    = yield :turbolinks_pack
   %body{ lang: I18n.locale }
     = render :partial => 'navigation', locals: { type: 'app' }
     - if notice.present?
@@ -21,3 +20,5 @@
     = yield
 
     = render :partial => 'footer'
+
+    = yield :turbolinks_pack
