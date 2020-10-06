@@ -69,6 +69,7 @@ body {
   &-image {
     margin-left: calc(-0.5rem - 2vw);
     margin-top: calc(-0.5rem - 2vw);
+    pointer-events: none;
     transform: rotate(45deg);
     width: calc(100% + 1rem + 4vw);
   }
