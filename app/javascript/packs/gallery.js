@@ -63,7 +63,9 @@ class Gallery {
   }
 
   visitFilteredGallery(filter) {
-    const url = `/gallery/${this.createFilterPath(filter)}`;
+    const locale = this.$filtersTab.attr('data-locale');
+    const localePath = locale && locale.length ? `/${locale}` : '';
+    const url = `${localePath}/gallery/${this.createFilterPath(filter)}`;
 
     Turbolinks.visit(url, { action: 'advance' });
   }

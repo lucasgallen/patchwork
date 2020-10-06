@@ -1,13 +1,13 @@
 %div.d-none.d-lg-block#desktop-gallery-detector{ style: 'height: 0; width: 1px' }
 
 %div.gallery-container
-  %h1.pb-3.d-lg-none.text-center.gallery-title#gallery= t('_gallery')
+  %h1.pb-3.d-lg-none.text-center.gallery-title= t('_gallery')
 
   %nav
     %div.nav.nav-tabs.gallery-nav-tabs#gallery-tab{ role: 'tablist' }
       %a.nav-item.nav-link.gallery-nav-item.active#gallery-results-tab{ 'data-toggle': 'tab', href: '#gallery-results', role: 'tab', aria: { controls: 'gallery-results', selected: 'true' } }
         = t('gallery.results')
-      %a.nav-item.nav-link.gallery-nav-item#gallery-filters-tab{ 'data-toggle': 'tab', href: '#gallery-filters', role: 'tab', aria: { controls: 'gallery-filters', selected: 'false' } }
+      %a.nav-item.nav-link.gallery-nav-item#gallery-filters-tab{ 'data-locale': locale != I18n.default_locale ? locale : nil, 'data-toggle': 'tab', href: '#gallery-filters', role: 'tab', aria: { controls: 'gallery-filters', selected: 'false' } }
         = t('gallery.filters')
 
   %div.text-center.tab-content.gallery-tab-content.py-2#gallery-tab-content
