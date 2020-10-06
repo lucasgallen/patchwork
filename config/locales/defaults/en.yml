@@ -82,6 +82,8 @@ en:
     select_categories: "Select Categories"
     top: "Top"
   home:
+    categories: "Categories"
+    gallery: "Gallery"
     title: "Welcome"
     lead: "Discover our world, colored by fabric."
     page_not_found: "Page Not Found"
