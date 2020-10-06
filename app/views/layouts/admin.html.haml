@@ -1,5 +1,5 @@
 !!!
-%html{ lang: I18n.locale }
+%html
   %head
     %meta{ content: "text/html; charset=UTF-8", "http-equiv": "Content-Type"}
     %meta{ name: "viewport", content: "width=device-width, initial-scale=1"}
@@ -10,7 +10,7 @@
     = javascript_pack_tag 'admin', 'data-turbolinks-track': 'reload'
     = yield :turbolinks_pack
     = yield :page_specific_styles
-  %body{ class: locale }
+  %body{ class: locale, lang: I18n.locale }
     = render :partial => 'navigation', locals: { type: 'admin' }
     - if notice.present?
       %div.patchworks-alert.alert.alert-success{ role: 'alert' }
