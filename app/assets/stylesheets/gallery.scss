@@ -1,6 +1,4 @@
 @import "bootstrap_toolbox";
-@import "bootstrap/scss/card";
-@import "bootstrap/scss/list-group";
 
 .gallery-scroll-top.btn {
   background-color: $charcoal;
@@ -87,6 +85,10 @@
   &-filters {
     margin-top: 2rem;
     max-width: 540px;
+
+    .list-group-item {
+      background: transparent;
+    }
   }
 }
 

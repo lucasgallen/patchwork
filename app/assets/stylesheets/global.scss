@@ -1,0 +1,147 @@
+@import "josefin_sans_font";
+@import "colendra_font";
+
+@import "navigation";
+@import "footer";
+
+html, body {
+  background-color: $bone;
+  font-family: 'JosefinSans';
+  height: 100%;
+}
+
+body {
+  height: calc(100% - 7rem - 5rem);
+  margin-top: 7rem;
+  overflow-x: hidden;
+}
+
+.h1, .h2 {
+  border-bottom: 1px dashed $pink;
+}
+
+.special-input {
+  border: 0;
+  height: 1px;
+  left: 0;
+  outline: 0;
+  position: fixed;
+  top: 0;
+  width: 1px;
+}
+
+.floating-logo {
+  cursor: grab;
+  filter: drop-shadow(0px 0px 0.8rem black);
+  left: calc(50% - #{$logo-width / 2});
+  max-height: $logo-width;
+  overflow: hidden;
+  position: absolute;
+  top: calc(35% - #{$logo-width / 2});
+  transform: rotate(-45deg);
+  transition: all 0.5s ease-in;
+  width: $logo-width;
+  z-index: 1;
+
+  &.moving {
+    cursor: grabbing;
+    transition: none;
+  }
+
+  &-image {
+    margin-left: calc(-0.5rem - 2vw);
+    margin-top: calc(-0.5rem - 2vw);
+    pointer-events: none;
+    transform: rotate(45deg);
+    width: calc(100% + 1rem + 4vw);
+  }
+}
+
+.custom-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.list-group-item-action {
+  &:hover {
+    background-color: $pink;
+
+    a {
+      color: $white;
+    }
+  }
+
+  a {
+    color: $black;
+    text-decoration: none;
+  }
+}
+
+.jumbotron.jumbotron-top {
+  border-bottom: 1px dashed $white;
+  color: $bone;
+  margin-top: -7rem;
+  min-height: calc(100vh - 7rem);
+  text-align: center;
+
+  .jumbotron-container {
+    background: $charcoal;
+    border: 1px dashed $white;
+    border-radius: 10px;
+    display: inline-block;
+    margin-top: 50vh;
+    max-width: 30rem;
+    min-width: 18rem;
+    padding-top: 1rem;
+    text-align: left;
+    width: calc(60%);
+  }
+}
+
+.shadow--light {
+  box-shadow: 0 0 2rem 0 #00000087
+}
+
+.close-icon {
+  fill: none;
+  stroke-width: 0.07;
+  stroke: $black;
+}
+
+.patchworks-alert.alert {
+  left: 65vw;
+  position: absolute;
+  top: calc(10vh + 1rem);
+  right: 0;
+  z-index: 100;
+}
+
+.placeholder-image {
+  align-items: center;
+  background: grey;
+  color: $white;
+  display: inline-flex;
+  justify-content: space-around;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+
+  &:after {
+    content: attr(data-missing-image);
+    font-size: 1em;
+  }
+}
+
+.product-message-loading-button {
+  width: 0;
+  cursor: default;
+}
+
+.checkmark {
+  border-bottom: 1.5em solid currentColor;
+  border-right: 1.5em solid currentColor;
+  display: block;
+  height: 6.5em;
+  transform: rotate(45deg);
+  width: 3.5em;
+}

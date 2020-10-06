@@ -3,11 +3,6 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 @import "bootstrap_toolbox";
-@import "bootstrap/scss/jumbotron";
-
-.jumbotron--about {
-  background-image: url(image-path('patchworks/14.jpg'));
-}
 
 .about-description {
   background-color: $charcoal;

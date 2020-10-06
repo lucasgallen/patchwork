@@ -3,8 +3,6 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 @import "bootstrap_toolbox";
-@import "bootstrap/scss/jumbotron";
-@import "bootstrap/scss/list-group";
 
 .jumbotron--home {
   background-image: url(image-path('home-page-background.jpg'));
@@ -67,6 +65,7 @@
 
 .categories-list {
   &-item.list-group-item {
+    background: transparent;
     border-radius: 0.5rem;
     position: relative;
   }
