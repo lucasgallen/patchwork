@@ -1,5 +1,5 @@
 %h2.mb-3.h2.text-center
-  = link_to t('dashboard.messages'), admin_messages_path, class: 'text-reset d-block d-md-inline'
+  = link_to t('admin.messages'), admin_messages_path, class: 'text-reset d-block d-md-inline'
   - if @view.title_present?
     %strong.ml-3= "#{@view.results_title[:label]}: "
     %span.text-nowrap= @view.results_title[:keyword]

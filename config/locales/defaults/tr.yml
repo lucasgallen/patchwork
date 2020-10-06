@@ -59,6 +59,7 @@ tr:
     products: "Ürünler"
     product_not_found: "Ürün bulunamadı"
     save: "Kaydet"
+    view_message: "Mesajı görüntüle"
     view_messages: "Mesajları görüntüle"
   _contact: "İletişim"
   contact:
