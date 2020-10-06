@@ -192,4 +192,4 @@ class Gallery {
   }
 }
 
-$(document).on('turbolinks:load', () => new Gallery());
+new Gallery();

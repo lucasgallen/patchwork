@@ -132,4 +132,4 @@ class ContactForm {
   }
 }
 
-$(document).on('turbolinks:load', () => new ContactForm());
+new ContactForm();

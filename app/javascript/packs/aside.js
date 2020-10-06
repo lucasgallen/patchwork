@@ -23,4 +23,4 @@ class Aside {
   }
 }
 
-$(document).on('turbolinks:load', () => new Aside());
+new Aside();
