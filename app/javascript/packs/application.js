@@ -10,7 +10,21 @@ require("bootstrap/js/dist/collapse")
 
 require('lazyload/lazyload');
 
-$(document).on('turbolinks:load', () => {
-  $('.lazyload').lazyload();
-  $('html, body').animate({ scrollTop: 0 }, 500);
-});
+(function() {
+  let didScroll = false;
+
+  $(document).on('turbolinks:before-render', () => {
+    $(document).on('scroll', () => {
+      didScroll = true;
+      $(document).off('scroll');
+    });
+  });
+
+  $(document).on('turbolinks:load', () => {
+    $('.lazyload').lazyload();
+
+    if (!didScroll) {
+      $('html, body').animate({ scrollTop: 0 }, 500);
+    }
+  });
+})();
