@@ -44,7 +44,7 @@ class Gallery {
       this.visitFilteredGallery(filterVal);
     });
 
-    this.$fader.removeClass('fade');
+    this.$fader.addClass('show');
   }
 
   reset() {
