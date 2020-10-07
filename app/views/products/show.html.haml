@@ -28,16 +28,16 @@
           - @product.detail_images.to_a.each_with_index do |image, index|
             %li.product-carousel-indicator{ style: "background-image: url(#{image.imgproxy_url(width: 64, height: 64)})", data: { target: '#product-carousel', 'slide-to': index+1 } }
     %div.col-lg-5.col-sm-12
-      %div.trix-content.mb-3
+      %div.trix-content.mb-4
         = @product.description.html_safe
       - if @product.dimensions?
-        %div.product-dimensions
+        %div.product-dimensions.mb-2
           %strong= "#{t('product.size')}:"
           = @product.dimensions
       - if @product.has_category?
         %ul.pl-2
           - @product.categories.each do |cat|
-            %li.product-category-tag.mb-1.mr-5
+            = link_to gallery_path(filter: cat.slug), class: 'product-category-tag mb-1 mr-5' do
               %span.product-category-tag-before
               %span.product-category-tag-copy= cat.name
               %span.product-category-tag-after

@@ -148,8 +148,21 @@
   padding: 0.5rem 1rem 0.5rem;
   position: relative;
 
+  &:hover {
+    background: $white;
+    color: $charcoal;
+    text-decoration: none;
+
+    .product-category-tag-before {
+      background: $charcoal;
+    }
+    .product-category-tag-after {
+      background: $white;
+    }
+  }
+
   &-before {
-    background: #fefdfd;
+    background: $white;
     border-radius: 100%;
     content: '';
     height: 0.5rem;
