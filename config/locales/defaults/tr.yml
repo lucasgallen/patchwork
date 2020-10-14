@@ -20,6 +20,7 @@ tr:
     categories: "Kategoriler"
     category_not_found: "Kategori bulunamadı"
     create: "Oluştur"
+    created: "Oluşturuldu: %{date}"
     create_category: "Kategori oluştur"
     create_new: "Yeni oluştur"
     create_product: "Ürün oluştur"

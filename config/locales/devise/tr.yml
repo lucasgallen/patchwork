@@ -17,7 +17,7 @@ tr:
       unauthenticated: "Devam etmeden önce giriş yapmalı veya kayıt olmalısınız."
       unconfirmed: "Devam etmeden önce eposta adresinizi onaylamalısınız."
     mailer:
-      didnt_request: "If you didn't request this, please ignore this email."
+      didnt_request: "Bunu talep etmediyseniz, lütfen bu e-postayı dikkate almayın."
       hello: "Merhaba %{email}!"
       someone_requested: "Birisi şifrenizi değiştirmek için bir bağlantı istedi. Bunu aşağıdaki bağlantıdan yapabilirsiniz."
       wont_change: "Yukarıdaki bağlantıya erişip yeni bir tane oluşturana kadar şifreniz değişmeyecektir."

@@ -17,5 +17,5 @@
             = link_to t('admin.page'), product_path(product)
           = link_to t('admin.edit'), edit_admin_product_path(product)
           %small
-            = "Created: #{l(product.created_at, format: :record)}"
+            = t('admin.created', date: l(product.created_at, format: :record))
           = link_to t('admin.view_messages'), admin_messages_path({ filter_type: 'product', keyword: product.id }), class: 'd-block'
