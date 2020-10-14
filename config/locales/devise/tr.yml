@@ -45,6 +45,17 @@ tr:
       update_needs_confirmation: "Hesabınız başarılı bir şekilde güncellendi. Fakar eposta adresinizi onaylamanız gerekmekteir. Lütfen eposta kutunuzu kontrol ediniz ve yeni eposta adresinizi onaylama linkine tıklayınız."
       updated: "Hesabınız başarılı bir şekilde güncellendi."
     sessions:
+      change_my: Şifremi değiştir
+      change_your: Şifreni değiştir
+      confirm: Yeni şifreyi onayla
+      email: Email
+      forgot_password: Şifrenizi unuttunuz mı?
+      log_in: Oturum aç
+      minimum: "Minimum %{length} karakter"
+      new_password: Yeni şifre
+      password: Şifre
+      remember_me: Beni hatırla
+      send_instructions: Bana şifre sıfırlama talimatlarını gönder
       signed_in: "Başarılı giriş."
       signed_out: "Başarılı çıkış."
       already_signed_out: "Başarılı çıkış."

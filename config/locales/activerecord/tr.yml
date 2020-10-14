@@ -1,0 +1,8 @@
+tr:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            reset_password_token:
+              invalid: "Şifre sıfırlama jetonu geçersiz"

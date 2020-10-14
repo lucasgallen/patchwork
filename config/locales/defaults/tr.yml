@@ -67,6 +67,8 @@ tr:
     lead: "Resim galerisindeki tasarımlarımız, patchwork ve kırkyama işlerimiz hakkında bilgi edinmek için alttaki formu doldurarak bizimle iletişime geçebilirsiniz."
   created: "Oluşturuldu"
   english: "İngilizce"
+  errors:
+    format: "%{message}"
   _gallery: "Galeri"
   gallery:
     available: "Mevcut!"

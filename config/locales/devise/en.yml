@@ -46,6 +46,17 @@ en:
       updated: "Your account has been updated successfully."
       updated_but_not_signed_in: "Your account has been updated successfully, but since your password was changed, you need to sign in again"
     sessions:
+      change_my: Change my password
+      change_your: Change your password
+      confirm: Confirm new password
+      email: Email
+      forgot_password: Forgot your password?
+      log_in: Log in
+      minimum: "%{length} characters minimum"
+      new_password: New password
+      password: Password
+      remember_me: Remember me
+      send_instructions: Send me reset password instructions
       signed_in: "Signed in successfully."
       signed_out: "Signed out successfully."
       already_signed_out: "Signed out successfully."
