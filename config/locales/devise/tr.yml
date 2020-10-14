@@ -17,16 +17,20 @@ tr:
       unauthenticated: "Devam etmeden önce giriş yapmalı veya kayıt olmalısınız."
       unconfirmed: "Devam etmeden önce eposta adresinizi onaylamalısınız."
     mailer:
+      didnt_request: "If you didn't request this, please ignore this email."
+      hello: "Merhaba %{email}!"
+      someone_requested: "Birisi şifrenizi değiştirmek için bir bağlantı istedi. Bunu aşağıdaki bağlantıdan yapabilirsiniz."
+      wont_change: "Yukarıdaki bağlantıya erişip yeni bir tane oluşturana kadar şifreniz değişmeyecektir."
       confirmation_instructions:
         subject: "Onaylama talimatları"
       reset_password_instructions:
-        subject: "Parola sıfırlama talimatları"
+        subject: "Şifre sıfırlama talimatları"
       unlock_instructions:
         subject: "Kilit kaldırma talimalatları"
       email_changed:
         subject: "Eposta değişti"
       password_change:
-        subject: "Parola değişti"
+        subject: "Şifre değişti"
     omniauth_callbacks:
       failure: "\"%{reason}\" olduğu için %{kind}'den doğrulama yapılamıyor."
       success: "%{kind} hesabından başarılı bir şekilde doğrulandı."
@@ -48,7 +52,7 @@ tr:
       change_my: Şifremi değiştir
       change_your: Şifreni değiştir
       confirm: Yeni şifreyi onayla
-      email: Email
+      email: Eposta
       forgot_password: Şifrenizi unuttunuz mı?
       log_in: Oturum aç
       minimum: "Minimum %{length} karakter"

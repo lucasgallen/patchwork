@@ -4,5 +4,9 @@ tr:
       models:
         user:
           attributes:
+            password:
+              too_short: "Şifre çok kısa"
+            password_confirmation:
+              confirmation: "Onay şifresi eşleşmiyor"
             reset_password_token:
               invalid: "Şifre sıfırlama jetonu geçersiz"

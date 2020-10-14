@@ -4,5 +4,9 @@ en:
       models:
         user:
           attributes:
+            password:
+              too_short: "The password is too short"
+            password_confirmation:
+              confirmation: "The confirmation password doesn't match"
             reset_password_token:
               invalid: "The reset password token is invalid"
