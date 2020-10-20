@@ -20,7 +20,7 @@ class Product < ApplicationRecord
   end
 
   def purge_attachments!
-    self.gallery_image.purge && self.detail_images.purge
+    (self.gallery_image.purge || !self.gallery_image.attached?) && (self.detail_images.purge || !self.detail_images.attached?)
   end
 
   private
