@@ -6,13 +6,13 @@
 %div.container-fluid.container--home-gallery.mb-5
   %div.row
     %div.col-12.col-md-9
-      - if @gallery_images.present?
-        %div.jumbotron.jumbotron-fluid.jumbotron-gallery.text-center#jumbotron-gallery
-          %div.jumbotron-background-container
+      %div.jumbotron.jumbotron-fluid.jumbotron-gallery.text-center#jumbotron-gallery
+        %div.jumbotron-background-container
+          - if @gallery_images.present?
             %img.jumbotron-background#jumbotron-background{ 'data-paths': @gallery_images.map{ |i| i.imgproxy_url(width: @image_width) }, 'src': @gallery_images.first.imgproxy_url(width: @image_width) }
-          %div.container.jumbotron-container
-            %h2.display-4= t('home.gallery')
-            = link_to t('home.see_designs'), gallery_path, class: 'btn btn-lg jumbotron-gallery-cta'
+        %div.container.jumbotron-container
+          %h2.display-4= t('home.gallery')
+          = link_to t('home.see_designs'), gallery_path, class: 'btn btn-lg jumbotron-gallery-cta'
     %div.col-md-3
       %h2= t('home.categories')
       - if @categories.present?

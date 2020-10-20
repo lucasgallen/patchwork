@@ -16,6 +16,8 @@ class HomeGallery {
   }
 
   startGalleryCycle() {
+    if (!this.$jumbotronBackground.length) return;
+
     const firstPathIndex = (this.absolutePathIndex % this.imagePaths.length);
 
     this.imageFade(this.imagePaths[firstPathIndex]);
