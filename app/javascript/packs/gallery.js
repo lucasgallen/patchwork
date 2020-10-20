@@ -19,7 +19,6 @@ class Gallery {
     this.currentPage = +this.$infScroll.data('current-page');
     this.canExScroll = true;
     this.loadingPage = false;
-    this.isDesktopGallery = $('#desktop-gallery-detector').is(':visible');
 
     this.init();
   }
@@ -115,19 +114,11 @@ class Gallery {
       this.paginateGallery();
     }
 
-    if (this.isDesktopGallery) {
-      this.$infScroll.on('scroll', e => {
-        if (this.loadingPage) return;
+    this.$window.on('scroll', e => {
+      if (this.loadingPage) return;
 
-        this.throttledInfScroll(e);
-      });
-    } else {
-      this.$window.on('scroll', e => {
-        if (this.loadingPage) return;
-
-        this.throttledInfScroll(e);
-      });
-    }
+      this.throttledInfScroll(e);
+    });
   }
 
   paginateGallery() {
@@ -177,19 +168,6 @@ class Gallery {
   }
 
   nearContainerBottom() {
-    if (this.isDesktopGallery) return this.desktopNearBottom();
-
-    return this.mobileNearBottom();
-  }
-
-  desktopNearBottom() {
-    const scrollHeight = this.$infScroll[0].scrollHeight;
-    const containerBotPos = this.$infScroll.scrollTop() + this.$infScroll.innerHeight();
-
-    return scrollHeight - containerBotPos < this.INF_SCROLL_THRESHOLD_PX;
-  }
-
-  mobileNearBottom() {
     const containerHeight = this.$infScroll.outerHeight();
     const bottomWindowPos = this.$window.scrollTop() + this.$window.innerHeight();
 
