@@ -11,5 +11,5 @@
         = link_to t('admin.dashboard'), admin_root_path, class: 'nav-link--custom'
 
   - if user_signed_in?
-    = link_to t('sign_out'), destroy_session_path(current_user),
-      method: :delete, class: 'btn btn-warning'
+    = button_to t('sign_out'), destroy_session_path(current_user),
+      method: :delete, class: 'btn btn-warning', data: { turbolinks: false }
