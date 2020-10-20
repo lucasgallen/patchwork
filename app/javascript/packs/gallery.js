@@ -16,7 +16,7 @@ class Gallery {
     this.$scrollTopBtn = $('#gallery-scroll-top');
 
     this.baseURL = this.$infScroll.data('url');
-    this.currentPage = 0;
+    this.currentPage = +this.$infScroll.data('current-page');
     this.canExScroll = true;
     this.loadingPage = false;
     this.isDesktopGallery = $('#desktop-gallery-detector').is(':visible');
@@ -139,12 +139,17 @@ class Gallery {
       dataType: 'json'
     }).done(data => {
       this.addGalleryPage(data);
-      this.currentPage += 1;
+      this.incrementCurrentPage();
       this.loadingPage = false;
     }).fail(err => {
       // TODO: setup error handling
       console.log(err);
     });
+  }
+
+  incrementCurrentPage() {
+    this.currentPage += 1;
+    this.$infScroll.attr('data-current-page', this.currentPage);
   }
 
   addGalleryPage(data) {

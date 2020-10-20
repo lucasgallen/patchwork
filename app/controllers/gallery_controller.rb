@@ -1,18 +1,21 @@
 class GalleryController < ApplicationController
   IMG_HEIGHT = 285
   IMG_WIDTH  = 285
+  INITIAL_PAGE = 1
 
   def show
-    @products = products.page(0)
+    @products = products.page(INITIAL_PAGE).per(Product.max_paginated_items)
     @img_size = { w: IMG_WIDTH * 2, h: IMG_HEIGHT * 2 }
     @categories = Decorators::Categories.new(Category.with_product_count.all)
     @active_filters = active_filters
+    @initial_page = INITIAL_PAGE
+    @products_total = products.length
   end
 
   def page
     return if params[:page].blank?
 
-    paginated_items = products.page(params[:page])
+    paginated_items = products.page(params[:page]).per(Product.max_paginated_items)
     page_locals = { page_number: params[:page], products: paginated_items,
                     img_size: { w: IMG_WIDTH * 2, h: IMG_HEIGHT * 2 } }
 

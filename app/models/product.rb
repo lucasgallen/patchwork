@@ -5,7 +5,13 @@ class Product < ApplicationRecord
   has_and_belongs_to_many :categories
   has_many :messages
 
-  paginates_per 6
+  MAX_PAGINATED_ITEMS = 6
+
+  paginates_per MAX_PAGINATED_ITEMS
+
+  def self.max_paginated_items
+    MAX_PAGINATED_ITEMS
+  end
 
   def height
     facets['height']
