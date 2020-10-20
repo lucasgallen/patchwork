@@ -11,8 +11,8 @@
           - if @gallery_images.present?
             %img.jumbotron-background#jumbotron-background{ 'data-paths': @gallery_images.map{ |i| i.imgproxy_url(width: @image_width) }, 'src': @gallery_images.first.imgproxy_url(width: @image_width) }
         %div.container.jumbotron-container
-          %h2.display-4= t('home.gallery')
-          = link_to t('home.see_designs'), gallery_path, class: 'btn btn-lg jumbotron-gallery-cta'
+          %h2.jumbotron-gallery-title.display-4= t('home.gallery')
+          = link_to t('home.see_designs'), gallery_path, class: 'btn btn-lg jumbotron-gallery-cta d-block mx-auto'
     %div.col-md-3
       %h2= t('home.categories')
       - if @categories.present?

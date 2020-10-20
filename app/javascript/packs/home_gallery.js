@@ -24,7 +24,7 @@ class HomeGallery {
 
     this.$jumbotronBackground[0].onload = e => {
       this.$jumbotronBackground.fadeIn(this.FADE_INTERVAL_MS);
-      this.scheduleNextImage();
+      if (this.imagePaths > 1) this.scheduleNextImage();
     };
   }
 

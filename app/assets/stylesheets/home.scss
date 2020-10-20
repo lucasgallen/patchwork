@@ -15,15 +15,24 @@
 
   background: $charcoal;
   border-radius: 0.5rem;
+  padding: 0;
   position: relative;
   overflow: hidden;
 
   .container {
     color: $bone;
-    filter: drop-shadow(0px 0px 0px $black);
+    padding: 2rem 0;
     position: relative;
-    text-shadow: 0 0 10px $black;
     z-index: 1;
+  }
+
+  &-title {
+    background-color: $english-lavender;
+    border: 2px dashed $bone;
+    display: inline-block;
+    outline: 2px solid #b38095;
+    padding: 0.25rem 0.5rem;
+    text-shadow: 2px 2px 1px $charcoal;
   }
 
   &-cta.btn {
@@ -31,6 +40,7 @@
     border: 1px dashed $bone;
     border-radius: 0.5rem;
     color: $bone;
+    max-width: 20rem;
     text-shadow: none;
 
     &:hover {
@@ -92,6 +102,7 @@
   &-container {
     height: 100%;
     left: 0;
+    filter: drop-shadow(2px 4px 2px $black);
     position: absolute;
     top: 0;
     width: 100%;

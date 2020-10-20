@@ -15,7 +15,7 @@ class HomeController < ApplicationController
   def gallery_images
     return [] unless Product.any?
 
-    recent_products = Product.last(5)
+    recent_products = Product.order(:updated_at).last(5)
     images = recent_products.map do |prod|
       next unless prod.gallery_image.attached?
       prod.gallery_image
