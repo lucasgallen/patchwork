@@ -29,7 +29,7 @@
   }
 
   &-carousel-inner {
-    background-color: $charcoal;
+    background-color: $english-lavender;
     border-radius: 0.5rem;
     border: 2px dashed $peach-crayola;
     box-shadow: 0 0 0 3px $lavender-gray, 0 0 0 5px $charcoal;
@@ -60,6 +60,7 @@
 
   &-carousel-item {
     height: 100%;
+    filter: drop-shadow(2px 4px 6px $black);
     left: 0;
     position: absolute;
     top: 0;

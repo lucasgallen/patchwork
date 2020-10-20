@@ -179,7 +179,7 @@
 }
 
 .gallery-card {
-  background-color: $charcoal;
+  background-color: $english-lavender;
   border: 2px dashed $peach-crayola;
   border-radius: 0.5rem;
   box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.22);
@@ -191,6 +191,7 @@
   &-image {
     background-position: center;
     background-size: cover;
+    filter: drop-shadow(2px 4px 6px $black);
     padding-bottom: 100%;
     transition: background-image 1s ease-in;
 
