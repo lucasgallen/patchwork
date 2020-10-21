@@ -8,7 +8,7 @@ class HomeGallery {
 
     this.imagePaths = this.$jumbotronBackground.data('paths');
     this.absolutePathIndex = 1;
-    this.VID_THROTTLE_MS = 100;
+    this.VID_THROTTLE_MS = 30;
     this.canCheckVid = true;
 
     this.init();
