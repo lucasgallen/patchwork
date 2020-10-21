@@ -1,10 +1,23 @@
+%div.video-container#homepage-video
+  %h1.video-title.d-flex.flex-column.align-items-center.justify-content-center
+    %span.d-inline-flex Sivumbike
+    %small.d-inline-flex Patchworks
+
+  %video.video{ autoplay: true, muted: true, loop: true, playsinline: true }
+    %source{ src: video_path('homepage_eskiz_v1.webm'), type: "video/webm" }
+    %source{ src: video_path('homepage_eskiz_v1.mp4'), type: "video/mp4" }
+    Sorry, your browser doesn't support embedded videos.
+
 %div.jumbotron.jumbotron-fluid.jumbotron-top.jumbotron--home
+  .floating-logo#floating-logo
+    %img.floating-logo-image{ src: image_path('main-page-logo.png') }
+
   %div.text-center.container.jumbotron-container.shadow--light
     %h1= t('home.title')
     %p.lead= t('home.lead')
 
-%div.container-fluid.container--home-gallery.mb-5
-  %div.row
+%div.container-fluid.container--home-gallery.pt-5.pb-3
+  %div.row.mx-auto
     %div.col-12.col-md-9
       %div.jumbotron.jumbotron-fluid.jumbotron-gallery.text-center#jumbotron-gallery
         %div.jumbotron-background-container.d-flex.justify-content-center
@@ -21,9 +34,6 @@
               %span.category-highlight
               = link_to cat.name, gallery_path(cat.slug), class: 'stretched-link'
               %span.badge.badge-primary.badge-pill.float-right.font-weight-normal.text-monospace= cat.product_count
-
-.floating-logo#floating-logo
-  %img.floating-logo-image{ src: image_path('main-page-logo.png') }
 
 - content_for :turbolinks_pack do
   = javascript_pack_tag 'home_gallery', 'data-turbolinks-track': 'reload', 'defer': 'defer'

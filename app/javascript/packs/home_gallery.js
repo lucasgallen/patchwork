@@ -4,15 +4,37 @@ class HomeGallery {
     this.FADE_INTERVAL_MS = 500;
     this.$jumbotronGallery = $('#jumbotron-gallery');
     this.$jumbotronBackground = $('#jumbotron-background');
+    this.$vid = $('#homepage-video video');
 
     this.imagePaths = this.$jumbotronBackground.data('paths');
     this.absolutePathIndex = 1;
+    this.VID_THROTTLE_MS = 100;
+    this.canCheckVid = true;
 
     this.init();
   }
 
   init() {
+    const buffer = 10;
+
     this.startGalleryCycle();
+
+    $(window).on('scroll', () => {
+      if (!this.canCheckVid) return;
+
+      if ($(window).scrollTop() > this.$vid.outerHeight() + buffer) {
+        this.$vid[0].pause();
+        this.$vid.addClass('hide');
+      } else {
+        this.$vid[0].play();
+        this.$vid.removeClass('hide');
+      }
+
+      this.canCheckVid = false;
+      setTimeout(() => {
+        this.canCheckVid = true;
+      }, this.VID_THROTTLE_MS);
+    });
   }
 
   startGalleryCycle() {

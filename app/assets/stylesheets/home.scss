@@ -4,10 +4,52 @@
 
 @import "bootstrap_toolbox";
 
+.video {
+  width: 100%;
+
+  &-container {
+    height: 0;
+    padding-bottom: 56.25%;
+    position: sticky;
+    top: 5rem;
+    width: 100%;
+
+    &.hide {
+      visibility: hidden;
+    }
+  }
+
+  &-title {
+    color: $charcoal;
+    font-size: calc(2rem + 10vw);
+    left: 0;
+    position: absolute;
+    right: 0;
+    text-shadow: 1px 1px $bone;
+    text-align: center;
+    top: 20%;
+
+
+    small {
+      font-family: 'Colendra';
+      font-size: 65%;
+      letter-spacing: 5px;
+      margin-top: calc(-1rem - 5vw);
+    }
+    span {
+      font-family: 'Colendra-Alternate';
+      letter-spacing: 12px;
+      margin: 0;
+      margin-top: -0.5rem;
+    }
+  }
+}
+
 .jumbotron--home {
   background-image: url(image-path('home-page-background.jpg'));
   background-position: center;
   background-size: contain;
+  margin-bottom: 0;
 }
 
 .jumbotron-gallery {
@@ -60,7 +102,12 @@
   }
 
   &--home-gallery {
-    max-width: map-get($grid-breakpoints, "xl");
+    background-color: $bone;
+    position: relative;
+
+    .row {
+      max-width: map-get($grid-breakpoints, "xl");
+    }
   }
 }
 
@@ -102,5 +149,14 @@
     position: absolute;
     top: 0;
     right: 0;
+  }
+}
+
+@media (min-width: map-get($grid-breakpoints, "md")) {
+  .video-title {
+    font-size: 6.8rem;
+    small {
+      margin-top: -3.5rem;
+    }
   }
 }
