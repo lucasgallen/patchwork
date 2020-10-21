@@ -1,11 +1,11 @@
 .navbar {
   background: $english-lavender;
   flex-direction: row-reverse;
-  min-height: 4.5rem;
+  min-height: $navbar-height;
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 2;
+  z-index: 100;
 
   &-nav {
     margin: 0 auto;
