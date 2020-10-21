@@ -1,4 +1,5 @@
 //= link_tree ../images
+//= link_tree ../videos
 //= link application.css
 //= link home.css
 //= link about.css
