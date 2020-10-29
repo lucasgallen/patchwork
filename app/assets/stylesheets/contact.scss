@@ -5,5 +5,6 @@
 @import "bootstrap_toolbox";
 
 .contact-container {
-  min-height: 100%;
+  padding-top: 3rem;
+  min-height: calc(100vh - #{$navbar-height} - #{$footer-height});
 }
