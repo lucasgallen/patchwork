@@ -1,6 +1,7 @@
 .footer {
   background: $charcoal;
   border-top: 1px dashed $white;
+  min-height: $footer-height;
   position: relative;
   z-index: 3;
 

@@ -84,7 +84,8 @@
 }
 
 .gallery-container {
-  min-height: 100%;
+  padding-top: 1px;
+  min-height: calc(100vh - 1px - #{$footer-height} - #{$navbar-height});
 
   &-filters {
     margin-top: 2rem;
@@ -260,11 +261,6 @@
   .gallery-card {
     margin-right: 2rem;
     width: 13rem;
-  }
-
-  .gallery-container {
-    height: calc(100% + 3rem);
-    margin-top: -3rem;
   }
 
   .infinite-scroll-container {
