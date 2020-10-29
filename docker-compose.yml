@@ -9,7 +9,8 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ./data/cache:/etc/nginx_cache
+      - ./data/cache/imgproxy:/etc/nginx_cache/imgproxy
+      - ./data/cache/rails:/etc/nginx_cache/rails
       - ./data/nginx/auth:/etc/nginx/auth
       - ./data/nginx/conf.d:/etc/nginx/conf.d
       - ./data/certbot/conf:/etc/letsencrypt
