@@ -77,6 +77,10 @@
       }
     }
   }
+
+  &-name {
+    width: calc(100% - 5rem);
+  }
 }
 
 .gallery-container {
