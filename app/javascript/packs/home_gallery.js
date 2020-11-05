@@ -16,6 +16,7 @@ class HomeGallery {
 
   init() {
     const buffer = 10;
+    this.reset();
 
     this.startGalleryCycle();
 
@@ -35,6 +36,10 @@ class HomeGallery {
         this.canCheckVid = true;
       }, this.VID_THROTTLE_MS);
     });
+  }
+
+  reset() {
+    $(window).off('scroll');
   }
 
   startGalleryCycle() {
