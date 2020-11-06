@@ -13,7 +13,10 @@ html, body {
 body {
   height: auto;
   margin-top: $navbar-height;
+  min-height: calc(100vh - #{$navbar-height});
   overflow-x: hidden;
+  padding-bottom: $footer-height;
+  position: relative;
 }
 
 .h1, .h2 {

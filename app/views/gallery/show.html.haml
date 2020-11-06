@@ -11,7 +11,7 @@
       %a.nav-item.nav-link.gallery-nav-item#gallery-filters-tab{ 'data-locale': locale != I18n.default_locale ? locale : nil, 'data-toggle': 'tab', href: '#gallery-filters', role: 'tab', aria: { controls: 'gallery-filters', selected: 'false' } }
         = t('gallery.filters')
 
-  %div.text-center.tab-content.gallery-tab-content.py-2#gallery-tab-content
+  %div.text-center.tab-content.gallery-tab-content.py-2.clearfix#gallery-tab-content
     %div.tab-pane.gallery-tab-pane.gallery-tab-pane--results.fade.show.active#gallery-results{ role: 'tabpanel', 'aria-labelled-by': 'gallery-results-tab' }
       %h1.d-none.d-lg-block.text-center.gallery-title= t('_gallery')
       - if @products.empty?
