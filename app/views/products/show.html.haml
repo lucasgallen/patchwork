@@ -5,45 +5,9 @@
       - if @product.can_sell?
         %button.product-message-open-btn.btn.btn-success.d-flex.align-self-start.align-self-sm-center#product-message-open-btn{ type: 'button', data: {toggle: 'modal', target: '#product-message-modal', 'success-message': t('product.message_sent')} }
           = @product.message_cta
-    %div.col-lg-7.col-sm-12.product-carousel
-      %div.w-100.carousel.slide#product-carousel
-        %div.carousel-inner.product-carousel-inner
-          - if @product.gallery_image.attached?
-            %div.carousel-item.product-carousel-item.active
-              %img{ src: @product.gallery_image.imgproxy_url(width: @size[:width], height: @size[:height]), class: 'd-block w-100 product-carousel-image' }
-          - if @product.detail_images.attached?
-            - @product.detail_images.to_a.each do |image|
-              %div.carousel-item.product-carousel-item
-                %img{ src: image.imgproxy_url(width: @size[:width], height: @size[:height]), class: 'd-block w-100 product-carousel-image' }
-        %a.product-carousel-control.carousel-control-prev{ href: '#product-carousel', role: 'button', 'data-slide': 'prev' }
-          %span.carousel-control-prev-icon.product-carousel-control-icon{ 'aria-hidden': true }
-          %span.sr-only= t('product.prev')
-        %a.product-carousel-control.carousel-control-next{ href: '#product-carousel', role: 'button', 'data-slide': 'next' }
-          %span.carousel-control-next-icon.product-carousel-control-icon{ 'aria-hidden': true }
-          %span.sr-only= t('product.next')
-      %ol.carousel-indicators#carousel-indicators
-        - if @product.gallery_image.attached?
-          %li.product-carousel-indicator.active{ style: "background-image: url(#{@product.gallery_image.imgproxy_url(width: 64, height: 64)})", data: { target: '#product-carousel', 'slide-to': 0 } }
-        - if @product.detail_images.attached?
-          - @product.detail_images.to_a.each_with_index do |image, index|
-            %li.product-carousel-indicator{ style: "background-image: url(#{image.imgproxy_url(width: 64, height: 64)})", data: { target: '#product-carousel', 'slide-to': index+1 } }
-    %div.col-lg-5.col-sm-12
-      %div.trix-content.mb-4
-        = @product.description.html_safe
-      - if @product.dimensions?
-        %div.product-dimensions.mb-2
-          %strong= "#{t('product.size')}:"
-          = @product.dimensions
-      - if @product.has_category?
-        %ul.pl-2
-          - @product.categories.each do |cat|
-            = link_to gallery_path(filter: cat.slug), class: 'product-category-tag mb-1 mr-5' do
-              %span.product-category-tag-before
-              %span.product-category-tag-copy= cat.name
-              %span.product-category-tag-after
-      - if user_signed_in? && current_user.role == 'admin'
-        %span.btn-group.mt-3
-          = link_to t('admin.edit'), edit_admin_product_path(@product), class: 'btn btn-sm btn-warning'
+    - if @product.gallery_image.attached?
+      = render :partial => 'carousel'
+    = render :partial => 'details'
 
 - if @product.can_sell?
   %div.modal.product-message-modal.message-form-container.fade#product-message-modal{ 'data-keyboard': 'false', tabindex: '-1', role: 'dialog', aria: {labelledby: 'productMessageLabel', hidden: 'true'} }

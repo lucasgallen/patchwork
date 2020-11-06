@@ -1,0 +1,22 @@
+%div.col-lg-7.col-sm-12.product-carousel
+  %div.w-100.carousel.slide#product-carousel
+    %div.carousel-inner.product-carousel-inner
+      - if @product.gallery_image.attached?
+        %div.carousel-item.product-carousel-item.active
+          %img{ src: @product.gallery_image.imgproxy_url(width: @size[:width], height: @size[:height]), class: 'd-block w-100 product-carousel-image' }
+      - if @product.detail_images.attached?
+        - @product.detail_images.to_a.each do |image|
+          %div.carousel-item.product-carousel-item
+            %img{ src: image.imgproxy_url(width: @size[:width], height: @size[:height]), class: 'd-block w-100 product-carousel-image' }
+    %a.product-carousel-control.carousel-control-prev{ href: '#product-carousel', role: 'button', 'data-slide': 'prev' }
+      %span.carousel-control-prev-icon.product-carousel-control-icon{ 'aria-hidden': true }
+      %span.sr-only= t('product.prev')
+    %a.product-carousel-control.carousel-control-next{ href: '#product-carousel', role: 'button', 'data-slide': 'next' }
+      %span.carousel-control-next-icon.product-carousel-control-icon{ 'aria-hidden': true }
+      %span.sr-only= t('product.next')
+  %ol.carousel-indicators#carousel-indicators
+    - if @product.gallery_image.attached?
+      %li.product-carousel-indicator.active{ style: "background-image: url(#{@product.gallery_image.imgproxy_url(width: 64, height: 64)})", data: { target: '#product-carousel', 'slide-to': 0 } }
+    - if @product.detail_images.attached?
+      - @product.detail_images.to_a.each_with_index do |image, index|
+        %li.product-carousel-indicator{ style: "background-image: url(#{image.imgproxy_url(width: 64, height: 64)})", data: { target: '#product-carousel', 'slide-to': index+1 } }

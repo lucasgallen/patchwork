@@ -1,0 +1,17 @@
+%div.col-lg-5.col-sm-12
+  %div.trix-content.mb-4
+    = @product.description.html_safe
+  - if @product.dimensions?
+    %div.product-dimensions.mb-2
+      %strong= "#{t('product.size')}:"
+      = @product.dimensions
+  - if @product.has_category?
+    %ul.pl-2
+      - @product.categories.each do |cat|
+        = link_to gallery_path(filter: cat.slug), class: 'product-category-tag mb-1 mr-5' do
+          %span.product-category-tag-before
+          %span.product-category-tag-copy= cat.name
+          %span.product-category-tag-after
+  - if user_signed_in? && current_user.role == 'admin'
+    %span.btn-group.mt-3
+      = link_to t('admin.edit'), edit_admin_product_path(@product), class: 'btn btn-sm btn-warning'
