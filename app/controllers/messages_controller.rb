@@ -48,6 +48,12 @@ class MessagesController < ApplicationController
     @message.save!
   end
 
+  def archive
+    @message ||= message
+    @message.archived = true
+    @message.save!
+  end
+
   private
 
   def save_product!(message, product_id)
