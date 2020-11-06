@@ -12,6 +12,7 @@
   %h2.w-100.text-center.h3= "#{t('admin.messages')}:"
   %div.d-flex.flex-wrap.justify-content-around
     %div.message-aside-list-group.mb-3.d-flex.flex-column.text-center
+    -#
       %h3.h5= 'By Category'
       %div.list-group.list-group-flush
         - @count_by_category.each do |cat|
@@ -26,6 +27,7 @@
             = message.about
             %span.badge.badge-primary.badge-pill= message.tag_count
     %div.message-aside-list-group.mb-3.d-flex.flex-column.text-center
+    -#
       %h3.h5= 'By Product'
       %div.list-group.list-group-flush
         - @count_by_product.each do |product|
