@@ -34,6 +34,7 @@ class Product < ApplicationRecord
   def self.message_count
     select('products.id, products.name, count(messages.id) as message_count')
       .joins(:messages)
+      .where('messages.archived = false')
       .group('id')
       .order('message_count desc')
   end

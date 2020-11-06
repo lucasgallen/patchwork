@@ -27,6 +27,7 @@ class Category < ApplicationRecord
   def self.message_count
     select('categories.id, categories.name_tr, categories.name_en, slug, count(messages.id) as message_count')
       .joins({ :products => :messages })
+      .where('messages.archived = false')
       .group('id')
   end
 

@@ -1,5 +1,6 @@
 class Message < ApplicationRecord
   belongs_to :product, optional: true
+  scope :not_archived, -> { where.not('archived') }
 
   ABOUT_OPTIONS = %w(product misc request).freeze
 

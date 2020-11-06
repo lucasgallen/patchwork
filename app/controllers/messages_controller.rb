@@ -65,21 +65,21 @@ class MessagesController < ApplicationController
   def messages
     type = params[:filter_type]
     keyword = params[:keyword]
-    return Message.all unless type.present?
+    return Message.not_archived.all unless type.present?
 
     send("messages_by_#{type}", keyword)
   end
 
   def messages_by_category(slug)
-    Message.by_category(slug)
+    Message.not_archived.by_category(slug)
   end
 
   def messages_by_tag(tag_name)
-    Message.by_tag(tag_name)
+    Message.not_archived.by_tag(tag_name)
   end
 
   def messages_by_product(product_id)
-    Message.by_product(product_id)
+    Message.not_archived.by_product(product_id)
   end
 
   def messages_category_count
@@ -87,7 +87,7 @@ class MessagesController < ApplicationController
   end
 
   def messages_tag_count
-    Message.count_by_tag
+    Message.not_archived.count_by_tag
   end
 
   def messages_product_count
