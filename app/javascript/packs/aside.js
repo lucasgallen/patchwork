@@ -13,6 +13,8 @@ class Aside {
   }
 
   init() {
+    this.reset();
+
     this.$asideOpenButton.on('click', e => {
       this.$asideContainer.addClass('open');
     });
