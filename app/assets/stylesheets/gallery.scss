@@ -204,6 +204,10 @@
       cursor: pointer;
       padding: 0 0 100%;
 
+      &:hover {
+        color: $white;
+      }
+
       &:after {
         letter-spacing: 0.1rem;
         position: absolute;
