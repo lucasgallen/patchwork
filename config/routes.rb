@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     resources :messages, only: [:create]
     scope '/admin' do
       put 'messages/:id/replied', to: 'messages#mark_replied', as: 'admin_message_replied'
+      put 'messages/:id/archive', to: 'messages#archive', as: 'admin_message_archive'
       resources :messages, as: 'admin_messages', only: [:index, :show]
     end
 
