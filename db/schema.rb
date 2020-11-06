@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_28_083632) do
+ActiveRecord::Schema.define(version: 2020_11_06_120201) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 2020_05_28_083632) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "replied", default: false, null: false
     t.string "replied_by", default: "", null: false
+    t.boolean "archived", default: false, null: false
     t.index ["product_id"], name: "index_messages_on_product_id"
   end
 
