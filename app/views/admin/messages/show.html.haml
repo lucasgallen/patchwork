@@ -23,7 +23,7 @@
           - if @message.replied?
             %span.message-replied-check-container.d-inline-flex.justify-content-center.align-items-center.mr-2
               %span.checkmark.message-replied-check
-            %strong.text-success= t('admin.message.user_replied', email: current_user.email)
+            %strong.text-success= t('admin.message.user_replied', email: @message.replied_by)
           - else
             %span.message-replied-cross-container.cross-container.d-flex.justify-content-center.align-items-center.text-danger.mr-2
               %span.message-replied-cross.cross.cross--left.text-white
