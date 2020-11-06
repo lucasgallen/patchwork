@@ -2,7 +2,13 @@
   = render partial: 'aside'
   %div.col-sm-12.col-md-7
     %div.container-fluid.mb-3
-      %h1.h3= @message.title
+      %h1.d-inline-block.h3= @message.title
+      %button#message-delete-button.btn.btn-danger.btn-sm.float-right.mr-md-0.mr-5.mt-1{ |
+        'data-confirm-message': t('admin.are_you_sure'), |
+        'data-url': admin_message_archive_url, |
+        'data-goto': admin_messages_url |
+      } |
+        %strong.text-white= t('admin.delete')
     %div.ml-5
       %div.message-details.mb-3
         %p.mb-0
