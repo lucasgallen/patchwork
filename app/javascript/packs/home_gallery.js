@@ -10,6 +10,7 @@ class HomeGallery {
     this.absolutePathIndex = 1;
     this.VID_THROTTLE_MS = 30;
     this.canCheckVid = true;
+    this.canPause = false;
 
     this.init();
   }
@@ -24,17 +25,34 @@ class HomeGallery {
       if (!this.canCheckVid) return;
 
       if ($(window).scrollTop() > this.$vid.outerHeight() + buffer) {
-        this.$vid[0].pause();
-        this.$vid.addClass('hide');
+        this.tryPause();
       } else {
-        this.$vid[0].play();
-        this.$vid.removeClass('hide');
+        this.tryPlay();
       }
 
       this.canCheckVid = false;
       setTimeout(() => {
         this.canCheckVid = true;
       }, this.VID_THROTTLE_MS);
+    });
+  }
+
+  tryPause() {
+    if (!this.canPause) return;
+
+    this.canPause = false;
+    this.$vid[0].pause();
+    this.$vid.addClass('hide');
+  }
+
+  tryPlay() {
+    const playPromise = this.$vid[0].play();
+
+    if (playPromise === undefined) return;
+
+    playPromise.then(() => {
+      this.$vid.removeClass('hide');
+      this.canPause = true;
     });
   }
 
