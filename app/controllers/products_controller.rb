@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
 
   def index
     authorize! :index, Product
-    @products = Product.all.to_a.map{ |p| Decorators::Product.new(p) }
+    @products = ordered_products.to_a.map{ |p| Decorators::Product.new(p) }
 
     render template: template('index')
   end
@@ -117,5 +117,9 @@ class ProductsController < ApplicationController
 
   def resolve_layout
      admin_path? ? 'admin' : 'application'
+  end
+
+  def ordered_products(order_by: :name, order: :asc)
+    Product.order(order_by => order).all
   end
 end
