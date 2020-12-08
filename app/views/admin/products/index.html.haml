@@ -3,6 +3,20 @@
   = link_to t('admin.create_new'), new_admin_product_path, class: 'btn btn-sm btn-success ml-3'
 
 %div.container
+  %div.row.mt-3
+    %ul.justify-content-around.navbar-nav.mr-auto.flex-row.w-100.mb-3
+      %li.nav-item
+        = link_to 'Name', admin_products_path(order_by: :name, order: @order == 'asc' ? :desc : :asc), class: 'p-2'
+        - if @order_by == 'name'
+          %span= (@order == 'asc' ? '&#8595;' : '&#8593;').html_safe
+      %li.nav-item
+        = link_to 'Created At', admin_products_path(order_by: :created_at, order: @order == 'asc' ? :desc : :asc), class: 'p-2'
+        - if @order_by == 'created_at'
+          %span= (@order == 'asc' ? '&#8595;' : '&#8593;').html_safe
+      %li.nav-item
+        = link_to 'Updated At', admin_products_path(order_by: :updated_at, order: @order == 'asc' ? :desc : :asc), class: 'p-2'
+        - if @order_by == 'updated_at'
+          %span= (@order == 'asc' ? '&#8595;' : '&#8593;').html_safe
   %div.row.mb-5
     - @products.each do |product|
       %div.media.mb-4.col-sm-12.col-md-6.col-xl-4

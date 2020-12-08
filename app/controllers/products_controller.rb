@@ -9,6 +9,8 @@ class ProductsController < ApplicationController
 
   def index
     authorize! :index, Product
+    @order_by = params[:order_by]
+    @order = params[:order]
     @products = ordered_products.to_a.map{ |p| Decorators::Product.new(p) }
 
     render template: template('index')
@@ -119,7 +121,10 @@ class ProductsController < ApplicationController
      admin_path? ? 'admin' : 'application'
   end
 
-  def ordered_products(order_by: :name, order: :asc)
+  def ordered_products
+    order_by = @order_by || :name
+    order = @order || :asc
+
     Product.order(order_by => order).all
   end
 end
