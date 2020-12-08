@@ -8,6 +8,7 @@ class ProductsController < ApplicationController
   IMG_WIDTH  = 527
 
   def index
+    authorize! :index, Product
     @products = Product.all.to_a.map{ |p| Decorators::Product.new(p) }
 
     render template: template('index')
