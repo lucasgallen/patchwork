@@ -10,6 +10,7 @@ namespace :imgproxy do
     quality  = ENV['IMGPROXY_QUALITY']
     max_size = ENV['IMGPROXY_MAX_SRC_FILE_SIZE']
     max_res  = ENV['IMGPROXY_MAX_SRC_RESOLUTION']
+    gzip     = ENV['IMGPROXY_GZIP_COMPRESSION']
     vol      = Rails.root.join("storage")
 
     sh %{docker run -p #{port}:8080 --name imgproxy \
@@ -19,6 +20,7 @@ namespace :imgproxy do
          -e IMGPROXY_SALT=#{salt} \
          -e IMGPROXY_MAX_SRC_FILE_SIZE=#{max_size} \
          -e IMGPROXY_MAX_SRC_RESOLUTION=#{max_res} \
+         -e IMGPROXY_GZIP_COMPRESSION=#{gzip} \
          -v #{vol}:#{vol} \
          -it darthsim/imgproxy} do |ok, res|
       if !ok
