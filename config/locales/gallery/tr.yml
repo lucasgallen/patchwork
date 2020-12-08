@@ -1,0 +1,15 @@
+tr:
+  gallery:
+    available: "Mevcut!"
+    results_for: "<strong>%{count}</strong> sonuçları <strong>%{filter}</strong>"
+    results_for_all: "<strong>%{count}</strong> sonuçlar"
+    result_for: "<strong>%{count}</strong> sonuçları <strong>%{filter}</strong>"
+    result_for_all: "<strong>%{count}</strong> sonuç"
+    filters: "Filtreler"
+    end: "Son"
+    image_missing: "Görüntü eksik"
+    no_results: "Sonuç yok"
+    results: "Sonuçlar"
+    see_results: "Sonuçları görüntüle"
+    select_categories: "Kategorileri seç"
+    top: "Baş"

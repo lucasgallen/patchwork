@@ -1,0 +1,11 @@
+en:
+  product:
+    for_sale: "For Sale"
+    form:
+      description: "Product description..."
+      description_title: "Description"
+    message_sent: "Message sent!"
+    next: "Next"
+    order_now: "Order Now"
+    prev: "Previous"
+    size: "Size"

@@ -1,0 +1,11 @@
+tr:
+  product:
+    for_sale: "Satılık"
+    form:
+      description: "Ürün açıklaması..."
+      description_title: "Açıklama"
+    message_sent: "Mesaj gönderildi!"
+    next: "Sonraki"
+    order_now: "Sipariş ver"
+    prev: "Önceki"
+    size: "Ebat"

@@ -1,0 +1,9 @@
+tr:
+  home:
+    categories: "Kategoriler"
+    gallery: "Galeri"
+    title: "Hoşgeldiniz"
+    lead: "Kumaşın renk verdiği dünyamızı keşfedin."
+    page_not_found: "Sayfa bulunamadı"
+    sorry_page_dne: "Özür dileriz, aradığınız sayfa bulunamadı."
+    see_designs: "Tasarımlarımızı görün"
