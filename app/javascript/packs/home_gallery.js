@@ -4,7 +4,7 @@ class HomeGallery {
     this.FADE_INTERVAL_MS = 500;
     this.$jumbotronGallery = $('#jumbotron-gallery');
     this.$jumbotronBackground = $('#jumbotron-background');
-    this.$vid = $('#homepage-video video');
+    this.$vid = $('#homepage-video');
 
     this.imagePaths = this.$jumbotronBackground.data('paths');
     this.absolutePathIndex = 1;
@@ -16,25 +16,31 @@ class HomeGallery {
   }
 
   init() {
-    const buffer = 10;
     this.reset();
 
     this.startGalleryCycle();
 
-    $(window).on('scroll', () => {
-      if (!this.canCheckVid) return;
+    $(window).on('scroll', this.handleVideo);
 
-      if ($(window).scrollTop() > this.$vid.outerHeight() + buffer) {
-        this.tryPause();
-      } else {
-        this.tryPlay();
-      }
-
-      this.canCheckVid = false;
-      setTimeout(() => {
-        this.canCheckVid = true;
-      }, this.VID_THROTTLE_MS);
+    $(document).on('turbolinks:before-render', () => {
+      this.reset();
     });
+  }
+
+  handleVideo = () => {
+    const buffer = 10;
+    if (!this.canCheckVid) return;
+
+    if ($(window).scrollTop() > this.$vid.outerHeight() + buffer) {
+      this.tryPause();
+    } else {
+      this.tryPlay();
+    }
+
+    this.canCheckVid = false;
+    setTimeout(() => {
+      this.canCheckVid = true;
+    }, this.VID_THROTTLE_MS);
   }
 
   tryPause() {
@@ -57,7 +63,7 @@ class HomeGallery {
   }
 
   reset() {
-    $(window).off('scroll');
+    $(window).off('scroll', this.handleVideo);
   }
 
   startGalleryCycle() {
