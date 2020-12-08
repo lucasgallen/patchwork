@@ -16,6 +16,8 @@ class FloatingLogo {
   }
 
   init() {
+    if (!this.$logo) return;
+
     this.setInitPos();
 
     this.$logo.on('mousedown touchstart', e => this.dragStart(e));
