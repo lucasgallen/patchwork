@@ -1,5 +1,6 @@
 en:
   product:
+    dimensions: "Dimensions"
     for_sale: "For Sale"
     form:
       description: "Product description..."

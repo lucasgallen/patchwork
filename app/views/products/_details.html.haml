@@ -3,7 +3,7 @@
     = @product.description.html_safe
   - if @product.dimensions?
     %div.product-dimensions.mb-2
-      %strong= "#{t('product.size')}:"
+      %strong= "#{t('product.dimensions')}:"
       = @product.dimensions
   - if @product.has_category?
     %ul.pl-2

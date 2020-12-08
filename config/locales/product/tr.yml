@@ -1,5 +1,6 @@
 tr:
   product:
+    dimensions: "Ölçü"
     for_sale: "Satılık"
     form:
       description: "Ürün açıklaması..."
