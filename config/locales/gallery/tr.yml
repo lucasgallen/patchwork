@@ -9,7 +9,7 @@ tr:
     end: "Son"
     image_missing: "Görüntü eksik"
     no_results: "Sonuç yok"
-    results: "Sonuçlar"
+    results: "Sonuç"
     see_results: "Sonuçları görüntüle"
     select_categories: "Kategorileri seç"
     top: "Baş"
