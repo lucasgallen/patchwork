@@ -4,6 +4,7 @@ require("bootstrap/js/dist/carousel")
 class Product {
   constructor() {
     this.$carousel = $('#product-carousel');
+    this.$innerCarousel = $('.product-carousel-inner');
     this.$carouselIndicators = $('#carousel-indicators');
 
     this.$zoomWindow = $('#zoom-window');
@@ -23,8 +24,8 @@ class Product {
     this.$carousel.on('slide.bs.carousel', e => this.handleSlide(e));
     this.$carousel.on('slid.bs.carousel', e => this.handleSlideEnd(e));
 
-    this.$carousel.on('mousemove', e => this.handleHover(e));
-    this.$carousel.hover(() => this.hoverIn(), () => this.hoverOut());
+    this.$innerCarousel.on('mousemove', e => this.handleHover(e));
+    this.$innerCarousel.hover(() => this.hoverIn(), () => this.hoverOut());
   }
 
   handleSlide(e) {

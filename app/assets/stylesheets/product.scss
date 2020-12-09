@@ -35,6 +35,12 @@
     box-shadow: 0 0 0 3px $lavender-gray, 0 0 0 5px $charcoal;
     height: 0;
     padding-bottom: calc(9/16 * 100%);
+
+    @media (min-width: map-get($grid-breakpoints, "md")) {
+      margin-right: 3rem;
+      margin-left: 3rem;
+      width: calc(100% - 6rem);
+    }
   }
 
   &-carousel .carousel-indicators {
@@ -92,6 +98,14 @@
 
     @media (min-width: map-get($grid-breakpoints, "md")) {
       display: flex
+    }
+
+    &-prev {
+      left: -3rem;
+    }
+
+    &-next {
+      right: -3rem;
     }
 
     &-icon:after {

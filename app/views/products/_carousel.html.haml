@@ -1,4 +1,4 @@
-%div.col-lg-7.col-sm-12.product-carousel
+%div.col-lg-9.col-sm-12.product-carousel
   %div.w-100.carousel.slide#product-carousel
     %div.carousel-inner.product-carousel-inner
       %div.carousel-item.product-carousel-item.active
@@ -11,10 +11,10 @@
                 class: 'd-block w-100 product-carousel-image',
                 'data-zoom-copy': image.imgproxy_url }
     - if @product.detail_images.attached?
-      %a.product-carousel-control.carousel-control-prev{ href: '#product-carousel', role: 'button', 'data-slide': 'prev' }
+      %a.product-carousel-control.product-carousel-control-prev.carousel-control-prev{ href: '#product-carousel', role: 'button', 'data-slide': 'prev' }
         %span.carousel-control-prev-icon.product-carousel-control-icon{ 'aria-hidden': true }
         %span.sr-only= t('product.prev')
-      %a.product-carousel-control.carousel-control-next{ href: '#product-carousel', role: 'button', 'data-slide': 'next' }
+      %a.product-carousel-control.product-carousel-control-next.carousel-control-next{ href: '#product-carousel', role: 'button', 'data-slide': 'next' }
         %span.carousel-control-next-icon.product-carousel-control-icon{ 'aria-hidden': true }
         %span.sr-only= t('product.next')
   - if @product.detail_images.attached?
