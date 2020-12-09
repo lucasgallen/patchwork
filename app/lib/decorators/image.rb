@@ -4,7 +4,7 @@ class Decorators::Image < SimpleDelegator
     super
   end
 
-  def imgproxy_url(options)
+  def imgproxy_url(options = {})
     return @attachment.imgproxy_url(options) unless Rails.env.development?
 
     storage_path = Rails.root.join("storage").to_s
