@@ -2,10 +2,14 @@
   %div.w-100.carousel.slide#product-carousel
     %div.carousel-inner.product-carousel-inner
       %div.carousel-item.product-carousel-item.active
-        %img{ src: @product.gallery_image.imgproxy_url(width: @size[:width], height: @size[:height]), class: 'd-block w-100 product-carousel-image' }
+        %img{ src: @product.gallery_image.imgproxy_url(width: @size[:width], height: @size[:height]),
+              class: 'd-block w-100 product-carousel-image',
+              'data-zoom-copy':  @product.gallery_image.imgproxy_url }
       - @product.detail_images.to_a.each do |image|
         %div.carousel-item.product-carousel-item
-          %img{ src: image.imgproxy_url(width: @size[:width], height: @size[:height]), class: 'd-block w-100 product-carousel-image' }
+          %img{ src: image.imgproxy_url(width: @size[:width], height: @size[:height]),
+                class: 'd-block w-100 product-carousel-image',
+                'data-zoom-copy': image.imgproxy_url }
     - if @product.detail_images.attached?
       %a.product-carousel-control.carousel-control-prev{ href: '#product-carousel', role: 'button', 'data-slide': 'prev' }
         %span.carousel-control-prev-icon.product-carousel-control-icon{ 'aria-hidden': true }

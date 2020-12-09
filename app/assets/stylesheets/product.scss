@@ -69,13 +69,16 @@
 
   &-carousel-image {
     bottom: 0;
+    filter: blur(0px) opacity(1);
     left: 0;
-    margin: auto;
-    min-width: 50%;
-    min-height: 50%;
     position: absolute;
     right: 0;
     top: 0;
+    transition: all 0.5s ease-in-out;
+
+    .zooming & {
+      filter: blur(3px) opacity(0.3);
+    }
   }
 
   &-carousel-control {
@@ -189,5 +192,30 @@
     top: 0;
     width: 4rem;
     z-index: 1;
+  }
+}
+
+.zoom-glass {
+  border: 2px solid white;
+  border-radius: 100%;
+  cursor: none;
+  display: none;
+  height: var(--height);
+  left: var(--left);
+  overflow: hidden;
+  position: absolute;
+  top: var(--top);
+  transform: scale(2);
+  width: var(--width);
+  z-index: 9999;
+
+  .zooming & {
+    display: block;
+  }
+
+  img {
+    left: calc(-1 * var(--left));
+    position: absolute;
+    top: calc(-1 * var(--top));
   }
 }
