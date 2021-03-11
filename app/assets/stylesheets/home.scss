@@ -46,10 +46,14 @@
 }
 
 .jumbotron--home {
-  background-image: url(image-path('home-page-background.jpg'));
+  background-image: url(image-path('amish-runner-bg.png'));
   background-position: center;
   background-size: contain;
   margin-bottom: 0;
+
+  @media (min-width: 1039px) {
+    background-size: cover;
+  }
 }
 
 .jumbotron-gallery {
