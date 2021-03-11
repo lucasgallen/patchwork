@@ -18,6 +18,8 @@
         = render :partial => 'no_results'
       - else
         %h4.my-2
+          = @categories.find_by(slug: params[:filter])&.name
+        %h4.sr-only.my-2
           = @categories.results_for(params[:filter], @products_total).html_safe
 
         %div.infinite-scroll-container.fade#infinite-scroll-container{ data: { 'current-page': @initial_page, 'last-page': @products.last_page?.to_s, 'url': gallery_url(filter: params[:filter]), fader: true } }
