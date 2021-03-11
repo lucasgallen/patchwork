@@ -4,7 +4,11 @@
       %li.d-inline-flex.list-inline-item.instagram--footer
         %a.h-100{ href: 'https://www.instagram.com/sivumbikes_of_patchwork/', target: '_blank' }
           %span.sr-only instagram
-          %img.w-100{ src: image_path('share_icons/instagram_black.png') }
+          %img.w-100{ src: image_path('share_icons/instagram_black.png'), alt: 'youtube' }
+      %li.d-inline-flex.list-inline-item.youtube--footer
+        %a.h-100{ href: 'https://youtu.be/I1jcCpcZbhI', target: '_blank' }
+          %span.sr-only youtube
+          %img.w-100{ src: image_path('share_icons/youtube_social_icon_white.png'), alt: 'YouTube link to homepage background video' }
 
     %div.d-flex.align-items-center.justify-content-around
       - I18n.available_locales.each.with_index(1) do |locale, index|
