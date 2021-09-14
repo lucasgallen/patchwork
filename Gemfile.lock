@@ -315,7 +315,7 @@ DEPENDENCIES
   unicorn-rails (~> 2.2)
   web-console (>= 3.3.0)
   webdrivers
-  webpacker (~> 5.2.1)
+  webpacker (~> 5.x)
 
 RUBY VERSION
    ruby 2.7.0p-1
