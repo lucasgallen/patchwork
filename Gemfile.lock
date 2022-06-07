@@ -129,7 +129,7 @@ GEM
     imgproxy (1.2.0)
     jbuilder (2.9.1)
       activesupport (>= 4.2.0)
-    jmespath (1.4.0)
+    jmespath (1.6.1)
     json (2.3.0)
     kaminari (1.2.1)
       activesupport (>= 4.1.0)
